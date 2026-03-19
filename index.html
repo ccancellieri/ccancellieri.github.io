@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carlo Cancellieri - Lead Software Engineer at FAO. 20 years in cloud-native geospatial platforms for food security and sustainable agriculture.">
+    <meta name="author" content="Carlo Cancellieri">
+    <meta name="keywords" content="Software Engineer, Geospatial, GIS, Cloud Architecture, FAO, GCP, Python, Java">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Carlo Cancellieri | Lead Software Engineer">
+    <meta property="og:description" content="Cloud-native geospatial platforms for food security. 20 years in software engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ccancellieri.github.io">
+    <meta property="og:image" content="https://ccancellieri.github.io/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Carlo Cancellieri | Lead Software Engineer">
+    <meta name="twitter:description" content="Cloud-native geospatial platforms for food security. 20 years in software engineering.">
+
+    <title>Carlo Cancellieri | Lead Software Engineer</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #06b6d4;
+            --accent-dark: #0891b2;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #0a0e27 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.625rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        main {
+            margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            border-top: 1px solid rgba(6, 182, 212, 0.05);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 8rem 0 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+            border-top: none;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent), #0ea5e9, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(6, 182, 212, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 0 4rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            background: rgba(6, 182, 212, 0.15);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.8);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .project-role {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .project-year {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .expand-btn:hover {
+            gap: 0.75rem;
+        }
+
+        .expand-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.expanded i {
+            transform: rotate(180deg);
+        }
+
+        .project-details {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .project-details.show {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .project-details ul {
+            margin-left: 1.5rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== EXPERIENCE SECTION ===== */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            transform: scale(1.2);
+        }
+
+        .timeline-content {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-content {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.6);
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-org {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: -9px;
+            }
+
+            .timeline-dot {
+                left: -15px;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+        }
+
+        /* ===== EDUCATION SECTION ===== */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .education-degree {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== OPEN SOURCE SECTION ===== */
+        .opensource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .opensource-item {
+            padding: 1.5rem;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opensource-item:hover {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .opensource-name {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .opensource-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .opensource-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
+            transition: var(--transition);
+        }
+
+        .opensource-link:hover {
+            gap: 0.75rem;
+        }
+
+        .orgs-section {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .orgs-title {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .orgs-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .org-badge {
+            padding: 0.75rem 1.5rem;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 2rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .org-badge:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            padding: 2rem 1.5rem;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 1.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+            margin: 0 0.5rem;
+        }
+
+        .contact-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-dark);
+        }
+
+        /* ===== FOCUS STYLES ===== */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* ===== INTERSECTION OBSERVER ANIMATIONS ===== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <i class="fas fa-code"></i> CC
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Carlo Cancellieri</h1>
+                    <p class="hero-subtitle">Lead Software Engineer</p>
+                    <p class="hero-description">
+                        Building cloud-native geospatial platforms at the <span class="highlight">United Nations FAO</span>
+                        to advance food security and sustainable agriculture. 20 years architecting systems that serve 50+ countries.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ccancellieri@hotmail.com" class="social-icon" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="social-icon" title="ORCID">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h3>Lead Software Engineer at FAO</h3>
+                        <p>
+                            I'm a lead software engineer at the <strong>Food and Agriculture Organization of the United Nations</strong>,
+                            architecting cloud-native geospatial platforms that enable data-driven decision-making for food security,
+                            climate resilience, and sustainable agriculture across 50+ countries.
+                        </p>
+                        <p>
+                            With 20 years of experience in software engineering and an MBA (First Honours), I specialize in designing
+                            scalable systems, cloud infrastructure, and geospatial technologies that have real-world impact on global food systems.
+                        </p>
+                        <p>
+                            Based in Rome, I work across the full technology stack — from backend Python/Java services on GCP to React frontends,
+                            infrastructure-as-code with Terraform, and containerized deployments on Kubernetes.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">Years in Software</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Countries Served</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">30k+</div>
+                                <div class="stat-label">Geospatial Records</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">25k+</div>
+                                <div class="stat-label">IAM Users</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Open Source Projects</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1k+</div>
+                                <div class="stat-label">GitHub Contributions/year</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 3rem;">
+                            <h3 style="color: var(--accent); margin-bottom: 1rem;">Tech Stack</h3>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java (17+ yrs)</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">Spring</span>
+                                <span class="tech-tag">GCP</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">PostGIS</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">Elasticsearch</span>
+                                <span class="tech-tag">STAC</span>
+                                <span class="tech-tag">GeoServer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+
+                <div class="projects-grid">
+                    <!-- DynaStore -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">DynaStore</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator & Lead</span>
+                                    <span class="project-year">2020–Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            The geospatial engine powering FAO's production data infrastructure. Serves metadata for 30,000+ geospatial records
+                            across 50+ countries, enabling data-driven decision-making for food security.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">GCP</span>
+                            <span class="project-tag">Terraform</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Elasticsearch</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://data.apps.fao.org/catalog" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Data Catalog
+                            </a>
+                            <a href="https://data.apps.fao.org/remote-sensing-portal" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Remote Sensing
+                            </a>
+                            <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Key Components:</strong>
+                            <ul>
+                                <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Metadata discovery for 30,000+ geospatial records</li>
+                                <li><strong>Remote Sensing Portal:</strong> data.apps.fao.org/remote-sensing-portal — Built on OGC STAC, FastAPI, Elasticsearch</li>
+                                <li><strong>Vector Tile Services:</strong> High-performance tile delivery for web mapping</li>
+                                <li><strong>Dual GeoServer Clusters:</strong> Read and authoring instances for geospatial data management</li>
+                                <li><strong>GeoID Service:</strong> Spatial identifier service for standardized geographic references</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                Architected from scratch to handle continental-scale data ingestion, real-time metadata indexing,
+                                and multi-tenant access control for 25,000+ users across FAO's member nations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Keystone -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">Keystone</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator & Architect</span>
+                                    <span class="project-year">2020–Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            FAO's unified identity and access control platform. Integrates Keycloak with GCP IAM, supporting
+                            RBAC and ReBAC policies for 25,000+ users across the organization.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Keycloak</span>
+                            <span class="project-tag">GCP IAM</span>
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">OIDC</span>
+                            <span class="project-tag">Terraform</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Architecture Highlights:</strong>
+                            <ul>
+                                <li><strong>OpenID Connect:</strong> Industry-standard authentication for federated identity</li>
+                                <li><strong>Cloud Identity Integration:</strong> Seamless sync with GCP organization structure</li>
+                                <li><strong>Role-Based Access Control (RBAC):</strong> Traditional role hierarchy for application access</li>
+                                <li><strong>Relation-Based Access Control (ReBAC):</strong> Fine-grained permissions based on data relationships</li>
+                                <li><strong>Multi-tenant Support:</strong> Isolated realms for different FAO divisions and external partners</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                Replaced legacy single-sign-on with a modern, zero-trust IAM platform. Reduced access provisioning time
+                                from weeks to minutes, enabling agile organizational changes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hyrax SQL Handler -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">Hyrax SQL Handler</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Original Author</span>
+                                    <span class="project-year">GSoC 2009–2010</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            A C++ BES module enabling relational database access through the OPeNDAP Hyrax data server.
+                            Exposes SQL databases (PostgreSQL, MySQL, SQLite, MongoDB) as standard OPeNDAP datasets.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">ODBC</span>
+                            <span class="project-tag">OPeNDAP</span>
+                            <span class="project-tag">Autotools</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OPENDAP/sql_handler" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Project Details:</strong>
+                            <ul>
+                                <li><strong>Google Summer of Code:</strong> Mentored by Patrick West (Senior Engineer at Workday)</li>
+                                <li><strong>Database Support:</strong> PostgreSQL, MySQL, SQLite, MongoDB via ODBC/SQL interfaces</li>
+                                <li><strong>OPeNDAP Integration:</strong> Exposes tabular data through standard netCDF, HDF5, FITS, ASCII formats</li>
+                                <li><strong>Production Use:</strong> Deployed at FAO, NATO, NURC, LaMMa research institutions</li>
+                                <li><strong>Maintenance:</strong> Still actively maintained and used in production environments</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                This project bridged the gap between enterprise databases and scientific data discovery workflows,
+                                enabling transparent access to geospatial and climate data stored in relational databases.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CKAN Extensions -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">CKAN Extensions</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator & Maintainer</span>
+                                    <span class="project-year">2012–Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Suite of 5 open-source CKAN extensions for open data platform enhancement, metadata management,
+                            and visualization integration.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">CKAN</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> All Projects
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Extensions:</strong>
+                            <ul>
+                                <li><strong>ckanext-jsonschema:</strong> JSON Schema-based metadata editing (5 GitHub stars)</li>
+                                <li><strong>ckanext-publisher:</strong> Publishing workflow management for CKAN datasets</li>
+                                <li><strong>ckanext-terriajs:</strong> TerriaJS map visualization integration for geospatial data</li>
+                                <li><strong>ckanext-scheming_dcat:</strong> DCAT metadata schema support for semantic web interoperability</li>
+                                <li><strong>ckanext-cloudstorage:</strong> Cloud storage backend support for CKAN resource files</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                These extensions extend CKAN's capabilities for geospatial data publishing, metadata standardization,
+                                and modern web-based data discovery interfaces.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- GeoServer Contributions -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">GeoServer Ecosystem</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Core Contributor</span>
+                                    <span class="project-year">2010–2014, Ongoing</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Core contributor to GeoServer (4.3k+ stars), GeoNetwork, GeoTools, and GeoBatch.
+                            Led development of advanced features and performance optimization tools.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Spring</span>
+                            <span class="project-tag">GeoServer</span>
+                            <span class="project-tag">PostGIS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/geoserver" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GeoServer
+                            </a>
+                            <a href="https://github.com/ccancellieri/GeoServerStressTest" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> StressTest Tool
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Key Contributions:</strong>
+                            <ul>
+                                <li><strong>GetLegendGraphic JSON Output:</strong> Community-adopted feature for JSON-based map legends</li>
+                                <li><strong>JMX/REST/JMS/WPS Interfaces:</strong> Enhanced monitoring, REST API, message integration, processing services</li>
+                                <li><strong>GeoServerStressTest:</strong> Load testing tool for GeoServer performance evaluation (5 GitHub stars)</li>
+                                <li><strong>Production Deployments:</strong> FAO, NATO, NURC, LaMMa research institutions</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                At GeoSolutions (2010–2014), led development of enterprise features for OGC Web Services,
+                                metadata management, and high-performance geospatial data serving.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- GeoID -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">GeoID Service</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator & Lead</span>
+                                    <span class="project-year">2020–Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Geospatial identifier service for standardized geographic references. Provides unique, resolvable identifiers
+                            for geographic entities across FAO systems.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">PostGIS</span>
+                            <span class="project-tag">GCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/un-fao/GeoID" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Features:</strong>
+                            <ul>
+                                <li><strong>Persistent Identifiers:</strong> Resolvable URIs for geographic entities (countries, regions, administrative boundaries)</li>
+                                <li><strong>Standards Compliance:</strong> Aligned with OGC, ISO-TC211, and Linked Data principles</li>
+                                <li><strong>Semantic Integration:</strong> RDF/OWL ontologies for geographic relationships</li>
+                                <li><strong>Multi-language Support:</strong> Geographic entity names in multiple languages</li>
+                                <li><strong>API-First Design:</strong> REST and SPARQL endpoints for programmatic access</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                This service enables consistent geographic data integration across FAO systems and facilitates
+                                interoperability with other UN agencies and international organizations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPEN SOURCE SECTION -->
+        <section id="opensource" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Open Source Contributions</h2>
+
+                <div class="opensource-grid">
+                    <div class="opensource-item">
+                        <div class="opensource-name">Apache Camel</div>
+                        <div class="opensource-desc">
+                            New route components for cloud-native messaging and data integration patterns.
+                        </div>
+                        <a href="https://camel.apache.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fas fa-external-link-alt"></i> Visit Project
+                        </a>
+                    </div>
+                    <div class="opensource-item">
+                        <div class="opensource-name">pygeoapi</div>
+                        <div class="opensource-desc">
+                            Python geospatial API framework for OGC standards implementation and geospatial data APIs.
+                        </div>
+                        <a href="https://pygeoapi.io/" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fas fa-external-link-alt"></i> Visit Project
+                        </a>
+                    </div>
+                    <div class="opensource-item">
+                        <div class="opensource-name">OGC Standards</div>
+                        <div class="opensource-desc">
+                            OGC member contributing to geospatial data exchange standards (WFS, WMS, STAC, etc.).
+                        </div>
+                        <a href="https://www.ogc.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fas fa-external-link-alt"></i> Visit OGC
+                        </a>
+                    </div>
+                    <div class="opensource-item">
+                        <div class="opensource-name">ISO-TC211</div>
+                        <div class="opensource-desc">
+                            Member of ISO Technical Committee on Geographic Information and Geomatics standards.
+                        </div>
+                        <a href="https://www.iso.org/committee/54904.html" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fas fa-external-link-alt"></i> Visit Committee
+                        </a>
+                    </div>
+                    <div class="opensource-item">
+                        <div class="opensource-name">OPeNDAP</div>
+                        <div class="opensource-desc">
+                            SQL Handler module for OPeNDAP Hyrax data server (still actively maintained).
+                        </div>
+                        <a href="https://www.opendap.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fas fa-external-link-alt"></i> Visit Project
+                        </a>
+                    </div>
+                    <div class="opensource-item">
+                        <div class="opensource-name">1000+ GitHub Contributions</div>
+                        <div class="opensource-desc">
+                            Active open-source contributor with 1,000+ contributions per year across multiple ecosystems.
+                        </div>
+                        <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="opensource-link">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem;">
+                    <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Organization Memberships</h3>
+                    <div class="orgs-section">
+                        <div class="orgs-list">
+                            <div class="org-badge">@un-fao</div>
+                            <div class="org-badge">@FAOSTAT</div>
+                            <div class="org-badge">@ISO-TC211</div>
+                            <div class="org-badge">@OPENDAP</div>
+                            <div class="org-badge">OGC Member</div>
+                            <div class="org-badge">Apache Software Foundation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Lead Software Engineer, AgroInformatics Division</h4>
+                            <p class="timeline-org">Food and Agriculture Organization of the United Nations (FAO)</p>
+                            <p class="timeline-date">2020–Present | Rome, Italy (Remote)</p>
+                            <p class="timeline-description">
+                                Architect and lead engineer for cloud-native geospatial platforms serving 50+ countries.
+                                Design and deliver production systems for global food security data infrastructure.
+                                Lead team of engineers, manage GCP cloud infrastructure, mentor junior developers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Principal Data Architect (Consultant)</h4>
+                            <p class="timeline-org">Philip Morris International</p>
+                            <p class="timeline-date">2018–2020 | Remote</p>
+                            <p class="timeline-description">
+                                Designed enterprise data infrastructure and geospatial analytics platforms for supply chain
+                                optimization. Led architecture reviews and cloud migration strategies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Senior Engineer, Geospatial Services</h4>
+                            <p class="timeline-org">GeoSolutions</p>
+                            <p class="timeline-date">2010–2014 | Viareggio, Italy</p>
+                            <p class="timeline-description">
+                                Core contributor to GeoServer, GeoNetwork, and GeoTools open-source projects.
+                                Led development of enterprise OGC Web Services, REST APIs, and high-performance geospatial data serving.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Google Summer of Code Participant</h4>
+                            <p class="timeline-org">OPeNDAP Organization</p>
+                            <p class="timeline-date">2009–2010</p>
+                            <p class="timeline-description">
+                                Developed SQL Handler module for OPeNDAP Hyrax data server. Mentored by Patrick West.
+                                Module enables SQL database access through standard OPeNDAP interfaces, still in production use.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Software Engineer & Architect (Various Roles)</h4>
+                            <p class="timeline-org">SIGEO, Intecs, Esri, and Various Startups</p>
+                            <p class="timeline-date">2005–2010 | Italy & Remote</p>
+                            <p class="timeline-description">
+                                Built expertise in geospatial systems, remote sensing, OGC standards compliance, and cloud architecture.
+                                Worked on projects spanning environmental monitoring, land use analysis, and enterprise GIS systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h4 class="education-degree">MBA</h4>
+                        <p class="education-school">Università degli Studi di Pisa</p>
+                        <p class="education-year">2015 | First Class Honours</p>
+                        <p class="education-description">
+                            Advanced studies in business strategy, organizational management, and technology leadership.
+                            Thesis on cloud architecture for enterprise systems.
+                        </p>
+                    </div>
+
+                    <div class="education-card">
+                        <h4 class="education-degree">Master's in Computer Science</h4>
+                        <p class="education-school">Università degli Studi di Firenze</p>
+                        <p class="education-year">2005</p>
+                        <p class="education-description">
+                            Specialization in distributed systems, database design, and software engineering.
+                            Early focus on geospatial technologies and OGC standards.
+                        </p>
+                    </div>
+
+                    <div class="education-card">
+                        <h4 class="education-degree">Languages</h4>
+                        <p class="education-school">Linguistic Proficiency</p>
+                        <p class="education-year">2024</p>
+                        <p class="education-description">
+                            Italian (Native), English (C1), Spanish (B1 DELE). Fluent in technical and professional communication
+                            across international teams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+
+                <div class="contact-container">
+                    <p class="contact-description">
+                        Open to collaborations, consulting opportunities, and conversations about geospatial systems,
+                        cloud architecture, and sustainable technology. Let's build something impactful together.
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p class="contact-label">Personal Email</p>
+                            <a href="mailto:ccancellieri@hotmail.com" class="contact-link">ccancellieri@hotmail.com</a>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <p class="contact-label">Work Email</p>
+                            <a href="mailto:carlo.cancellieri@fao.org" class="contact-link">carlo.cancellieri@fao.org</a>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <p class="contact-label">LinkedIn</p>
+                            <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                linkedin.com/in/ccancellieri
+                            </a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:ccancellieri@hotmail.com" class="contact-cta">
+                            <i class="fas fa-paper-plane"></i> Send Email
+                        </a>
+                        <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-cta">
+                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="mailto:ccancellieri@hotmail.com">Email</a></li>
+                    <li><a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Projects</h4>
+                <ul>
+                    <li><a href="https://data.apps.fao.org/catalog" target="_blank" rel="noopener noreferrer">Data Catalog</a></li>
+                    <li><a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer">FAO on GitHub</a></li>
+                    <li><a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer">My GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024–2026 Carlo Cancellieri. Handcrafted with <i class="fas fa-heart" style="color: var(--accent);"></i> and built with modern web technologies.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+                if (navLink) {
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Toggle project details
+        function toggleDetails(btn) {
+            const details = btn.parentElement.querySelector('.project-details');
+            if (details) {
+                details.classList.toggle('show');
+                btn.classList.toggle('expanded');
+            }
+        }
+
+        // Scroll-to-top indicator hide
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+                scrollIndicator.style.pointerEvents = window.scrollY > 100 ? 'none' : 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
