@@ -1,0 +1,232 @@
+
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║                                                                            ║
+  ║     ██████╗  █████╗ ██████╗ ██╗      ██████╗                               ║
+  ║    ██╔════╝ ██╔══██╗██╔══██╗██║     ██╔═══██╗                              ║
+  ║    ██║      ███████║██████╔╝██║     ██║   ██║                              ║
+  ║    ██║      ██╔══██║██╔══██╗██║     ██║   ██║                              ║
+  ║    ╚██████╗ ██║  ██║██║  ██║███████╗╚██████╔╝                              ║
+  ║     ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝                             ║
+  ║                                                                            ║
+  ║             C A N C E L L I E R I                                          ║
+  ║                                                                            ║
+  ║     Lead Software Engineer — Geospatial & Data Systems                     ║
+  ║     OGC Member  ·  ISO-TC211 Contributor                                   ║
+  ║                                                                            ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  CONTACT                                                                   │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │                                                                            │
+  │  ✉  ccancellieri@hotmail.com          📍 Rome, Italy (Remote)              │
+  │  🔗 linkedin.com/in/ccancellieri     🌐 ccancellieri.github.io            │
+  │  💻 github.com/ccancellieri          📖 orcid.org/0009-0006-4092-4234     │
+  │                                                                            │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PROFILE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Lead Software Engineer at the United Nations FAO with 20+ years in software
+  engineering, specializing in cloud-native geospatial platforms for food
+  security and sustainable agriculture.
+
+  Architect of DynaStore (FAO's geospatial data infrastructure, 30,000+
+  records, 50+ countries) and Keystone (unified IAM, 25,000+ users).
+
+  OGC member (Level 5 on Agora), ISO-TC211 contributor to geographic
+  information standards. 1,000+ GitHub contributions/year across @un-fao,
+  @FAOSTAT, @ISO-TC211, and @OPENDAP organizations.
+
+  MBA with First Class Honours — thesis on ethical AI and ESG frameworks.
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KEY METRICS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+     ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+     │  20+     │  │  50+     │  │  30k+    │  │  25k+    │  │  1k+     │
+     │  YEARS   │  │ COUNTRIES│  │ RECORDS  │  │  USERS   │  │ GH/YEAR  │
+     └──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   EXPERIENCE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ● LEAD SOFTWARE ENGINEER                              Feb 2020 — Present
+    FAO — AgroInformatics Division (CSI), Digital FAO
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    Technical Lead for DynaStore, FAO's geospatial data infrastructure
+    powering the Hand-in-Hand Initiative.
+
+    → Architected DynaStore: Data Catalog, Remote Sensing Portal (OGC STAC),
+      vector tile services, dual GeoServer clusters, GeoID service
+    → Designed Keystone: unified IAM integrating Keycloak + GCP IAM with
+      RBAC/ReBAC for 25,000+ users across FAO divisions
+    → Built Remote Sensing Portal on OGC STAC with FastAPI & Elasticsearch
+    → Managed cloud infrastructure on GCP with Terraform & Kubernetes
+    → Migrated FAO geospatial services to cloud-native architecture
+    → Cataloged 30,000+ geospatial records (OGC-compliant, ISO 19115)
+
+    Tech: Python, FastAPI, React, GCP, Terraform, K8s, Elasticsearch, PostGIS
+
+
+  ● HEAD OF R&D                                        Oct 2018 — Sep 2019
+    SIGEO S.r.l.
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    → Led team of 15 engineers on TAP/SMAI environmental monitoring system
+      for the Trans Adriatic Pipeline
+    → Drove Agile transformation; reduced delivery cycles through CI/CD
+    → Delivered real-time monitoring and alerting platform
+
+
+  ● SWS EXPERT (SOFTWARE ENGINEER)                     Jul 2015 — Dec 2017
+    FAO — Statistics Division (ESS)
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    → Built React/Redux/TypeScript frontend for FAO's corporate statistics
+      platform (Food Balance Sheets, Supply Utilization Accounts)
+    → Developed R-based statistical processing pipelines
+    → Created reusable React component library for statistical visualization
+    → Established CI/CD pipeline for the SWS platform
+
+    Tech: React, Redux, TypeScript, R, Java, PostgreSQL
+
+
+  ● SENIOR SOFTWARE ENGINEER                           May 2014 — Jun 2015
+    Proxima Informatica
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    → CI/CD and DevOps for 75-developer team (Lottomatica/G-Tech, PayBay)
+    → Java enterprise development and deployment pipeline design
+
+
+  ● SOFTWARE ENGINEER → PRODUCT OWNER                  Nov 2010 — Apr 2014
+    GeoSolutions S.A.S.
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    → Core contributor to GeoServer (4.3k+ stars), GeoNetwork, GeoTools
+    → Created GetLegendGraphic JSON Output (community-adopted feature)
+    → JMX/REST/JMS/WPS interface enhancements
+    → Delivered solutions for FAO, NATO, NURC, LaMMa
+    → Created GeoServerStressTest load testing tool
+
+    Tech: Java, Spring, GeoServer, PostGIS, JAI
+
+
+  ● GOOGLE SUMMER OF CODE — C++ ARCHITECT              2009 — 2010
+    OPeNDAP Organization · Mentor: Patrick West
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+    → Original author of Hyrax SQL Handler (C++, ODBC)
+    → Multi-database support: PostgreSQL, MySQL, SQLite, MongoDB
+    → Still in production 15+ years later at FAO, NATO, NURC
+
+    Tech: C++, ODBC, OPeNDAP DAP, Autotools
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FLAGSHIP PROJECTS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ╭─────────────────────────────────────────────────────────────────────────╮
+  │  🌍 DynaStore — FAO's Geospatial Data Infrastructure                  │
+  │                                                                       │
+  │  data.apps.fao.org/catalog  ·  data.apps.fao.org/remote-sensing-portal│
+  │                                                                       │
+  │  30,000+ records · 50+ countries · OGC STAC · FastAPI · Elasticsearch │
+  │  Dual GeoServer clusters · Vector tiles · GeoID · Terraform on GCP    │
+  ╰─────────────────────────────────────────────────────────────────────────╯
+
+  ╭─────────────────────────────────────────────────────────────────────────╮
+  │  🔐 Keystone — Unified Identity & Access Management                   │
+  │                                                                       │
+  │  25,000+ users · Keycloak + GCP IAM · OIDC · RBAC + ReBAC            │
+  │  Multi-tenant · DGraph/OPA policy engine · Zero-trust architecture    │
+  ╰─────────────────────────────────────────────────────────────────────────╯
+
+  ╭─────────────────────────────────────────────────────────────────────────╮
+  │  📍 GeoID — Persistent Geospatial Identifiers                         │
+  │                                                                       │
+  │  github.com/un-fao/GeoID                                              │
+  │  Resolvable URIs · OGC/ISO-TC211 aligned · RDF/OWL · Multi-language   │
+  ╰─────────────────────────────────────────────────────────────────────────╯
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TECH STACK
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Languages        Java (17+ yrs) · Python · TypeScript · C/C++ · R · SQL
+  Frameworks       FastAPI · React · Redux · Spring · CKAN · Keycloak
+  Cloud & Infra    GCP · AWS · Kubernetes · Docker · Terraform · CI/CD
+  Databases        PostgreSQL · PostGIS · Elasticsearch · DGraph · MongoDB
+  Geospatial       GeoServer · GeoNetwork · STAC · WMS · WFS · WCS · WMTS
+                   OGC API (Features, Records) · ISO 19115/19139 · MVT
+                   DCAT · SDMX · netCDF/HDF5 · OPeNDAP DAP · pygeoapi
+  AI & Emerging    Vertex AI · LLMs · MCP · OPA
+  Tools            Git · Agile · Six Sigma · Maven · Gradle · GDAL · JAI
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   EDUCATION
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  🎓 MBA — First Class Honours (Grade A, 100/100)          2023 — 2024
+     Neapolis University Pafos (Cyprus)
+     Thesis: Ethical AI Integration and ESG Frameworks
+
+  🎓 B.A.Sc. in IT Management for Business                 2005 — 2009
+     University of Naples Parthenope
+     Thesis: OPeNDAP Hyrax SQL Handler
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STANDARDS & MEMBERSHIPS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                                                                       │
+  │   OGC Member (Sep 2025, Level 5)     ISO-TC211 Contributor            │
+  │   STAC · WMS · WFS · OGC API        ISO 19115 · ISO 19139            │
+  │                                                                       │
+  │   Apache Software Foundation         OPeNDAP (@OPENDAP)              │
+  │   Contributor: Apache Camel          Original: Hyrax SQL Handler     │
+  │                                                                       │
+  │   GitHub Organizations:                                               │
+  │   @un-fao  ·  @FAOSTAT  ·  @ISO-TC211  ·  @OPENDAP                  │
+  │                                                                       │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   OPEN SOURCE HIGHLIGHTS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ★ GeoServer (4.3k+ stars)    Core contributor — JSON legends, JMX, REST
+  ★ CKAN Extensions (5 pkgs)   jsonschema, publisher, terriajs, dcat, cloud
+  ★ Hyrax SQL Handler          C++ module, 15+ years in production
+  ★ GeoServerStressTest        Load testing for OGC services
+  ★ pygeoapi                   Python OGC API implementation
+  ★ GeoID                      Persistent geospatial identifiers
+
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CERTIFICATIONS & LANGUAGES
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  OGC Member (Level 5)  ·  Six Sigma Green Belt  ·  Alibaba Cloud Associate
+
+  Italian (Native)  ·  English (C1 Advanced)  ·  Spanish (B1 DELE Certified)
+
+
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║                                                                            ║
+  ║   "I build the platforms that turn satellite imagery, geospatial data,     ║
+  ║    and AI into actionable tools for food security."                        ║
+  ║                                                                            ║
+  ║              ccancellieri.github.io  ·  github.com/ccancellieri            ║
+  ║                                                                            ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝

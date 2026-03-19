@@ -3,23 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carlo Cancellieri - Lead Geospatial Engineer at FAO. OGC Member. ISO-TC211 contributor. 20 years architecting cloud-native geospatial platforms for food security and sustainable agriculture.">
+    <meta name="description" content="Carlo Cancellieri — Lead Software Engineer at UN FAO. OGC Member. ISO-TC211 contributor. 20+ years architecting cloud-native geospatial platforms for food security and sustainable agriculture.">
     <meta name="author" content="Carlo Cancellieri">
-    <meta name="keywords" content="Geospatial Engineer, OGC, ISO-TC211, STAC, GeoServer, GeoNetwork, PostGIS, Software Engineer, GIS, Cloud Architecture, FAO, GCP, Python, Java, OGC API, ISO 19115, Geospatial Platform">
+    <meta name="keywords" content="Lead Software Engineer, Geospatial, OGC, ISO-TC211, STAC, GeoServer, GeoNetwork, PostGIS, Cloud Architecture, FAO, GCP, Python, Java, OGC API, ISO 19115, DynaStore, Keystone, Kubernetes, Terraform">
+    <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Carlo Cancellieri | Lead Geospatial Engineer · OGC Member · ISO-TC211">
-    <meta property="og:description" content="Cloud-native geospatial platforms for food security. OGC member, ISO-TC211 contributor. 20 years in software engineering.">
+    <meta property="og:title" content="Carlo Cancellieri | Lead Software Engineer · OGC Member · ISO-TC211">
+    <meta property="og:description" content="Architecting cloud-native geospatial platforms at the United Nations FAO. OGC member, ISO-TC211 contributor. 20+ years in software engineering.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ccancellieri.github.io">
     <meta property="og:image" content="https://ccancellieri.github.io/og-image.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Carlo Cancellieri | Lead Geospatial Engineer · OGC Member · ISO-TC211">
-    <meta name="twitter:description" content="Cloud-native geospatial platforms for food security. OGC member, ISO-TC211 contributor. 20 years in software engineering.">
+    <meta name="twitter:title" content="Carlo Cancellieri | Lead Software Engineer · OGC Member · ISO-TC211">
+    <meta name="twitter:description" content="Architecting cloud-native geospatial platforms at the United Nations FAO. OGC member, ISO-TC211 contributor. 20+ years in software engineering.">
 
-    <title>Carlo Cancellieri | Lead Geospatial Engineer · OGC · ISO-TC211</title>
+    <title>Carlo Cancellieri | Lead Software Engineer · OGC · ISO-TC211</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Carlo Cancellieri",
+        "jobTitle": "Lead Software Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Food and Agriculture Organization of the United Nations",
+            "url": "https://www.fao.org"
+        },
+        "url": "https://ccancellieri.github.io",
+        "sameAs": [
+            "https://github.com/ccancellieri",
+            "https://linkedin.com/in/ccancellieri",
+            "https://orcid.org/0009-0006-4092-4234",
+            "https://ccancellieri.wordpress.com"
+        ],
+        "knowsAbout": ["Geospatial Engineering", "OGC Standards", "ISO-TC211", "Cloud Architecture", "GCP", "Python", "Java", "STAC", "GeoServer"],
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Neapolis University Pafos"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Naples Parthenope"
+            }
+        ],
+        "memberOf": [
+            {
+                "@type": "Organization",
+                "name": "Open Geospatial Consortium"
+            },
+            {
+                "@type": "Organization",
+                "name": "ISO Technical Committee 211"
+            }
+        ]
+    }
+    </script>
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,7 +71,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://ccancellieri.github.io">
 
     <style>
         * {
@@ -37,16 +82,18 @@
         }
 
         :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #06b6d4;
-            --accent-dark: #0891b2;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --border: #334155;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
+            --primary: #141413;
+            --secondary: #1e1e1c;
+            --accent: #d97757;
+            --accent-dark: #c56847;
+            --accent-blue: #6a9bcc;
+            --accent-green: #788c5d;
+            --text-primary: #faf9f5;
+            --text-secondary: #b0aea5;
+            --border: #3a3a35;
+            --success: #788c5d;
+            --warning: #d97757;
+            --danger: #c44;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -56,8 +103,8 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, #0a0e27 100%);
+            font-family: 'Lora', Georgia, serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d0d0c 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -72,7 +119,7 @@
             z-index: 1000;
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(217, 119, 87, 0.1);
             padding: 1rem 0;
         }
 
@@ -85,10 +132,16 @@
             align-items: center;
         }
 
+        h1, h2, h3, h4, .logo, .nav-links a, .btn, .nav-cta,
+        .stat-number, .project-title, .timeline-title, .education-degree,
+        .org-badge, .expand-btn, .contact-cta, .footer-section h4 {
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            background: linear-gradient(135deg, var(--accent), #6a9bcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -152,7 +205,7 @@
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(217, 119, 87, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -183,14 +236,14 @@
 
         section {
             padding: 5rem 0;
-            border-top: 1px solid rgba(6, 182, 212, 0.05);
+            border-top: 1px solid rgba(217, 119, 87, 0.05);
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            background: linear-gradient(135deg, var(--accent), #6a9bcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -225,7 +278,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(217, 119, 87, 0.05) 0%, transparent 100%);
             border-top: none;
         }
 
@@ -239,7 +292,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9, var(--accent));
+            background: linear-gradient(135deg, var(--accent), #6a9bcc, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -293,7 +346,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(217, 119, 87, 0.4);
         }
 
         .btn-secondary {
@@ -303,7 +356,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 87, 0.1);
             transform: translateY(-3px);
         }
 
@@ -321,18 +374,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 87, 0.1);
             color: var(--accent);
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            border: 1px solid rgba(217, 119, 87, 0.3);
         }
 
         .social-icon:hover {
             background: var(--accent);
             color: var(--primary);
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(217, 119, 87, 0.3);
         }
 
         .scroll-indicator {
@@ -428,8 +481,8 @@
 
         .tech-tag {
             padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 87, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.3);
             border-radius: 2rem;
             font-size: 0.875rem;
             color: var(--accent);
@@ -438,7 +491,7 @@
         }
 
         .tech-tag:hover {
-            background: rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 87, 0.2);
             border-color: var(--accent);
             transform: translateY(-2px);
         }
@@ -452,15 +505,15 @@
 
         .stat-item {
             padding: 1.5rem;
-            background: rgba(6, 182, 212, 0.05);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 87, 0.05);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             text-align: center;
             transition: var(--transition);
         }
 
         .stat-item:hover {
-            background: rgba(6, 182, 212, 0.15);
+            background: rgba(217, 119, 87, 0.15);
             border-color: var(--accent);
             transform: translateY(-5px);
         }
@@ -493,7 +546,7 @@
 
         .project-card {
             background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(217, 119, 87, 0.2);
             border-radius: 0.75rem;
             padding: 2rem;
             transition: var(--transition);
@@ -521,7 +574,7 @@
             border-color: var(--accent);
             background: rgba(30, 41, 59, 0.8);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 20px 40px rgba(217, 119, 87, 0.2);
         }
 
         .project-card:hover::before {
@@ -541,7 +594,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 87, 0.2);
             border-radius: 0.5rem;
             color: var(--accent);
             flex-shrink: 0;
@@ -568,7 +621,7 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(217, 119, 87, 0.1);
         }
 
         .project-role {
@@ -591,8 +644,8 @@
 
         .project-tag {
             padding: 0.35rem 0.75rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 87, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.2);
             border-radius: 1.5rem;
             font-size: 0.75rem;
             color: var(--accent);
@@ -608,8 +661,8 @@
 
         .project-link {
             padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 87, 0.15);
+            border: 1px solid rgba(217, 119, 87, 0.3);
             border-radius: 0.4rem;
             color: var(--accent);
             text-decoration: none;
@@ -659,7 +712,7 @@
             display: none;
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 87, 0.1);
             color: var(--text-secondary);
             line-height: 1.7;
         }
@@ -731,13 +784,13 @@
         }
 
         .timeline-item:hover .timeline-dot {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 20px rgba(217, 119, 87, 0.5);
             transform: scale(1.2);
         }
 
         .timeline-content {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             padding: 1.5rem;
             transition: var(--transition);
@@ -795,7 +848,7 @@
 
         .education-card {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             padding: 2rem;
             transition: var(--transition);
@@ -842,7 +895,7 @@
         .opensource-item {
             padding: 1.5rem;
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             transition: var(--transition);
             display: flex;
@@ -886,7 +939,7 @@
 
         .orgs-section {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             padding: 2.5rem;
             text-align: center;
@@ -908,8 +961,8 @@
 
         .org-badge {
             padding: 0.75rem 1.5rem;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 87, 0.15);
+            border: 1px solid rgba(217, 119, 87, 0.3);
             border-radius: 2rem;
             color: var(--accent);
             font-weight: 600;
@@ -946,7 +999,7 @@
         .contact-method {
             padding: 2rem 1.5rem;
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.1);
             border-radius: 0.5rem;
             transition: var(--transition);
         }
@@ -1000,13 +1053,13 @@
 
         .contact-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(217, 119, 87, 0.4);
         }
 
         /* ===== FOOTER ===== */
         footer {
             background: rgba(15, 23, 42, 0.8);
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 87, 0.1);
             padding: 3rem 0 1.5rem;
             margin-top: 3rem;
         }
@@ -1046,7 +1099,7 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 87, 0.1);
             padding-top: 1.5rem;
             text-align: center;
             color: var(--text-secondary);
@@ -1111,9 +1164,9 @@
             .hero h1 {
                 background: none !important;
                 -webkit-background-clip: unset !important;
-                -webkit-text-fill-color: #06b6d4 !important;
+                -webkit-text-fill-color: #d97757 !important;
                 background-clip: unset !important;
-                color: #06b6d4 !important;
+                color: #d97757 !important;
                 font-size: 3rem !important;
                 margin-bottom: 0.75rem !important;
             }
@@ -1148,9 +1201,9 @@
             .logo {
                 background: none !important;
                 -webkit-background-clip: unset !important;
-                -webkit-text-fill-color: #06b6d4 !important;
+                -webkit-text-fill-color: #d97757 !important;
                 background-clip: unset !important;
-                color: #06b6d4 !important;
+                color: #d97757 !important;
             }
 
             /* Readable background for print */
@@ -1196,15 +1249,18 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Carlo Cancellieri</h1>
-                    <p class="hero-subtitle">Lead Geospatial Engineer · OGC Member · ISO-TC211</p>
+                    <p class="hero-subtitle">Lead Software Engineer — Geospatial & Data Systems · OGC · ISO-TC211</p>
                     <p class="hero-description">
-                        Building cloud-native geospatial platforms at the <span class="highlight">United Nations FAO</span>
-                        to advance food security and sustainable agriculture. OGC member and ISO-TC211 contributor.
-                        20 years architecting standards-compliant geospatial systems that serve 50+ countries.
+                        Architecting cloud-native geospatial platforms at the <span class="highlight">United Nations FAO</span>
+                        that turn satellite imagery, spatial data, and open standards into tools for food security
+                        across 50+ countries. OGC member, ISO-TC211 contributor, 20+ years in software engineering.
                     </p>
                     <div class="cta-group">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-arrow-right"></i> View Projects
+                        </a>
+                        <a href="cv-geospatial-tech-lead.txt" class="btn btn-secondary" download>
+                            <i class="fas fa-file-alt"></i> Download CV
                         </a>
                         <a href="#contact" class="btn btn-secondary">
                             <i class="fas fa-envelope"></i> Get in Touch
@@ -1238,21 +1294,22 @@
 
                 <div class="about-grid">
                     <div class="about-content">
-                        <h3>Lead Geospatial Engineer at FAO · OGC Member · ISO-TC211</h3>
+                        <h3>Lead Software Engineer at FAO · OGC Member · ISO-TC211</h3>
                         <p>
-                            I'm a lead geospatial engineer at the <strong>Food and Agriculture Organization of the United Nations</strong>,
-                            architecting cloud-native geospatial platforms that enable data-driven decision-making for food security,
-                            climate resilience, and sustainable agriculture across 50+ countries.
+                            I build the platforms that turn satellite imagery, geospatial data, and AI into actionable tools at the
+                            <strong>Food and Agriculture Organization of the United Nations</strong>. My systems enable
+                            data-driven decision-making for food security, climate resilience, and sustainable agriculture
+                            across 50+ countries.
                         </p>
                         <p>
-                            With 20 years of experience in software engineering and an MBA (First Honours), I specialize in
-                            <strong>OGC-compliant geospatial systems</strong> — STAC, WMS, WFS, OGC API — and contribute to
-                            <strong>ISO-TC211</strong> geographic information and geomatics standards. My work bridges
+                            With 20+ years in software engineering and an MBA (First Class Honours), I specialize in
+                            <strong>OGC-compliant geospatial platforms</strong> — STAC, WMS, WFS, OGC API — and contribute to
+                            <strong>ISO-TC211</strong> geographic information standards. My work bridges
                             open standards, cloud infrastructure, and real-world impact on global food systems.
                         </p>
                         <p>
-                            Based in Rome, I work across the full technology stack — from backend Python/Java services on GCP to React frontends,
-                            infrastructure-as-code with Terraform, and containerized deployments on Kubernetes — always grounded in
+                            Based in Rome, I work across the full stack — Python/Java on GCP, React frontends,
+                            Terraform infrastructure-as-code, Kubernetes orchestration — always grounded in
                             open geospatial standards (OGC, ISO 19115/19139, STAC).
                         </p>
                     </div>
@@ -1720,11 +1777,11 @@
                         <div class="timeline-content">
                             <h4 class="timeline-title">Lead Software Engineer, AgroInformatics Division</h4>
                             <p class="timeline-org">Food and Agriculture Organization of the United Nations (FAO)</p>
-                            <p class="timeline-date">2020–Present | Rome, Italy (Remote)</p>
+                            <p class="timeline-date">Feb 2020 – Present | Rome, Italy (Remote)</p>
                             <p class="timeline-description">
-                                Architect and lead engineer for cloud-native geospatial platforms serving 50+ countries.
-                                Design and deliver production systems for global food security data infrastructure.
-                                Lead team of engineers, manage GCP cloud infrastructure, mentor junior developers.
+                                Architect and technical lead for DynaStore (FAO's geospatial data infrastructure) and Keystone (unified IAM for 25,000+ users).
+                                Built cloud-native platforms on GCP serving 50+ countries through the Hand-in-Hand Initiative.
+                                Manage GeoServer clusters, Remote Sensing Portal (OGC STAC), GeoID service, and team of engineers.
                             </p>
                         </div>
                     </div>
@@ -1732,12 +1789,12 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Principal Data Architect (Consultant)</h4>
-                            <p class="timeline-org">Philip Morris International</p>
-                            <p class="timeline-date">2018–2020 | Remote</p>
+                            <h4 class="timeline-title">Head of R&D</h4>
+                            <p class="timeline-org">SIGEO S.r.l.</p>
+                            <p class="timeline-date">Oct 2018 – Sep 2019 | Rome, Italy</p>
                             <p class="timeline-description">
-                                Designed enterprise data infrastructure and geospatial analytics platforms for supply chain
-                                optimization. Led architecture reviews and cloud migration strategies.
+                                Led R&D team of 15 engineers building the TAP/SMAI real-time environmental monitoring system
+                                for the Trans Adriatic Pipeline. Drove Agile transformation and CI/CD implementation.
                             </p>
                         </div>
                     </div>
@@ -1745,12 +1802,13 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Senior Engineer, Geospatial Services</h4>
-                            <p class="timeline-org">GeoSolutions</p>
-                            <p class="timeline-date">2010–2014 | Viareggio, Italy</p>
+                            <h4 class="timeline-title">SWS Expert (Software Engineer)</h4>
+                            <p class="timeline-org">FAO — Statistics Division (ESS)</p>
+                            <p class="timeline-date">Jul 2015 – Dec 2017 | Rome, Italy</p>
                             <p class="timeline-description">
-                                Core contributor to GeoServer, GeoNetwork, and GeoTools open-source projects.
-                                Led development of enterprise OGC Web Services, REST APIs, and high-performance geospatial data serving.
+                                Full-stack engineer on FAO's Statistical Working System. Built React/Redux/TypeScript frontend
+                                for statistical data entry, R-based processing pipelines, and reusable component libraries
+                                for Food Balance Sheets and Supply Utilization Accounts.
                             </p>
                         </div>
                     </div>
@@ -1758,25 +1816,40 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Google Summer of Code Participant</h4>
+                            <h4 class="timeline-title">Senior Software Engineer</h4>
+                            <p class="timeline-org">Proxima Informatica</p>
+                            <p class="timeline-date">May 2014 – Jun 2015 | Rome, Italy</p>
+                            <p class="timeline-description">
+                                CI/CD and DevOps for a 75-developer team. Java enterprise development and build automation
+                                for Lottomatica/G-Tech and PayBay.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Software Engineer → Product Owner</h4>
+                            <p class="timeline-org">GeoSolutions S.A.S.</p>
+                            <p class="timeline-date">Nov 2010 – Apr 2014 | Viareggio, Italy</p>
+                            <p class="timeline-description">
+                                Core contributor to GeoServer (4.3k+ stars), GeoNetwork, and GeoTools.
+                                Delivered geospatial solutions for NATO, FAO, and research institutions.
+                                Created enterprise OGC Web Services, REST APIs, and the GeoServerStressTest tool.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Google Summer of Code — C++ Architect</h4>
                             <p class="timeline-org">OPeNDAP Organization</p>
-                            <p class="timeline-date">2009–2010</p>
+                            <p class="timeline-date">2009 – 2010</p>
                             <p class="timeline-description">
-                                Developed SQL Handler module for OPeNDAP Hyrax data server. Mentored by Patrick West.
-                                Module enables SQL database access through standard OPeNDAP interfaces, still in production use.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4 class="timeline-title">Software Engineer & Architect (Various Roles)</h4>
-                            <p class="timeline-org">SIGEO, Intecs, Esri, and Various Startups</p>
-                            <p class="timeline-date">2005–2010 | Italy & Remote</p>
-                            <p class="timeline-description">
-                                Built expertise in geospatial systems, remote sensing, OGC standards compliance, and cloud architecture.
-                                Worked on projects spanning environmental monitoring, land use analysis, and enterprise GIS systems.
+                                Original author of the Hyrax SQL Handler (C++/ODBC). Mentored by Patrick West.
+                                Enables SQL database access through OPeNDAP interfaces — still in production 15+ years later
+                                at FAO, NATO, and research institutions.
                             </p>
                         </div>
                     </div>
@@ -1791,32 +1864,32 @@
 
                 <div class="education-grid">
                     <div class="education-card">
-                        <h4 class="education-degree">MBA</h4>
-                        <p class="education-school">Università degli Studi di Pisa</p>
-                        <p class="education-year">2015 | First Class Honours</p>
+                        <h4 class="education-degree">MBA — First Class Honours</h4>
+                        <p class="education-school">Neapolis University Pafos (Cyprus)</p>
+                        <p class="education-year">2023–2024 | Grade A, 100/100</p>
                         <p class="education-description">
-                            Advanced studies in business strategy, organizational management, and technology leadership.
-                            Thesis on cloud architecture for enterprise systems.
+                            Thesis on ethical AI integration and ESG frameworks. Research bridging technology leadership
+                            with sustainable development and responsible innovation.
                         </p>
                     </div>
 
                     <div class="education-card">
-                        <h4 class="education-degree">Master's in Computer Science</h4>
-                        <p class="education-school">Università degli Studi di Firenze</p>
-                        <p class="education-year">2005</p>
+                        <h4 class="education-degree">B.A.Sc. in IT Management for Business</h4>
+                        <p class="education-school">University of Naples Parthenope</p>
+                        <p class="education-year">2005–2009</p>
                         <p class="education-description">
-                            Specialization in distributed systems, database design, and software engineering.
-                            Early focus on geospatial technologies and OGC standards.
+                            Thesis: OPeNDAP Hyrax SQL Handler — bridging relational databases and scientific data discovery.
+                            Foundation in distributed systems, database design, and geospatial technologies.
                         </p>
                     </div>
 
                     <div class="education-card">
-                        <h4 class="education-degree">Languages</h4>
-                        <p class="education-school">Linguistic Proficiency</p>
-                        <p class="education-year">2024</p>
+                        <h4 class="education-degree">Languages & Certifications</h4>
+                        <p class="education-school">Professional Qualifications</p>
+                        <p class="education-year">Ongoing</p>
                         <p class="education-description">
-                            Italian (Native), English (C1), Spanish (B1 DELE). Fluent in technical and professional communication
-                            across international teams.
+                            Italian (Native), English (C1), Spanish (B1 DELE certified).
+                            OGC Member (Level 5 on Agora). Six Sigma Green Belt. Alibaba Cloud Associate.
                         </p>
                     </div>
                 </div>

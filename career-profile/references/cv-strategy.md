@@ -5,6 +5,7 @@
 Carlo maintains multiple CV variants, each emphasizing different aspects of his career for specific audiences. The core facts are the same; what changes is emphasis, ordering, and inclusion/exclusion of certain roles.
 
 ### What Always Appears
+
 - Name, contact info, LinkedIn, GitHub, ORCID
 - Current role: Lead Software Engineer at FAO (CSI)
 - MBA with First Honours
@@ -13,6 +14,7 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 - DynaStore and Keystone as flagship projects
 
 ### What Never Appears
+
 - Incomplete statistics master (always omit)
 - FAO contract details (COF.REG, 3-month renewal) in external documents
 - FAO Index Number in external documents
@@ -23,9 +25,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ## CV Variants
 
 ### 1. UN FAO Officer (`cv-un-fao-officer`)
+
 **Target:** FAO IT Officer (P-3/P-4) vacancies, UN system recruitment
 
 **Emphasis:**
+
 - Years of direct service to FAO (8+ years across two periods)
 - Contribution to FAO mandate (food security, SDGs, evidence-based decision-making)
 - UN vocabulary: "the Organisation", "mandate", "Sustainable Development Goals"
@@ -42,9 +46,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 2. Full-Stack Engineer (`cv-fullstack-engineer`)
+
 **Target:** Senior/Staff full-stack engineering roles
 
 **Emphasis:**
+
 - End-to-end system design (frontend React + backend FastAPI/Spring + infrastructure K8s/Terraform)
 - Scale and production experience (30k records, 25k users, 50 countries)
 - Open-source contributor ethos
@@ -56,9 +62,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 3. Freelance Consultant (`cv-freelance-consultant`)
+
 **Target:** Independent consulting, contract work
 
 **Emphasis:**
+
 - Breadth of experience across organizations (FAO, SIGEO, GeoSolutions, Proxima)
 - Ability to deliver independently
 - Domain versatility (geospatial, statistics, IAM, cloud)
@@ -70,9 +78,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 4. Technical PM (`cv-technical-pm`)
+
 **Target:** Technical Project Manager, Engineering Manager roles
 
 **Emphasis:**
+
 - Team leadership (15 staff at SIGEO, 75-dev CI/CD at Proxima)
 - Agile transformation at SIGEO
 - Six Sigma Green Belt
@@ -86,9 +96,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 5. AI/ML Engineer (`cv-ai-ml-engineer`)
+
 **Target:** AI/ML engineering, applied AI roles
 
 **Emphasis:**
+
 - Vertex AI, LLMs, MCP (Model Context Protocol)
 - MBA thesis on ethical AI and ESG frameworks
 - Data infrastructure background (Elasticsearch, PostGIS, data pipelines)
@@ -100,9 +112,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 6. Creative Technologist (`cv-creative-technologist`)
+
 **Target:** Creative tech roles, innovation labs, R&D
 
 **Emphasis:**
+
 - Breadth from electronics/sound/DJ to cloud geospatial platforms
 - Non-traditional career path as strength
 - Algo trading shows quantitative/analytical side
@@ -114,9 +128,11 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ---
 
 ### 7. Frontend Developer (`cv-frontend-developer`)
+
 **Target:** Senior frontend engineering roles
 
 **Emphasis:**
+
 - React expertise (SWS, DynaStore catalog)
 - TypeScript, Redux, component libraries
 - Data visualization and mapping UIs
@@ -131,13 +147,17 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 ## Positioning Notes
 
 ### Career Narrative
+
 Present Carlo's career as a coherent progression: early electronics tinkering → CS degree → open source geospatial (GeoSolutions/GSoC) → enterprise engineering (Proxima) → statistics platform (FAO ESS) → R&D leadership (SIGEO) → geospatial platform architecture (FAO CSI). Each role built on the previous.
 
 ### The SIGEO/Algo Trading Gap
+
 Between FAO ESS (ended Dec 2017) and FAO CSI (started Feb 2020), there's a gap filled by algo trading (Dec 2017 – Oct 2018) and SIGEO (Oct 2018 – Sep 2019). For most CV variants, show SIGEO (legitimate R&D leadership) and omit algo trading. For Creative Technologist and Freelance, include both.
 
 ### Geospatial Thread
+
 The strongest differentiator is Carlo's geospatial depth — from GeoServer core contributions, through OGC/ISO-TC211 standards work, to building production platforms serving 50+ countries. This thread should be visible in every CV variant, even when it's not the primary focus.
 
 ### UN System Knowledge
+
 For UN/FAO applications, demonstrate understanding of the UN system: use "the Organisation" (with 's'), reference SDGs, mention cross-divisional coordination, and frame technical work in terms of mandate delivery.
