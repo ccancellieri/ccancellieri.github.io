@@ -1,0 +1,29 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies (if ever added)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+.env
+.env.local
+index.min.html
+lighthouse-report.html
+
+# Internal docs (don't publish to GitHub Pages)
+00-START-HERE.txt
+DEPLOYMENT.md
+FEATURES.md
