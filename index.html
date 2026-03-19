@@ -73,6 +73,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://ccancellieri.github.io">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
     <style>
         * {
@@ -271,8 +272,8 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 8rem 0 6rem;
-            min-height: 100vh;
+            padding: 6rem 0 4rem;
+            min-height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -287,24 +288,32 @@
             max-width: 900px;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
+        .hero-monogram {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 6rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent), #6a9bcc, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% auto;
-            animation: gradientShift 6s ease infinite;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            line-height: 1;
+            opacity: 0.9;
+            text-shadow: 0 0 60px rgba(217, 119, 87, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            color: var(--text-primary);
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .hero-description {
@@ -420,18 +429,21 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 6rem 0 4rem;
-                min-height: auto;
+                padding: 5rem 0 3rem;
+            }
+
+            .hero-monogram {
+                font-size: 4rem;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
             }
 
             .hero-subtitle {
-                font-size: 1.25rem;
-                margin-bottom: 1.5rem;
+                font-size: 1rem;
+                margin-bottom: 1rem;
             }
 
             .hero-description {
@@ -1160,15 +1172,16 @@
                 transition: none !important;
             }
 
-            /* Hero: gradient text trick becomes invisible in PDF — use solid color */
             .hero h1 {
-                background: none !important;
-                -webkit-background-clip: unset !important;
-                -webkit-text-fill-color: #d97757 !important;
-                background-clip: unset !important;
                 color: #d97757 !important;
-                font-size: 3rem !important;
-                margin-bottom: 0.75rem !important;
+                font-size: 2.5rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .hero-monogram {
+                font-size: 4rem !important;
+                color: #d97757 !important;
+                text-shadow: none !important;
             }
 
             /* Fix hero layout for print */
@@ -1248,6 +1261,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
+                    <div class="hero-monogram">CC</div>
                     <h1>Carlo Cancellieri</h1>
                     <p class="hero-subtitle">Lead Software Engineer — Geospatial & Data Systems · OGC · ISO-TC211</p>
                     <p class="hero-description">

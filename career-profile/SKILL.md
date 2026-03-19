@@ -3,10 +3,13 @@ name: career-profile
 description: >
   Carlo Cancellieri's verified career knowledge base. Trigger whenever the user asks to:
   create or tailor a CV, resume, cover letter, LinkedIn profile, professional bio, portfolio,
-  personal website, self-assessment, interview prep, or recommendation request.
+  personal website, self-assessment, interview prep, recommendation request, GitHub profile,
+  SEO optimization of professional pages, or WordPress blog content.
   Also trigger on mentions of: "my CV", "my resume", "my profile", "my career", "cover letter",
-  "job application", "LinkedIn", "tell me about yourself", or references to roles/employers
-  (FAO, GeoSolutions, SIGEO, OPeNDAP, GSoC) or projects (DynaStore, Keystone, GeoID, Hyrax, CKAN).
+  "job application", "LinkedIn", "tell me about yourself", "my website", "my portfolio",
+  "my blog", "SEO", "ccancellieri.github.io", "ccancellieri.wordpress.com",
+  or references to roles/employers (FAO, GeoSolutions, SIGEO, OPeNDAP, GSoC, Proxima)
+  or projects (DynaStore, Keystone, GeoID, Hyrax, CKAN, SWS, TAP/SMAI).
 ---
 
 # Career Profile — Carlo Cancellieri
@@ -104,3 +107,37 @@ UN documents: use "the Organisation" (with 's'), reference SDGs by name, frame t
 Early electronics tinkering → CS degree → open source geospatial (GeoSolutions/GSoC) → enterprise engineering (Proxima) → statistics platform (FAO ESS) → R&D leadership (SIGEO) → geospatial platform architecture (FAO CSI).
 
 **Geospatial is the differentiator** — from GeoServer core contributions, through OGC/ISO-TC211 standards, to production platforms serving 50+ countries. Visible in every variant, even when not the primary focus.
+
+---
+
+## Online Presence
+
+Keep these consistent with career data when updating any of Carlo's web properties.
+
+| Platform | URL | Purpose |
+|----------|-----|---------|
+| Portfolio | ccancellieri.github.io | Main professional site — Anthropic brand palette, JSON-LD structured data |
+| GitHub | github.com/ccancellieri | Code contributions, org memberships (@un-fao, @FAOSTAT, @ISO-TC211, @OPENDAP) |
+| LinkedIn | linkedin.com/in/ccancellieri | Professional network, headline and summary must match career profile |
+| WordPress | ccancellieri.wordpress.com | Blog — technical posts on geospatial, CKAN, GeoServer, DynaStore |
+| ORCID | orcid.org/0009-0006-4092-4234 | Academic/research identity |
+| Text CV | ccancellieri.github.io/cv-geospatial-tech-lead.txt | Downloadable ASCII CV for Geospatial Tech Lead |
+
+**SEO keywords to maintain across platforms:** Lead Software Engineer, Geospatial, OGC, ISO-TC211, STAC, GeoServer, DynaStore, Keystone, FAO, Cloud Architecture, GCP, Python, Java, Kubernetes, Terraform
+
+---
+
+## Correct Employment Timeline
+
+Use this as quick reference — always cross-check with `references/roles.md` for details.
+
+| Period | Role | Organization |
+|--------|------|-------------|
+| Feb 2020 – Present | Lead Software Engineer | FAO — AgroInformatics (CSI) |
+| Oct 2018 – Sep 2019 | Head of R&D | SIGEO S.r.l. |
+| Jul 2015 – Dec 2017 | SWS Expert (Software Engineer) | FAO — Statistics Division (ESS) |
+| May 2014 – Jun 2015 | Senior Software Engineer | Proxima Informatica |
+| Nov 2010 – Apr 2014 | Software Engineer → Product Owner | GeoSolutions S.A.S. |
+| 2009 – 2010 | GSoC C++ Architect | OPeNDAP Organization |
+
+**Common error to prevent:** Never fabricate roles at organizations where Carlo did NOT work. Verify every employer against `references/roles.md`.
