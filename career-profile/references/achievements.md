@@ -99,7 +99,7 @@ Recognized Carlo's exceptional C++ skills during Google Summer of Code, particul
 ### MBA — First Class Honours
 - **Institution:** Neapolis University Pafos (Cyprus)
 - **Period:** 2023–2024
-- **Grade:** A, 100/100
+- **Grade:** A, 95/100 average (Dissertation: 100/100)
 - **Thesis:** Ethical AI integration and ESG frameworks
 - **Distinction:** First Honours
 
