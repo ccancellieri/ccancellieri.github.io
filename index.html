@@ -1155,9 +1155,6 @@
                         <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="mailto:[removed]" class="social-icon" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
                         <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="social-icon" title="ORCID">
                             <i class="fas fa-graduation-cap"></i>
                         </a>
@@ -1202,12 +1199,12 @@
                                 <div class="stat-label">Countries Served</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">30k+</div>
-                                <div class="stat-label">Geospatial Records</div>
+                                <div class="stat-number">12+</div>
+                                <div class="stat-label">Years at FAO</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">25k+</div>
-                                <div class="stat-label">IAM Users</div>
+                                <div class="stat-number">M+</div>
+                                <div class="stat-label">Designed Scale (records/users)</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">6</div>
@@ -1266,8 +1263,8 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            The geospatial engine powering FAO's production data infrastructure. Serves metadata for 30,000+ geospatial records
-                            across 50+ countries, enabling data-driven decision-making for food security.
+                            The multi-tenant geospatial engine powering FAO's data infrastructure. Designed to scale to thousands of tenants
+                            and millions of records via pluggable storage drivers (Iceberg, DuckDB, Parquet), serving 50+ countries.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1295,7 +1292,7 @@
                         <div class="project-details">
                             <strong>Key Components:</strong>
                             <ul>
-                                <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Metadata discovery for 30,000+ geospatial records</li>
+                                <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Multi-tenant metadata discovery with pluggable storage backends</li>
                                 <li><strong>Remote Sensing Portal:</strong> data.apps.fao.org/remote-sensing-portal — Built on OGC STAC, FastAPI, Elasticsearch</li>
                                 <li><strong>Vector Tile Services:</strong> High-performance tile delivery for web mapping</li>
                                 <li><strong>Dual GeoServer Clusters:</strong> Read and authoring instances for geospatial data management</li>
@@ -1303,7 +1300,7 @@
                             </ul>
                             <p style="margin-top: 1rem;">
                                 Architected from scratch to handle continental-scale data ingestion, real-time metadata indexing,
-                                and multi-tenant access control for 25,000+ users across FAO's member nations.
+                                and multi-tenant access control across FAO's member nations. Designed to scale to thousands of tenants and millions of records.
                             </p>
                         </div>
                     </div>
@@ -1324,7 +1321,7 @@
                         </div>
                         <p class="project-description">
                             FAO's unified identity and access control platform. Integrates Keycloak with GCP IAM, supporting
-                            RBAC and ReBAC policies for 25,000+ users across the organization.
+                            RBAC and ReBAC policies designed to scale to millions of users per realm.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Keycloak</span>
@@ -1764,22 +1761,6 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <p class="contact-label">Personal Email</p>
-                            <a href="mailto:[removed]" class="contact-link">[removed]</a>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <p class="contact-label">Work Email</p>
-                            <a href="mailto:[removed]" class="contact-link">[removed]</a>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <p class="contact-label">LinkedIn</p>
@@ -1787,14 +1768,34 @@
                                 linkedin.com/in/ccancellieri
                             </a>
                         </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <p class="contact-label">GitHub</p>
+                            <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                github.com/ccancellieri
+                            </a>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <p class="contact-label">ORCID</p>
+                            <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                0009-0006-4092-4234
+                            </a>
+                        </div>
                     </div>
 
                     <div style="margin-top: 2rem;">
-                        <a href="mailto:[removed]" class="contact-cta">
-                            <i class="fas fa-paper-plane"></i> Send Email
-                        </a>
                         <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-cta">
                             <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                        <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-cta">
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -1820,7 +1821,6 @@
                 <ul>
                     <li><a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     <li><a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="mailto:[removed]">Email</a></li>
                     <li><a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer">ORCID</a></li>
                 </ul>
             </div>
