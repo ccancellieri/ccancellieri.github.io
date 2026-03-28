@@ -10,8 +10,8 @@ A professional, production-ready single-page portfolio website built for GitHub 
 
 This portfolio highlights Carlo Cancellieri's 20+ years of experience architecting cloud-native geospatial platforms for the United Nations FAO, serving 50+ countries. The site showcases:
 
-- **DynaStore** — Geospatial data platform with 30,000+ records
-- **Keystone** — Unified IAM for 25,000+ users
+- **DynaStore** — Multi-tenant geospatial data platform (designed to scale to millions of records)
+- **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
 - **Hyrax SQL Handler** — OPeNDAP database access module (Google Summer of Code 2009–2010)
 - **GeoServer Ecosystem** — Core contributions to GeoServer, GeoNetwork, GeoTools
 - **CKAN Extensions** — Open data platform tooling
@@ -216,7 +216,6 @@ This portfolio is provided as-is for personal use. Feel free to customize and de
 ## Support
 
 For issues, questions, or suggestions:
-- Email: ccancellieri@hotmail.com
 - GitHub: https://github.com/ccancellieri
 - LinkedIn: https://linkedin.com/in/ccancellieri
 
