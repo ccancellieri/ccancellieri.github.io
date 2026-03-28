@@ -29,7 +29,7 @@ Lead Software Engineer at the United Nations FAO with 20+ years in software engi
 
 | Degree | Institution | Year | Notes |
 |--------|------------|------|-------|
-| MBA | Neapolis University Pafos (Cyprus) | 2023–2024 | First Class Honours, Grade A, 95/100 average (Dissertation: 100/100). Thesis: ethical AI integration and ESG frameworks |
+| MBA | Neapolis University Pafos (Cyprus) | 2023–2024 | First Class Honours, Grade A, 100/100 average (Dissertation: 100/100). Thesis: ethical AI integration and ESG frameworks |
 | Laurea in Informatica (B.Sc. Computer Science) | University of Naples Parthenope | 2005–2009 | Classe 25 delle lauree in scienze e tecnologie informatiche. Thesis: OPeNDAP Hyrax SQL Handler |
 
 **Note:** Carlo has an incomplete statistics master — always omit this.
