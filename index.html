@@ -47,7 +47,7 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -1093,8 +1093,8 @@
         }
 
         /* ===== FOCUS STYLES ===== */
-        a:focus,
-        button:focus {
+        a:focus-visible,
+        button:focus-visible {
             outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
@@ -1110,9 +1110,28 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .animate-on-scroll {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;padding:.5rem 1rem;background:var(--accent);color:var(--primary);font-weight:700;z-index:9999;transition:top .2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+
     <!-- HEADER & NAVIGATION -->
     <header>
         <nav>
@@ -1129,7 +1148,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- HERO SECTION -->
         <section id="home" class="hero">
             <div class="container">
@@ -1149,19 +1168,19 @@
                         </a>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
-                            <i class="fab fa-github"></i>
+                        <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                         </a>
-                        <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="social-icon" title="ORCID">
-                            <i class="fas fa-graduation-cap"></i>
+                        <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="ORCID profile">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="scroll-indicator">
+            <div class="scroll-indicator" aria-hidden="true">
                 <i class="fas fa-chevron-down"></i>
             </div>
         </section>
@@ -1285,9 +1304,9 @@
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Key Components:</strong>
@@ -1335,9 +1354,9 @@
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Architecture Highlights:</strong>
@@ -1384,9 +1403,9 @@
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Project Details:</strong>
@@ -1432,9 +1451,9 @@
                                 <i class="fab fa-github"></i> All Projects
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Extensions:</strong>
@@ -1484,9 +1503,9 @@
                                 <i class="fab fa-github"></i> StressTest Tool
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Key Contributions:</strong>
@@ -1532,9 +1551,9 @@
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <button class="expand-btn" onclick="toggleDetails(this)">
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
                             <strong>Features:</strong>
@@ -1899,8 +1918,9 @@
         function toggleDetails(btn) {
             const details = btn.parentElement.querySelector('.project-details');
             if (details) {
-                details.classList.toggle('show');
-                btn.classList.toggle('expanded');
+                const expanded = details.classList.toggle('show');
+                btn.classList.toggle('expanded', expanded);
+                btn.setAttribute('aria-expanded', expanded);
             }
         }
 
