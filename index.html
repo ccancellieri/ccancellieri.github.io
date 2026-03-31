@@ -1570,6 +1570,57 @@
                             </p>
                         </div>
                     </div>
+                    <!-- MCP Skill Hub -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">MCP Skill Hub</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator</span>
+                                    <span class="project-year">2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            A local MCP server that gives Claude Code semantic skill search, cross-session task memory,
+                            and zero-token command interception — all powered by Ollama running entirely on your machine.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastMCP</span>
+                            <span class="project-tag">Ollama</span>
+                            <span class="project-tag">SQLite</span>
+                            <span class="project-tag">MCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ccancellieri/mcp-skill-hub" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Key Features:</strong>
+                            <ul>
+                                <li><strong>Semantic Skill Search:</strong> Find Claude Code skills by meaning using Ollama embeddings — no keywords needed</li>
+                                <li><strong>Zero-Token Hook:</strong> UserPromptSubmit hook intercepts "save task", "close task" commands locally before Claude sees them</li>
+                                <li><strong>Cross-Session Memory:</strong> Save open tasks, compact closed ones with a local LLM (~200 tokens vs ~5000 raw)</li>
+                                <li><strong>Three-Signal Learning:</strong> Teachings, feedback ratings, and passive session history improve rankings over time</li>
+                                <li><strong>Plugin Management:</strong> Enable/disable Claude plugins live; suggest relevant disabled plugins by context</li>
+                                <li><strong>Token Profiling:</strong> Tracks estimated Claude API tokens saved per hook interception</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                Designed for developers who run many Claude Code plugins and want to keep context lean.
+                                Runs entirely offline on your machine using Ollama (deepseek-r1, nomic-embed-text).
+                                Install in one command: <code>./install.sh</code>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
