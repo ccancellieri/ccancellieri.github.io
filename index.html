@@ -1282,23 +1282,31 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            The multi-tenant geospatial engine powering FAO's data infrastructure. Designed to scale to thousands of tenants
-                            and millions of records via pluggable storage drivers (Iceberg, DuckDB, Parquet), serving 50+ countries.
+                            The multi-tenant geospatial engine powering FAO's data infrastructure: catalog API, maps/tiles API,
+                            dual GeoServer clusters (WMS/WFS/WMTS), and vector tiles. Designed to scale to thousands of tenants
+                            and millions of records via pluggable storage drivers (Iceberg, DuckDB, Parquet), serving 50+ countries
+                            through the Hand-in-Hand Initiative.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">FastAPI</span>
                             <span class="project-tag">GCP</span>
                             <span class="project-tag">Terraform</span>
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">PostGIS</span>
+                            <span class="project-tag">asyncpg</span>
+                            <span class="project-tag">pg_cron</span>
+                            <span class="project-tag">OpenSearch</span>
+                            <span class="project-tag">OGC API</span>
                             <span class="project-tag">React</span>
-                            <span class="project-tag">Elasticsearch</span>
                         </div>
                         <div class="project-links">
                             <a href="https://data.apps.fao.org/catalog" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="fas fa-external-link-alt"></i> Data Catalog
                             </a>
-                            <a href="https://data.apps.fao.org/remote-sensing-portal" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Remote Sensing
+                            <a href="https://data.apps.fao.org/map/gsrv/gsrv1/web/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Maps / GeoServer
                             </a>
                             <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
@@ -1311,15 +1319,73 @@
                         <div class="project-details">
                             <strong>Key Components:</strong>
                             <ul>
-                                <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Multi-tenant metadata discovery with pluggable storage backends</li>
-                                <li><strong>Remote Sensing Portal:</strong> data.apps.fao.org/remote-sensing-portal — Built on OGC STAC, FastAPI, Elasticsearch</li>
-                                <li><strong>Vector Tile Services:</strong> High-performance tile delivery for web mapping</li>
-                                <li><strong>Dual GeoServer Clusters:</strong> Read and authoring instances for geospatial data management</li>
-                                <li><strong>GeoID Service:</strong> Spatial identifier service for standardized geographic references</li>
+                                <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Multi-tenant metadata discovery with pluggable storage backends (Iceberg / DuckDB / Parquet)</li>
+                                <li><strong>Maps &amp; Tiles API:</strong> FastAPI + PostGIS serving WMS/WFS/WMTS + Mapbox Vector Tiles for web mapping</li>
+                                <li><strong>Dual GeoServer Clusters:</strong> Separated read and authoring instances for safe editing under load</li>
+                                <li><strong>GeoID Service:</strong> Persistent identifier service for standardised geographic references</li>
+                                <li><strong>Operational hardening (2026):</strong> pg_cron-driven task reaper, async PostgreSQL connection pooling, and GCP provisioning resilience for multi-region deployments</li>
+                                <li><strong>Admin UI:</strong> Operator console for catalog provisioning, task inspection, and configuration management</li>
                             </ul>
                             <p style="margin-top: 1rem;">
                                 Architected from scratch to handle continental-scale data ingestion, real-time metadata indexing,
-                                and multi-tenant access control across FAO's member nations. Designed to scale to thousands of tenants and millions of records.
+                                and multi-tenant access control across FAO's member nations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Remote Sensing Portal -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">Remote Sensing Portal</h3>
+                                <div class="project-meta">
+                                    <span class="project-role">Creator &amp; Lead</span>
+                                    <span class="project-year">2022–Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            FAO's STAC-native earth observation discovery and access platform. Built on STAC-FastAPI with
+                            Elasticsearch / OpenSearch, exposing OGC STAC APIs across agricultural indicators, dekadal
+                            time series, and administrative boundary hierarchies.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">STAC</span>
+                            <span class="project-tag">OpenSearch</span>
+                            <span class="project-tag">Elasticsearch</span>
+                            <span class="project-tag">OGC API</span>
+                            <span class="project-tag">GCP</span>
+                            <span class="project-tag">Datacube</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://data.apps.fao.org/remote-sensing-portal" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Portal
+                            </a>
+                            <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
+                            <span>Learn more</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="project-details">
+                            <strong>Platform Highlights:</strong>
+                            <ul>
+                                <li><strong>STAC-first architecture:</strong> OGC STAC standard end-to-end, from collection metadata through catalog search to item retrieval</li>
+                                <li><strong>Datacube workloads:</strong> Handles very large dimension spaces — thousands of agricultural indicators, dekadal time series (36 periods/year), administrative hierarchies</li>
+                                <li><strong>JSON-safe serialisation:</strong> Custom OpenSearch serialiser keeping STAC pydantic models (HttpUrl, datetime, UUID, Decimal) deterministic on ingest</li>
+                                <li><strong>Datetime range indexing:</strong> STAC `[[start, end]]` intervals mapped to Elasticsearch date_range objects with null-handling</li>
+                                <li><strong>Separate from the main catalog:</strong> Distinct runtime and data plane from DynaStore's core catalog, co-deployed on the same Keystone IAM and GCP substrate</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                The portal is the Organisation's entry point for EO-aligned data discovery — complementing
+                                DynaStore's generic geospatial catalog with STAC-native search, item retrieval, and OpenSearch-backed faceting.
                             </p>
                         </div>
                     </div>
@@ -1347,6 +1413,8 @@
                             <span class="project-tag">GCP IAM</span>
                             <span class="project-tag">Java</span>
                             <span class="project-tag">OIDC</span>
+                            <span class="project-tag">OPA</span>
+                            <span class="project-tag">DGraph</span>
                             <span class="project-tag">Terraform</span>
                         </div>
                         <div class="project-links">
@@ -1537,13 +1605,17 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Geospatial identifier service for standardized geographic references. Provides unique, resolvable identifiers
-                            for geographic entities across FAO systems.
+                            Persistent geospatial identifier service for standardised geographic references — resolvable
+                            URIs for countries, regions, administrative boundaries, and thematic taxonomies. OGC and
+                            ISO-TC211 aligned, with RDF/OWL semantics and REST + SPARQL endpoints.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">FastAPI</span>
                             <span class="project-tag">PostGIS</span>
+                            <span class="project-tag">RDF/OWL</span>
+                            <span class="project-tag">OGC API Records</span>
+                            <span class="project-tag">ISO-TC211</span>
                             <span class="project-tag">GCP</span>
                         </div>
                         <div class="project-links">
@@ -1714,11 +1786,14 @@
                         <div class="timeline-content">
                             <h4 class="timeline-title">Lead Software Engineer, AgroInformatics Division</h4>
                             <p class="timeline-org">Food and Agriculture Organization of the United Nations (FAO)</p>
-                            <p class="timeline-date">2020–Present | Rome, Italy (Remote)</p>
+                            <p class="timeline-date">Feb 2020–Present | Rome, Italy (Remote)</p>
                             <p class="timeline-description">
-                                Architect and lead engineer for cloud-native geospatial platforms serving 50+ countries.
-                                Design and deliver production systems for global food security data infrastructure.
-                                Lead team of engineers, manage GCP cloud infrastructure, mentor junior developers.
+                                Architect and lead engineer for the Organisation's cloud-native geospatial platforms in support of the
+                                Hand-in-Hand Initiative. Design and deliver DynaStore, the Remote Sensing Portal, and Keystone (unified IAM),
+                                coordinating delivery across the Statistics Division, IT, and regional offices. Lead a multicultural team,
+                                manage GCP infrastructure-as-code, and mentor engineers across staff and consultant categories.
+                                OGC Member since September 2025; ISO-TC211 contributor. 
+                                
                             </p>
                         </div>
                     </div>
@@ -1726,12 +1801,14 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Principal Data Architect (Consultant)</h4>
-                            <p class="timeline-org">Philip Morris International</p>
-                            <p class="timeline-date">2018–2020 | Remote</p>
+                            <h4 class="timeline-title">Head of Research &amp; Development</h4>
+                            <p class="timeline-org">SIGEO S.r.l.</p>
+                            <p class="timeline-date">Oct 2018–Sep 2019 | Rome, Italy</p>
                             <p class="timeline-description">
-                                Designed enterprise data infrastructure and geospatial analytics platforms for supply chain
-                                optimization. Led architecture reviews and cloud migration strategies.
+                                Directed a 15-person R&amp;D division with full P&amp;L responsibility, delivering the TAP/SMAI
+                                real-time environmental monitoring system for the Trans Adriatic Pipeline — a multi-billion-euro
+                                cross-border energy infrastructure programme spanning Greece, Albania, and Italy. Led Agile
+                                transformation, managed annual R&amp;D budget, and negotiated scope with consortium partners.
                             </p>
                         </div>
                     </div>
@@ -1739,12 +1816,14 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Senior Engineer, Geospatial Services</h4>
-                            <p class="timeline-org">GeoSolutions</p>
-                            <p class="timeline-date">2010–2014 | Viareggio, Italy</p>
+                            <h4 class="timeline-title">Statistical Working System (SWS) Expert</h4>
+                            <p class="timeline-org">FAO Statistics Division (ESS)</p>
+                            <p class="timeline-date">Jul 2015–Dec 2017 | Rome, Italy</p>
                             <p class="timeline-description">
-                                Core contributor to GeoServer, GeoNetwork, and GeoTools open-source projects.
-                                Led development of enterprise OGC Web Services, REST APIs, and high-performance geospatial data serving.
+                                Senior technical lead on the Statistical Working System, FAO's corporate statistics platform
+                                supporting Food Balance Sheets, Supply Utilization Accounts, and domain-specific methodologies
+                                for 194 member countries. Led the frontend modernisation (React/Redux/TypeScript) and built
+                                R-based statistical processing pipelines; established CI/CD and SDLC processes for the SWS team.
                             </p>
                         </div>
                     </div>
@@ -1752,12 +1831,13 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Google Summer of Code Participant</h4>
-                            <p class="timeline-org">OPeNDAP Organization</p>
-                            <p class="timeline-date">2009–2010</p>
+                            <h4 class="timeline-title">Senior Software Engineer / System Integrator</h4>
+                            <p class="timeline-org">Proxima Informatica</p>
+                            <p class="timeline-date">May 2014–Jun 2015 | Rome, Italy</p>
                             <p class="timeline-description">
-                                Developed SQL Handler module for OPeNDAP Hyrax data server. Mentored by Patrick West.
-                                Module enables SQL database access through standard OPeNDAP interfaces, still in production use.
+                                Client-facing enterprise engineering for major organisations in the international lottery and
+                                payments industry. Led CI/CD and DevOps practices for a 75-developer multicultural team and
+                                contributed to the Apache Camel open-source project.
                             </p>
                         </div>
                     </div>
@@ -1765,12 +1845,30 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Software Engineer & Architect (Various Roles)</h4>
-                            <p class="timeline-org">SIGEO, Intecs, Esri, and Various Startups</p>
-                            <p class="timeline-date">2005–2010 | Italy & Remote</p>
+                            <h4 class="timeline-title">Software Engineer → Product Owner</h4>
+                            <p class="timeline-org">GeoSolutions S.A.S.</p>
+                            <p class="timeline-date">Nov 2010–Apr 2014 | Viareggio, Italy</p>
                             <p class="timeline-description">
-                                Built expertise in geospatial systems, remote sensing, OGC standards compliance, and cloud architecture.
-                                Worked on projects spanning environmental monitoring, land use analysis, and enterprise GIS systems.
+                                Core contributor to GeoServer, the leading open-source geospatial server. Progressed from
+                                software engineer to product owner, delivering solutions for international organisations
+                                including FAO, NATO, and NURC. Authored GetLegendGraphic JSON output and contributed to
+                                JMX, REST, JMS, and WPS interfaces. Created the GeoServerStressTest load-testing tool.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Google Summer of Code — Software Engineer</h4>
+                            <p class="timeline-org">OPeNDAP / Google Inc.</p>
+                            <p class="timeline-date">Apr 2009–Aug 2010 | Remote (International)</p>
+                            <p class="timeline-description">
+                                Selected twice (2009, 2010) for Google's international open-source programme under the
+                                OPeNDAP organisation. Authored the Hyrax SQL Handler — a C++ BES module enabling SQL/ODBC
+                                database access through the OPeNDAP protocol — deployed at FAO, NATO, NURC, and LaMMa.
+                                Mentored by Patrick West. The module is still actively maintained and in production use
+                                15+ years later.
                             </p>
                         </div>
                     </div>
@@ -1786,21 +1884,23 @@
                 <div class="education-grid">
                     <div class="education-card">
                         <h4 class="education-degree">MBA</h4>
-                        <p class="education-school">Università degli Studi di Pisa</p>
-                        <p class="education-year">2015 | First Class Honours</p>
+                        <p class="education-school">Neapolis University Pafos (Cyprus)</p>
+                        <p class="education-year">2023–2024 | First Class Honours (100/100)</p>
                         <p class="education-description">
-                            Advanced studies in business strategy, organizational management, and technology leadership.
-                            Thesis on cloud architecture for enterprise systems.
+                            Master of Business Administration, Grade A with 100/100 average (Dissertation: 100/100).
+                            Thesis on ethical AI integration and ESG frameworks for sustainable business transformation.
+                            Coursework in strategic management, finance, operations, and organisational behaviour.
                         </p>
                     </div>
 
                     <div class="education-card">
-                        <h4 class="education-degree">Master's in Computer Science</h4>
-                        <p class="education-school">Università degli Studi di Firenze</p>
-                        <p class="education-year">2005</p>
+                        <h4 class="education-degree">B.Sc. Computer Science</h4>
+                        <p class="education-school">University of Naples "Parthenope"</p>
+                        <p class="education-year">2005–2009</p>
                         <p class="education-description">
-                            Specialization in distributed systems, database design, and software engineering.
-                            Early focus on geospatial technologies and OGC standards.
+                            Laurea in Informatica (Classe 25). Thesis: "Management of Distributed Data in a Distributed
+                            Computational Environment (Grids)" — designed and implemented the data access layer for OPeNDAP
+                            Hyrax, leading to Google Summer of Code selection in 2009 and 2010.
                         </p>
                     </div>
 
@@ -1824,8 +1924,9 @@
 
                 <div class="contact-container">
                     <p class="contact-description">
-                        Open to collaborations, consulting opportunities, and conversations about geospatial systems,
-                        cloud architecture, and sustainable technology. Let's build something impactful together.
+                        Currently exploring Senior / Staff / Principal Engineer, Engineering Manager, Technical Programme
+                        Manager, and UN-system IT Officer (P-3 / P-4) roles. Always happy to talk geospatial platforms,
+                        OGC standards, cloud architecture, and sustainable technology.
                     </p>
 
                     <div class="contact-methods">
