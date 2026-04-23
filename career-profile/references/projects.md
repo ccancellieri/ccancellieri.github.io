@@ -4,28 +4,65 @@
 **Role:** Creator & Technical Lead | **Timeline:** 2020–Present
 **URL:** data.apps.fao.org
 
-FAO's geospatial data infrastructure platform. Powers the entire geospatial web presence for the Organization.
+FAO's multi-tenant geospatial data infrastructure: catalog API, maps/tiles API, dual GeoServer clusters, and
+vector tiles. Powers the Organisation's geospatial web presence in support of the Hand-in-Hand Initiative.
 
 ### Components
 
 | Component | URL | Technology |
 |-----------|-----|-----------|
-| Data Catalog | data.apps.fao.org/catalog | Python, FastAPI, Elasticsearch, React |
-| Remote Sensing Portal | data.apps.fao.org/remote-sensing-portal | STAC-FastAPI-Elasticsearch (OGC STAC standard) |
-| Catalog API | data.apps.fao.org/geospatial/v2/api/catalog/ | FastAPI, Elasticsearch |
+| Data Catalog | data.apps.fao.org/catalog | Python, FastAPI, OpenSearch/Elasticsearch, React |
+| Catalog API | data.apps.fao.org/geospatial/v2/api/catalog/ | FastAPI, OpenSearch |
 | Maps/Tiles API | data.apps.fao.org/geospatial/v2/api/maps/ | FastAPI, PostGIS, MVT |
 | GeoServer (read) | data.apps.fao.org/map/gsrv/gsrv1/web/ | Java, GeoServer, PostGIS |
 | GeoServer (edit) | data.apps.fao.org/map/gsrv/edit/web/ | Java, GeoServer, PostGIS |
 | GeoID Service | un-fao/GeoID on GitHub | Python, FastAPI, PostGIS |
+| Admin UI | data.apps.fao.org/admin | React — operator console for catalogs, tasks, configs |
 
 ### Tech Stack
-Python, FastAPI, React, TypeScript, Elasticsearch, GCP, Terraform, Kubernetes, Docker, PostGIS, GeoServer, STAC
+Python, FastAPI, React, TypeScript, OpenSearch, Elasticsearch, PostgreSQL, PostGIS, asyncpg, pg_cron,
+GCP, Terraform, Kubernetes, Docker, GeoServer, OGC API Records, OGC API Processes.
+
+### 2026 Operational Hardening
+- Async PostgreSQL connection handling (asyncpg) with per-task pool acquisition to eliminate shared-connection deadlocks
+- pg_cron-driven task reaper enforcing PENDING → ACTIVE → FAILED lifecycle invariants with no leader election required
+- GCP provisioning resilience: async Cloud Run Jobs/Services client lazy-binding, retry classification, Forbidden/Conflict reclassification
+- Separated metadata tables, decorator-to-protocol refactor, STAC-capability checks, tenant-scoped schema DDL
+- Catalog-ready guard: fail-fast 409 on STAC mutations against provisioning or failed catalogs
 
 ### Key Numbers
-- 30,000+ geospatial records cataloged
+- Designed to scale to thousands of tenants and millions of records via pluggable storage drivers (Iceberg, DuckDB, Parquet)
 - OGC-compliant metadata (ISO 19115, OGC API Records)
-- Serves 50+ countries through Hand-in-Hand Initiative
+- Serves 50+ countries through the Hand-in-Hand Initiative
 - Cloud-native on GCP with Infrastructure as Code (Terraform)
+
+---
+
+## Remote Sensing Portal
+**Role:** Creator & Lead | **Timeline:** 2022–Present
+**URL:** data.apps.fao.org/remote-sensing-portal
+
+FAO's STAC-native earth observation discovery and access platform. A distinct runtime from the DynaStore
+catalog, co-deployed on the same Keystone IAM and GCP substrate. OGC STAC standard end-to-end, from
+collection metadata through catalog search to item retrieval.
+
+### Components
+
+| Component | Technology |
+|-----------|-----------|
+| STAC API | stac-fastapi-elasticsearch (OGC STAC) |
+| Search backend | OpenSearch / Elasticsearch with date_range indexing |
+| Item ingestion | FastAPI workers with JSON-safe STAC pydantic serialisation |
+| Frontend | React + MapLibre |
+
+### Tech Stack
+Python, FastAPI, STAC, stac-pydantic, OpenSearch, Elasticsearch, OGC API, GCP, React, MapLibre.
+
+### Differentiators vs. DynaStore Catalog
+- STAC-first, not retrofitted — every endpoint follows the STAC specification exactly
+- Handles very large dimension spaces: agricultural indicators (thousands of codes), dekadal time series (36 periods/year), administrative hierarchies (sub-national levels)
+- Custom OpenSearch serialiser that keeps STAC pydantic models (HttpUrl, datetime, UUID, Decimal) deterministic on ingest — preventing the class of "not JSON serializable" failures common in STAC ingestion pipelines
+- Separate data plane from DynaStore so EO workloads don't compete with catalog writes
 
 ---
 
@@ -45,10 +82,9 @@ Unified Identity and Access Management platform for FAO's geospatial services.
 Keycloak, Java, GCP IAM, OIDC, Terraform, DGraph, OPA (Open Policy Agent)
 
 ### Key Numbers
-- 25,000+ IAM users
-- Multi-tenant across FAO divisions
+- Designed to scale to millions of users per realm (Keycloak-based)
+- Multi-tenant across FAO divisions and external partners
 - Integrates with GCP organization structure
-- Co-presented with Martial Wafo at internal FAO events
 
 ---
 
@@ -56,17 +92,18 @@ Keycloak, Java, GCP IAM, OIDC, Terraform, DGraph, OPA (Open Policy Agent)
 **Role:** Creator & Lead | **Timeline:** 2020–Present
 **Repository:** github.com/un-fao/GeoID
 
-Persistent geospatial identifier service for standardized geographic references.
+Persistent geospatial identifier service for standardised geographic references.
 
 ### Features
-- Resolvable URIs for geographic entities (countries, regions, administrative boundaries)
-- OGC and ISO-TC211 aligned
+- Resolvable URIs for geographic entities (countries, regions, administrative boundaries, thematic taxonomies)
+- OGC and ISO-TC211 aligned (OGC API Records, ISO 19115 metadata)
 - RDF/OWL ontologies for geographic relationships
 - Multi-language support for geographic entity names
 - REST + SPARQL endpoints
+- Integrated with the DynaStore catalog as the canonical identifier authority
 
 ### Tech Stack
-Python, FastAPI, PostGIS, GCP, RDF/OWL
+Python, FastAPI, PostGIS, asyncpg, OGC API Records, GCP, RDF/OWL
 
 ---
 

@@ -43,7 +43,10 @@
 |-----------|---------|
 | PostgreSQL | Primary relational database |
 | PostGIS | Spatial extension, core of geospatial stack |
+| asyncpg | Async PostgreSQL driver — per-task pool acquisition pattern in DynaStore routers/tasks |
+| pg_cron | PostgreSQL-native scheduler for task reaper and lifecycle enforcement in DynaStore |
 | Elasticsearch | DynaStore catalog, STAC search, full-text + geospatial queries |
+| OpenSearch | Remote Sensing Portal — STAC-native search backend with date_range indexing |
 | DGraph | Graph database for ReBAC in Keystone |
 | MongoDB | NoSQL, supported in sql_handler |
 | ODBC | Database abstraction in Hyrax SQL Handler |
@@ -59,6 +62,8 @@
 | WMTS (Web Map Tile Service) | Tile serving |
 | OGC API Features | Next-gen OGC vector API |
 | OGC API Records | Next-gen OGC catalog API |
+| OGC API Processes (Parts 1–4) | Process discovery, execution, DRU, workflows, job management — integration plan for DynaStore |
+| STAC Datacube Extension | Dimension metadata for datacube collections — gap analysis ongoing (paginated members, non-Gregorian calendars) |
 | ISO 19115 | Geospatial metadata standard |
 | ISO 19139 | ISO 19115 XML encoding |
 | DCAT | Data Catalog Vocabulary (semantic web) |
@@ -73,7 +78,10 @@
 |-----------|---------|
 | Vertex AI | GCP ML platform, explored for FAO applications |
 | LLMs | Applied AI research, MCP tooling |
-| MCP (Model Context Protocol) | LLM tool integration standard |
+| MCP (Model Context Protocol) | LLM tool integration standard — MCP Skill Hub + career-skill-hub plugin |
+| FastMCP | Python MCP server framework used for MCP Skill Hub |
+| Ollama | Local LLM runtime (deepseek-r1, nomic-embed-text) powering semantic skill search |
+| Claude API / Anthropic SDK | Tool use, prompt caching, structured content generation |
 | OPA (Open Policy Agent) | Policy engine for Keystone authorization |
 
 ## Tools & Methodologies

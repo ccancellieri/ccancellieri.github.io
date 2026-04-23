@@ -24,6 +24,10 @@ Carlo maintains multiple CV variants, each emphasizing different aspects of his 
 
 ## CV Variants
 
+**Priority order (2026 active job search):** UN FAO Officer, Full-Stack Engineer, and Technical PM are
+the three primary variants to maintain against live vacancies. AI/ML, Creative Technologist, Freelance
+Consultant, and Frontend Developer stay ready as secondary variants.
+
 ### 1. UN FAO Officer (`cv-un-fao-officer`)
 
 **Target:** FAO IT Officer (P-3/P-4) vacancies, UN system recruitment

@@ -19,8 +19,9 @@
 ## Standards & Community
 
 ### OGC Membership
-- **Member since:** September 2025
-- **Involvement:** OGC standards adoption and implementation (STAC, WMS, WFS, OGC API Features, OGC API Records)
+- **Member since:** September 2025 (Agora Level 5)
+- **Involvement:** OGC standards adoption and implementation (STAC, WMS, WFS, OGC API Features, OGC API Records, OGC API Processes Parts 1–4)
+- **Working groups of interest:** GeoDataCube SWG (datacube dimension scalability, non-Gregorian temporal encoding)
 
 ### ISO-TC211 Contribution
 - Contributor to ISO Technical Committee 211 (Geographic Information/Geomatics)
