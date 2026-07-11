@@ -1,2 +1,13 @@
 personal
 
+# Private career knowledge base — must never be published on this public site
+career-profile/
+
+# Local AI/agent context files — keep locally, never commit
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+.claude/
+.memory/
+.cursorrules
+.aider*
