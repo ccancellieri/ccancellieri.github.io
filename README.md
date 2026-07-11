@@ -11,11 +11,13 @@ A professional, production-ready single-page portfolio website built for GitHub 
 This portfolio highlights Carlo Cancellieri's 20+ years of experience architecting cloud-native geospatial platforms for the United Nations FAO, serving 50+ countries. The site showcases:
 
 - **DynaStore** — Multi-tenant geospatial data platform (designed to scale to millions of records)
+- **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
 - **Hyrax SQL Handler** — OPeNDAP database access module (Google Summer of Code 2009–2010)
 - **GeoServer Ecosystem** — Core contributions to GeoServer, GeoNetwork, GeoTools
 - **CKAN Extensions** — Open data platform tooling
 - **GeoID Service** — Geospatial identifier service
+- **MCP Skill Hub** — Local MCP server for semantic skill search and task memory (Ollama-powered)
 - **Open Source Contributions** — 1,000+ GitHub contributions per year
 
 ## Features
@@ -51,7 +53,7 @@ This portfolio highlights Carlo Cancellieri's 20+ years of experience architecti
 
 1. **Hero** — Name, tagline, and call-to-action
 2. **About** — Professional background, tech stack, key stats
-3. **Featured Projects** — 6 major projects with expandable details
+3. **Featured Projects** — 8 major projects with expandable details
 4. **Open Source** — Contributions, organization memberships
 5. **Experience** — Timeline of roles and responsibilities
 6. **Education** — Degrees and qualifications
@@ -63,8 +65,13 @@ This portfolio highlights Carlo Cancellieri's 20+ years of experience architecti
 ```
 portfolio/
 ├── index.html          # Single-file application
+├── 404.html            # Not-found page matching the site theme
+├── og-image.png        # Social sharing preview (1200×630)
+├── robots.txt          # Crawler directives
+├── sitemap.xml         # Search engine sitemap
+├── privacy-policy.html # Standalone privacy policy for the Planner app
 ├── README.md           # This file
-└── .gitignore          # Git ignore patterns (optional)
+└── .gitignore          # Git ignore patterns
 ```
 
 ## Deployment to GitHub Pages
@@ -155,7 +162,7 @@ Modify CSS variables in the `<style>` tag:
 ### Modify Fonts
 
 Change the Google Fonts import in the `<head>` section. Current fonts:
-- **Inter** — Primary body font (3–700 weights)
+- **Inter** — Primary body font (300–700 weights)
 - **Fira Code** — Optional monospace for code blocks
 
 ### Add Your Own Logo/Avatar
@@ -202,12 +209,13 @@ The site includes:
 - Proper heading hierarchy (h1–h6)
 - Focus states for keyboard navigation
 - High contrast colors (WCAG AA compliant)
-- Alt text on icons via Font Awesome
+- Decorative icons hidden from assistive tech (`aria-hidden`)
 - Proper link semantics with title attributes
 
 ## Version History
 
 - **v1.0** (2026-03) — Initial release with 6 featured projects, open-source section, timeline, education, and contact
+- **v1.1** (2026-07) — 8 featured projects, OG image and social metadata, robots/sitemap, mobile nav and accessibility polish, 404 page
 
 ## License
 
