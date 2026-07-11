@@ -7,6 +7,7 @@
     <meta name="author" content="Carlo Cancellieri">
     <meta name="keywords" content="Lead Software Engineer, Geospatial, OGC, ISO-TC211, STAC, GeoServer, GeoNetwork, PostGIS, Cloud Architecture, FAO, GCP, Python, Java, OGC API, ISO 19115, DynaStore, Keystone, Kubernetes, Terraform">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Carlo Cancellieri | Lead Software Engineer · OGC Member · ISO-TC211">
@@ -19,6 +20,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Carlo Cancellieri | Lead Software Engineer · OGC Member · ISO-TC211">
     <meta name="twitter:description" content="Architecting cloud-native geospatial platforms at the United Nations FAO. OGC member, ISO-TC211 contributor. 20+ years in software engineering.">
+    <meta name="twitter:image" content="https://ccancellieri.github.io/og-image.png">
 
     <title>Carlo Cancellieri | Lead Software Engineer · OGC · ISO-TC211</title>
 
@@ -52,6 +54,9 @@
     }
     </script>
 
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='Menlo,monospace' font-size='26' font-weight='700' fill='%2306b6d4' text-anchor='middle'%3ECC%3C/text%3E%3C/svg%3E">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -69,6 +74,7 @@
         }
 
         :root {
+            color-scheme: dark;
             --primary: #0f172a;
             --secondary: #1e293b;
             --accent: #06b6d4;
@@ -118,8 +124,10 @@
         }
 
         .logo {
+            font-family: 'Fira Code', monospace;
             font-size: 1.5rem;
             font-weight: 700;
+            white-space: nowrap;
             background: linear-gradient(135deg, var(--accent), #0ea5e9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -202,6 +210,24 @@
             }
         }
 
+        @media (max-width: 640px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo i {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+        }
+
         /* ===== MAIN CONTAINER ===== */
         main {
             margin-top: 80px;
@@ -250,6 +276,7 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
+            position: relative;
             padding: 8rem 0 6rem;
             min-height: 100vh;
             display: flex;
@@ -373,6 +400,7 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            transition: opacity 0.3s ease;
         }
 
         @keyframes bounce {
@@ -459,6 +487,7 @@
         }
 
         .tech-tag {
+            font-family: 'Fira Code', monospace;
             padding: 0.5rem 1rem;
             background: rgba(6, 182, 212, 0.1);
             border: 1px solid rgba(6, 182, 212, 0.3);
@@ -498,6 +527,7 @@
         }
 
         .stat-number {
+            font-family: 'Fira Code', monospace;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--accent);
@@ -622,6 +652,7 @@
         }
 
         .project-tag {
+            font-family: 'Fira Code', monospace;
             padding: 0.35rem 0.75rem;
             background: rgba(6, 182, 212, 0.1);
             border: 1px solid rgba(6, 182, 212, 0.2);
@@ -1168,7 +1199,7 @@
     <header>
         <nav>
             <a href="#home" class="logo">
-                <i class="fas fa-code"></i> CC
+                <i class="fas fa-code" aria-hidden="true"></i> CC
             </a>
             <ul class="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -1189,14 +1220,14 @@
                     <p class="hero-subtitle">Lead Software Engineer · Geospatial &amp; Data Platform Architect</p>
                     <p class="hero-description">
                         Building cloud-native geospatial platforms at the <span class="highlight">United Nations FAO</span>
-                        to advance food security and sustainable agriculture. 20 years architecting systems that serve 50+ countries.
+                        to advance food security and sustainable agriculture. 20+ years architecting systems that serve 50+ countries.
                     </p>
                     <div class="cta-group">
                         <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-arrow-right"></i> View Projects
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i> View Projects
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope"></i> Get in Touch
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Get in Touch
                         </a>
                     </div>
                     <div class="social-links">
@@ -1254,7 +1285,7 @@
                                 <div class="stat-label">Years at FAO</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">M+</div>
+                                <div class="stat-number">1M+</div>
                                 <div class="stat-label">Designed Scale (records/users)</div>
                             </div>
                             <div class="stat-item">
@@ -1305,7 +1336,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-globe"></i>
+                                <i class="fas fa-globe" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">DynaStore</h3>
@@ -1337,13 +1368,13 @@
                         </div>
                         <div class="project-links">
                             <a href="https://data.apps.fao.org/catalog" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Data Catalog
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Data Catalog
                             </a>
                             <a href="https://data.apps.fao.org/map/gsrv/gsrv1/web/" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Maps / GeoServer
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Maps / GeoServer
                             </a>
                             <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1371,7 +1402,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-satellite"></i>
+                                <i class="fas fa-satellite" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">Remote Sensing Portal</h3>
@@ -1398,10 +1429,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://data.apps.fao.org/remote-sensing-portal" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Portal
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Portal
                             </a>
                             <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1428,7 +1459,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">Keystone</h3>
@@ -1453,7 +1484,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/un-fao" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1480,7 +1511,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-database"></i>
+                                <i class="fas fa-database" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">Hyrax SQL Handler</h3>
@@ -1502,7 +1533,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/OPENDAP/sql_handler" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1529,7 +1560,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-cubes"></i>
+                                <i class="fas fa-cubes" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">CKAN Extensions</h3>
@@ -1550,7 +1581,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> All Projects
+                                <i class="fab fa-github" aria-hidden="true"></i> All Projects
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1577,7 +1608,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-map"></i>
+                                <i class="fas fa-map" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">GeoServer Ecosystem</h3>
@@ -1599,10 +1630,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/geoserver" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GeoServer
+                                <i class="fab fa-github" aria-hidden="true"></i> GeoServer
                             </a>
                             <a href="https://github.com/ccancellieri/GeoServerStressTest" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> StressTest Tool
+                                <i class="fab fa-github" aria-hidden="true"></i> StressTest Tool
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1628,7 +1659,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-location-dot"></i>
+                                <i class="fas fa-location-dot" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">GeoID Service</h3>
@@ -1654,7 +1685,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/un-fao/GeoID" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1680,7 +1711,7 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">
-                                <i class="fas fa-brain"></i>
+                                <i class="fas fa-brain" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="project-title">MCP Skill Hub</h3>
@@ -1703,7 +1734,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/ccancellieri/mcp-skill-hub" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1743,7 +1774,7 @@
                             New route components for cloud-native messaging and data integration patterns.
                         </div>
                         <a href="https://camel.apache.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fas fa-external-link-alt"></i> Visit Project
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visit Project
                         </a>
                     </div>
                     <div class="opensource-item">
@@ -1752,7 +1783,7 @@
                             Python geospatial API framework for OGC standards implementation and geospatial data APIs.
                         </div>
                         <a href="https://pygeoapi.io/" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fas fa-external-link-alt"></i> Visit Project
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visit Project
                         </a>
                     </div>
                     <div class="opensource-item">
@@ -1761,7 +1792,7 @@
                             OGC Member (Level 5) proposing the Dimensions API and Assets API to the GeoDataCube Standards Working Group. Contributing to the STAC Datacube Extension.
                         </div>
                         <a href="https://www.ogc.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fas fa-external-link-alt"></i> Visit OGC
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visit OGC
                         </a>
                     </div>
                     <div class="opensource-item">
@@ -1770,7 +1801,7 @@
                             Contributor standardizing ISO 19115-4 (JSON encoding of geographic metadata) and ISO 19115-5 (GeoDCAT/DCAT transformation).
                         </div>
                         <a href="https://www.iso.org/committee/54904.html" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fas fa-external-link-alt"></i> Visit Committee
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visit Committee
                         </a>
                     </div>
                     <div class="opensource-item">
@@ -1779,7 +1810,7 @@
                             SQL Handler module for OPeNDAP Hyrax data server (still actively maintained).
                         </div>
                         <a href="https://www.opendap.org/" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fas fa-external-link-alt"></i> Visit Project
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visit Project
                         </a>
                     </div>
                     <div class="opensource-item">
@@ -1788,7 +1819,7 @@
                             Active open-source contributor with 1,000+ contributions per year across multiple ecosystems.
                         </div>
                         <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="opensource-link">
-                            <i class="fab fa-github"></i> GitHub Profile
+                            <i class="fab fa-github" aria-hidden="true"></i> GitHub Profile
                         </a>
                     </div>
                 </div>
@@ -1829,7 +1860,6 @@
                                 OGC Member since September 2025, proposing the Dimensions API and Assets API to the GeoDataCube Standards Working Group.
                                 ISO-TC211 contributor, standardizing ISO 19115-4 (JSON encoding) and ISO 19115-5 (GeoDCAT/DCAT).
                                 Integrating Vertex AI and LLM-based tooling (Model Context Protocol) into the Organisation's geospatial data workflows.
-                                FAO Training: Remote Sensing Data Portal, Global Agricultural Land Use Mapping, Sensing &amp; Data Analytics for Precision Agriculture, Climate Risk Toolbox, EX-ACT Tool Integration, Environmental &amp; Social Management Framework. IEEE DataPort: Driving Research and Innovation.
                             </p>
                         </div>
                     </div>
@@ -1941,6 +1971,19 @@
                     </div>
 
                     <div class="education-card">
+                        <h4 class="education-degree">Certifications & Professional Training</h4>
+                        <p class="education-school">FAO · IEEE · Six Sigma</p>
+                        <p class="education-year">2024–2025</p>
+                        <p class="education-description">
+                            FAO technical training: Remote Sensing Data Portal, Global Agricultural Land Use Mapping,
+                            Sensing & Data Analytics for Precision Agriculture, Climate Risk Toolbox (CRTB),
+                            EX-ACT Tool Integration, Environmental & Social Management Framework.
+                            IEEE DataPort: Driving Research and Innovation.
+                            Six Sigma Green Belt.
+                        </p>
+                    </div>
+
+                    <div class="education-card">
                         <h4 class="education-degree">Languages</h4>
                         <p class="education-school">Linguistic Proficiency</p>
                         <p class="education-year">2024</p>
@@ -1968,7 +2011,7 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </div>
                             <p class="contact-label">LinkedIn</p>
                             <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -1978,7 +2021,7 @@
 
                         <div class="contact-method">
                             <div class="contact-icon">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </div>
                             <p class="contact-label">GitHub</p>
                             <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -1988,7 +2031,7 @@
 
                         <div class="contact-method">
                             <div class="contact-icon">
-                                <i class="fab fa-orcid"></i>
+                                <i class="fab fa-orcid" aria-hidden="true"></i>
                             </div>
                             <p class="contact-label">ORCID</p>
                             <a href="https://orcid.org/0009-0006-4092-4234" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -1999,10 +2042,10 @@
 
                     <div style="margin-top: 2rem;">
                         <a href="https://linkedin.com/in/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-cta">
-                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                            <i class="fab fa-linkedin" aria-hidden="true"></i> Connect on LinkedIn
                         </a>
                         <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="contact-cta">
-                            <i class="fab fa-github"></i> View on GitHub
+                            <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -2019,7 +2062,9 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#opensource">Open Source</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
                 </ul>
             </div>
 
@@ -2043,7 +2088,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024–2026 Carlo Cancellieri. Handcrafted with <i class="fas fa-heart" style="color: var(--accent);"></i> and built with modern web technologies.</p>
+            <p>&copy; 2024–2026 Carlo Cancellieri. Handcrafted with <i class="fas fa-heart" style="color: var(--accent);" aria-hidden="true"></i> — a single HTML file, no frameworks.</p>
         </div>
     </footer>
 
