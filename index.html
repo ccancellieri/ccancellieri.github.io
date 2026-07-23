@@ -86,6 +86,27 @@
             --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --primary: #f5f9fc;
+            --secondary: #ffffff;
+            --accent: #007f93;
+            --accent-dark: #006478;
+            --text-primary: #102a43;
+            --text-secondary: #486581;
+            --border: #d9e2ec;
+        }
+
+        :root[data-theme="light"] body { background: radial-gradient(circle at 85% -10%, #d7f4f3 0%, transparent 32%), linear-gradient(135deg, #f8fbfc 0%, var(--primary) 100%); }
+        :root[data-theme="light"] header { background: rgba(248, 251, 252, .9); border-color: rgba(0, 127, 147, .16); }
+        :root[data-theme="light"] .project-card { background: rgba(255,255,255,.86); box-shadow: 0 10px 25px rgba(16,42,67,.06); }
+        :root[data-theme="light"] .project-card:hover { background: #fff; }
+
+        .site-controls { display:flex; align-items:center; gap:.6rem; }
+        .control-button, .language-select { border:1px solid var(--border); background:transparent; color:var(--text-primary); border-radius:.5rem; min-height:2.35rem; font:600 .78rem/1 'Inter',sans-serif; padding:.55rem .65rem; cursor:pointer; }
+        .control-button:hover, .language-select:hover { border-color:var(--accent); color:var(--accent); }
+        .language-select { appearance:none; padding-right:1.9rem; background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%); background-position:calc(100% - 12px) 50%,calc(100% - 8px) 50%; background-size:4px 4px,4px 4px; background-repeat:no-repeat; }
+
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
@@ -224,6 +245,10 @@
             .nav-cta {
                 display: none;
             }
+
+            .site-controls { gap:.35rem; }
+            .control-button { padding:.55rem; }
+            .language-select { width:3.3rem; padding-left:.45rem; }
         }
 
         /* ===== MAIN CONTAINER ===== */
@@ -1201,12 +1226,20 @@
                 <i class="fas fa-code" aria-hidden="true"></i> CC
             </a>
             <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="navAbout">About</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="navProjects">Projects</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="navExperience">Experience</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="navContact">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Get in Touch</a>
+            <div class="site-controls" aria-label="Site preferences">
+                <select id="language-select" class="language-select" aria-label="Language">
+                    <option value="en">EN</option>
+                    <option value="it">IT</option>
+                    <option value="es">ES</option>
+                </select>
+                <button id="theme-toggle" class="control-button" type="button" aria-label="Toggle colour theme" title="Toggle colour theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+                <a href="#contact" class="nav-cta" data-i18n="contactCta">Get in Touch</a>
+            </div>
         </nav>
     </header>
 
@@ -1216,17 +1249,17 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Carlo Cancellieri</h1>
-                    <p class="hero-subtitle">Lead Software Engineer · Geospatial &amp; Data Platform Architect</p>
-                    <p class="hero-description">
+                    <p class="hero-subtitle" data-i18n="heroSubtitle">Lead Software Engineer · Geospatial &amp; Data Platform Architect</p>
+                    <p class="hero-description" data-i18n="heroDescription">
                         Building cloud-native geospatial platforms at the <span class="highlight">United Nations FAO</span>
                         to advance food security and sustainable agriculture. 20+ years architecting systems that serve 50+ countries.
                     </p>
                     <div class="cta-group">
                         <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-arrow-right" aria-hidden="true"></i> View Projects
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i> <span data-i18n="viewProjects">View Projects</span>
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Get in Touch
+                            <i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contactCta">Get in Touch</span>
                         </a>
                     </div>
                     <div class="social-links">
@@ -1250,11 +1283,11 @@
         <!-- ABOUT SECTION -->
         <section id="about" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">About</h2>
+                <h2 class="section-title" data-i18n="about">About</h2>
 
                 <div class="about-grid">
                     <div class="about-content">
-                        <h3>Lead Software Engineer at FAO</h3>
+                        <h3 data-i18n="aboutRole">Lead Software Engineer at FAO</h3>
                         <p>
                             I'm a lead software engineer at the <strong>Food and Agriculture Organization of the United Nations</strong>,
                             architecting cloud-native geospatial platforms that enable data-driven decision-making for food security,
@@ -1328,7 +1361,7 @@
         <!-- PROJECTS SECTION -->
         <section id="projects" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title" data-i18n="featuredProjects">Featured Projects</h2>
 
                 <div class="projects-grid">
                     <!-- DynaStore -->
@@ -1764,7 +1797,7 @@
         <!-- OPEN SOURCE SECTION -->
         <section id="opensource" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Open Source Contributions</h2>
+                <h2 class="section-title" data-i18n="openSource">Open Source Contributions</h2>
 
                 <div class="opensource-grid">
                     <div class="opensource-item">
@@ -1842,7 +1875,7 @@
         <!-- EXPERIENCE SECTION -->
         <section id="experience" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-title" data-i18n="experience">Experience</h2>
 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -1944,7 +1977,7 @@
         <!-- EDUCATION SECTION -->
         <section id="education" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title" data-i18n="education">Education</h2>
 
                 <div class="education-grid">
                     <div class="education-card">
@@ -1998,7 +2031,7 @@
         <!-- CONTACT SECTION -->
         <section id="contact" class="animate-on-scroll">
             <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
+                <h2 class="section-title" data-i18n="contactCta">Get in Touch</h2>
 
                 <div class="contact-container">
                     <p class="contact-description">
@@ -2092,6 +2125,67 @@
     </footer>
 
     <script>
+        // Visitor preferences: follows the device by default and remembers an explicit choice.
+        const root = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const languageSelect = document.getElementById('language-select');
+        const savedTheme = localStorage.getItem('cc-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(theme) {
+            root.dataset.theme = theme;
+            themeToggle.innerHTML = `<i class="fas fa-${theme === 'dark' ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
+            themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        applyTheme(savedTheme || (prefersDark.matches ? 'dark' : 'light'));
+        themeToggle.addEventListener('click', () => {
+            const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('cc-theme', next);
+            applyTheme(next);
+        });
+        prefersDark.addEventListener('change', event => {
+            if (!localStorage.getItem('cc-theme')) applyTheme(event.matches ? 'dark' : 'light');
+        });
+
+        const translations = {
+            en: {
+                navAbout: 'About', navProjects: 'Projects', navExperience: 'Experience', navContact: 'Contact',
+                contactCta: 'Get in Touch', viewProjects: 'View Projects', about: 'About',
+                aboutRole: 'Lead Software Engineer at FAO', featuredProjects: 'Featured Projects',
+                openSource: 'Open Source Contributions', experience: 'Experience', education: 'Education',
+                heroSubtitle: 'Lead Software Engineer · Geospatial & Data Platform Architect',
+                heroDescription: 'Building cloud-native geospatial platforms at the United Nations FAO to advance food security and sustainable agriculture. 20+ years architecting systems that serve 50+ countries.'
+            },
+            it: {
+                navAbout: 'Profilo', navProjects: 'Progetti', navExperience: 'Esperienza', navContact: 'Contatti',
+                contactCta: 'Contattami', viewProjects: 'Vedi i progetti', about: 'Profilo',
+                aboutRole: 'Lead Software Engineer alla FAO', featuredProjects: 'Progetti in evidenza',
+                openSource: 'Contributi open source', experience: 'Esperienza', education: 'Formazione',
+                heroSubtitle: 'Lead Software Engineer · Architetto di piattaforme geospaziali e dati',
+                heroDescription: 'Creo piattaforme geospaziali cloud-native presso la FAO delle Nazioni Unite per sostenere la sicurezza alimentare e l’agricoltura sostenibile. Oltre 20 anni nella progettazione di sistemi al servizio di più di 50 paesi.'
+            },
+            es: {
+                navAbout: 'Perfil', navProjects: 'Proyectos', navExperience: 'Experiencia', navContact: 'Contacto',
+                contactCta: 'Contacta conmigo', viewProjects: 'Ver proyectos', about: 'Perfil',
+                aboutRole: 'Lead Software Engineer en la FAO', featuredProjects: 'Proyectos destacados',
+                openSource: 'Contribuciones open source', experience: 'Experiencia', education: 'Formación',
+                heroSubtitle: 'Lead Software Engineer · Arquitecto de plataformas geoespaciales y de datos',
+                heroDescription: 'Creo plataformas geoespaciales nativas de la nube en la FAO de las Naciones Unidas para impulsar la seguridad alimentaria y la agricultura sostenible. Más de 20 años diseñando sistemas para más de 50 países.'
+            }
+        };
+        function applyLanguage(language) {
+            const dictionary = translations[language] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(node => {
+                const value = dictionary[node.dataset.i18n];
+                if (value) node.textContent = value;
+            });
+            root.lang = language;
+            languageSelect.value = language;
+            localStorage.setItem('cc-language', language);
+        }
+        applyLanguage(localStorage.getItem('cc-language') || (navigator.language || 'en').slice(0, 2));
+        languageSelect.addEventListener('change', event => applyLanguage(event.target.value));
+
         // Smooth scroll navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
