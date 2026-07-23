@@ -1464,10 +1464,9 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            The multi-tenant geospatial engine powering FAO's data infrastructure: catalog API, maps/tiles API,
-                            dual GeoServer clusters (WMS/WFS/WMTS), and vector tiles. Designed to scale to thousands of tenants
-                            and millions of records via pluggable storage drivers (Iceberg, DuckDB, Parquet), serving 50+ countries
-                            through the Hand-in-Hand Initiative.
+                            A multi-tenant geospatial engine developed at FAO for catalog, map, tile and vector-data workflows.
+                            Its architecture separates protocol handling from storage and operational services, with pluggable
+                            PostgreSQL/PostGIS, search and analytical data paths across cloud and on-premises deployments.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1504,13 +1503,13 @@
                                 <li><strong>Data Catalog:</strong> data.apps.fao.org/catalog — Multi-tenant metadata discovery with pluggable storage backends (Iceberg / DuckDB / Parquet)</li>
                                 <li><strong>Maps &amp; Tiles API:</strong> FastAPI + PostGIS serving WMS/WFS/WMTS + Mapbox Vector Tiles for web mapping</li>
                                 <li><strong>Dual GeoServer Clusters:</strong> Separated read and authoring instances for safe editing under load</li>
-                                <li><strong>GeoID Service:</strong> Persistent identifier service for standardized geographic references</li>
+                                <li><strong>GeoID integration:</strong> OGC API and STAC extension packages reuse shared catalog, storage and lifecycle services</li>
                                 <li><strong>Operational hardening (2026):</strong> pg_cron-driven task reaper, async PostgreSQL connection pooling, and GCP provisioning resilience for multi-region deployments</li>
                                 <li><strong>Admin UI:</strong> Operator console for catalog provisioning, task inspection, and configuration management</li>
                             </ul>
                             <p style="margin-top: 1rem;">
-                                Architected from scratch to handle continental-scale data ingestion, real-time metadata indexing,
-                                and multi-tenant access control across FAO's member nations.
+                                My contribution covered the architecture and technical leadership of these shared services;
+                                DynaStore and its institutional deployments remain FAO work.
                             </p>
                         </div>
                     </div>
@@ -1524,8 +1523,8 @@
                             <div>
                                 <h3 class="project-title">Remote Sensing Portal</h3>
                                 <div class="project-meta">
-                                    <span class="project-role">Creator &amp; Lead</span>
-                                    <span class="project-year">2022–Present</span>
+                                    <span class="project-role">Technical Lead &amp; Architect</span>
+                                    <span class="project-year">2022–2026</span>
                                 </div>
                             </div>
                         </div>
@@ -1782,7 +1781,7 @@
                                 <h3 class="project-title">GeoID</h3>
                                 <div class="project-meta">
                                     <span class="project-role">Technical Lead &amp; Architect</span>
-                                    <span class="project-year">2020–Present</span>
+                                    <span class="project-year">2020–2026</span>
                                 </div>
                             </div>
                         </div>
@@ -1971,12 +1970,12 @@
                         <div class="timeline-content">
                             <h3 class="timeline-title">Lead Software Engineer, AgroInformatics Division</h3>
                             <p class="timeline-org">Food and Agriculture Organization of the United Nations (FAO)</p>
-                            <p class="timeline-date">Feb 2020–Present | Rome, Italy (Remote)</p>
+                            <p class="timeline-date">Feb 2020–2026 | Rome, Italy (Remote)</p>
                             <p class="timeline-description">
                                 Architect and lead engineer for the Organization's cloud-native geospatial platforms in support of the
-                                Hand-in-Hand Initiative. Design and deliver DynaStore, the Remote Sensing Portal, and Keystone (unified IAM),
-                                coordinating delivery across the Statistics Division, IT, and regional offices. Lead a multicultural team,
-                                manage GCP infrastructure-as-code, and mentor engineers across staff and consultant categories.
+                                Hand-in-Hand Initiative. Led architecture and delivery across DynaStore, the Remote Sensing Portal, and
+                                Keystone (unified IAM), coordinating work across the Statistics Division, IT, and regional offices.
+                                Led a multicultural team, managed GCP infrastructure-as-code, and mentored engineers across staff and consultant categories.
                                 OGC Member since September 2025, proposing the Dimensions API and Assets API to the GeoDataCube Standards Working Group.
                                 ISO-TC211 contributor, standardizing ISO 19115-4 (JSON encoding) and ISO 19115-5 (GeoDCAT/DCAT).
                                 Integrating Vertex AI and LLM-based tooling (Model Context Protocol) into the Organization's geospatial data workflows.
