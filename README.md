@@ -1,6 +1,6 @@
 # Carlo Cancellieri — Portfolio Website
 
-A professional, production-ready single-page portfolio website built for GitHub Pages. Clean, modern design focused on showcasing cloud-native geospatial platforms and open-source contributions.
+A professional single-page portfolio focused on open geospatial systems architecture, standards-driven platforms and open-source engineering.
 
 ## Live Demo
 
@@ -8,15 +8,15 @@ A professional, production-ready single-page portfolio website built for GitHub 
 
 ## Overview
 
-This portfolio highlights Carlo Cancellieri's 20+ years of experience architecting cloud-native geospatial platforms for the United Nations FAO, serving 50+ countries. The site showcases:
+This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including technical leadership at the United Nations FAO and independent open-source work. The site showcases:
 
-- **DynaStore** — Multi-tenant geospatial data platform (designed to scale to millions of records)
+- **Tellurion** — Rust geospatial serving engine with public, reproducible benchmark reporting
+- **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
 - **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
 - **Hyrax SQL Handler** — OPeNDAP database access module (Google Summer of Code 2009–2010)
 - **GeoServer Ecosystem** — Core contributions to GeoServer, GeoNetwork, GeoTools
 - **CKAN Extensions** — Open data platform tooling
-- **GeoID Service** — Geospatial identifier service
 - **MCP Skill Hub** — Local MCP server for semantic skill search and task memory (Ollama-powered)
 - **Open Source Contributions** — 1,000+ GitHub contributions per year
 
