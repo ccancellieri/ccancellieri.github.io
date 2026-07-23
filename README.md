@@ -8,7 +8,7 @@ A professional single-page portfolio focused on open geospatial systems architec
 
 ## Overview
 
-This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including technical leadership at the United Nations FAO and independent open-source work. The site showcases:
+This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including work as a GeoServer core developer, technical leadership at the United Nations FAO and independent open-source work. The site showcases:
 
 - **Tellurion** — Rust geospatial serving engine with public, reproducible benchmark reporting
 - **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
