@@ -7,7 +7,7 @@
     <meta name="author" content="Carlo Cancellieri">
     <meta name="keywords" content="Open Geospatial Systems Architect, Principal Architect, Geospatial Engineering, OGC API, STAC, ISO-TC211, Tellurion, GeoID, DynaStore, Rust, Python, FastAPI, PostGIS, Cloud Architecture, Hybrid Infrastructure, GCP, Kubernetes, Terraform">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#1c1a16">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Carlo Cancellieri | Open Geospatial Systems Architect">
@@ -71,28 +71,28 @@
 
         :root {
             color-scheme: dark;
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #06b6d4;
-            --accent-dark: #0891b2;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --border: #334155;
+            --primary: #1c1a16;
+            --secondary: #2a2520;
+            --accent: #d9773f;
+            --accent-dark: #b85c34;
+            --text-primary: #f7f1e7;
+            --text-secondary: #d7c6ae;
+            --border: #55483c;
             --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         :root[data-theme="light"] {
             color-scheme: light;
-            --primary: #f5f9fc;
+            --primary: #f6f0e5;
             --secondary: #ffffff;
-            --accent: #007f93;
-            --accent-dark: #006478;
-            --text-primary: #102a43;
-            --text-secondary: #486581;
-            --border: #d9e2ec;
+            --accent: #9a4d2e;
+            --accent-dark: #7a3925;
+            --text-primary: #2d241d;
+            --text-secondary: #66584d;
+            --border: #ddcfb9;
         }
 
-        :root[data-theme="light"] body { background: radial-gradient(circle at 85% -10%, #d7f4f3 0%, transparent 32%), linear-gradient(135deg, #f8fbfc 0%, var(--primary) 100%); }
+        :root[data-theme="light"] body { background: radial-gradient(circle at 85% -10%, #f1ddbd 0%, transparent 32%), linear-gradient(135deg, #f8fbfc 0%, var(--primary) 100%); }
         :root[data-theme="light"] header { background: rgba(248, 251, 252, .9); border-color: rgba(0, 127, 147, .16); }
         :root[data-theme="light"] .project-card { background: rgba(255,255,255,.86); box-shadow: 0 10px 25px rgba(16,42,67,.06); }
         :root[data-theme="light"] .project-card:hover { background: #fff; }
@@ -109,7 +109,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, #0a0e27 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #15120f 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -124,7 +124,7 @@
             z-index: 1000;
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(217, 119, 63, 0.1);
             padding: 1rem 0;
         }
 
@@ -142,7 +142,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             white-space: nowrap;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            background: linear-gradient(135deg, var(--accent), #e8ad67);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -206,7 +206,7 @@
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(217, 119, 63, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -259,14 +259,14 @@
 
         section {
             padding: 5rem 0;
-            border-top: 1px solid rgba(6, 182, 212, 0.05);
+            border-top: 1px solid rgba(217, 119, 63, 0.05);
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            background: linear-gradient(135deg, var(--accent), #e8ad67);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -302,7 +302,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(217, 119, 63, 0.05) 0%, transparent 100%);
             border-top: none;
         }
 
@@ -316,7 +316,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9, var(--accent));
+            background: linear-gradient(135deg, var(--accent), #e8ad67, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -370,7 +370,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(217, 119, 63, 0.4);
         }
 
         .btn-secondary {
@@ -380,7 +380,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 63, 0.1);
             transform: translateY(-3px);
         }
 
@@ -398,18 +398,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 63, 0.1);
             color: var(--accent);
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            border: 1px solid rgba(217, 119, 63, 0.3);
         }
 
         .social-icon:hover {
             background: var(--accent);
             color: var(--primary);
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(217, 119, 63, 0.3);
         }
 
         .scroll-indicator {
@@ -507,8 +507,8 @@
         .tech-tag {
             font-family: 'Fira Code', monospace;
             padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 63, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.3);
             border-radius: 2rem;
             font-size: 0.875rem;
             color: var(--accent);
@@ -517,7 +517,7 @@
         }
 
         .tech-tag:hover {
-            background: rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 63, 0.2);
             border-color: var(--accent);
             transform: translateY(-2px);
         }
@@ -531,15 +531,15 @@
 
         .stat-item {
             padding: 1.5rem;
-            background: rgba(6, 182, 212, 0.05);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            background: rgba(217, 119, 63, 0.05);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             text-align: center;
             transition: var(--transition);
         }
 
         .stat-item:hover {
-            background: rgba(6, 182, 212, 0.15);
+            background: rgba(217, 119, 63, 0.15);
             border-color: var(--accent);
             transform: translateY(-5px);
         }
@@ -573,7 +573,7 @@
 
         .project-card {
             background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(217, 119, 63, 0.2);
             border-radius: 0.75rem;
             padding: 2rem;
             transition: var(--transition);
@@ -601,7 +601,7 @@
             border-color: var(--accent);
             background: rgba(30, 41, 59, 0.8);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 20px 40px rgba(217, 119, 63, 0.2);
         }
 
         .project-card:hover::before {
@@ -621,7 +621,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 63, 0.2);
             border-radius: 0.5rem;
             color: var(--accent);
             flex-shrink: 0;
@@ -648,7 +648,7 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(217, 119, 63, 0.1);
         }
 
         .project-role {
@@ -672,8 +672,8 @@
         .project-tag {
             font-family: 'Fira Code', monospace;
             padding: 0.35rem 0.75rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            background: rgba(217, 119, 63, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.2);
             border-radius: 1.5rem;
             font-size: 0.75rem;
             color: var(--accent);
@@ -689,8 +689,8 @@
 
         .project-link {
             padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 63, 0.15);
+            border: 1px solid rgba(217, 119, 63, 0.3);
             border-radius: 0.4rem;
             color: var(--accent);
             text-decoration: none;
@@ -740,7 +740,7 @@
             display: none;
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 63, 0.1);
             color: var(--text-secondary);
             line-height: 1.7;
         }
@@ -812,13 +812,13 @@
         }
 
         .timeline-item:hover .timeline-dot {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 20px rgba(217, 119, 63, 0.5);
             transform: scale(1.2);
         }
 
         .timeline-content {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             padding: 1.5rem;
             transition: var(--transition);
@@ -876,7 +876,7 @@
 
         .education-card {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             padding: 2rem;
             transition: var(--transition);
@@ -923,7 +923,7 @@
         .opensource-item {
             padding: 1.5rem;
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             transition: var(--transition);
             display: flex;
@@ -967,7 +967,7 @@
 
         .orgs-section {
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             padding: 2.5rem;
             text-align: center;
@@ -989,8 +989,8 @@
 
         .org-badge {
             padding: 0.75rem 1.5rem;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(217, 119, 63, 0.15);
+            border: 1px solid rgba(217, 119, 63, 0.3);
             border-radius: 2rem;
             color: var(--accent);
             font-weight: 600;
@@ -1027,7 +1027,7 @@
         .contact-method {
             padding: 2rem 1.5rem;
             background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(217, 119, 63, 0.1);
             border-radius: 0.5rem;
             transition: var(--transition);
         }
@@ -1081,13 +1081,13 @@
 
         .contact-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(217, 119, 63, 0.4);
         }
 
         /* ===== FOOTER ===== */
         footer {
             background: rgba(15, 23, 42, 0.8);
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 63, 0.1);
             padding: 3rem 0 1.5rem;
             margin-top: 3rem;
         }
@@ -1128,7 +1128,7 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-top: 1px solid rgba(217, 119, 63, 0.1);
             padding-top: 1.5rem;
             text-align: center;
             color: var(--text-secondary);
@@ -1215,8 +1215,8 @@
         .logo { display:flex; align-items:center; gap:.65rem; letter-spacing:-.04em; }
         .logo::after { content:'CARLO C.'; font:600 .68rem/1 'Inter', sans-serif; letter-spacing:.16em; color:var(--text-secondary); -webkit-text-fill-color:var(--text-secondary); }
         .hero { min-height:calc(100vh - 1px); isolation:isolate; overflow:hidden; text-align:left; background:linear-gradient(130deg, rgba(6,182,212,.13), transparent 42%), linear-gradient(180deg, rgba(255,255,255,.02), transparent); }
-        .hero::before { content:''; position:absolute; inset:0; z-index:-2; opacity:.72; background-image:linear-gradient(rgba(34,211,238,.10) 1px, transparent 1px),linear-gradient(90deg, rgba(34,211,238,.10) 1px, transparent 1px); background-size:72px 72px; mask-image:linear-gradient(to bottom, #000, transparent 80%); }
-        .hero::after { content:''; position:absolute; width:72rem; height:72rem; right:-34rem; top:-28rem; z-index:-1; border:1px solid rgba(34,211,238,.26); border-radius:50%; box-shadow:0 0 0 7rem rgba(34,211,238,.035),0 0 0 14rem rgba(34,211,238,.025),0 0 110px rgba(6,182,212,.25); }
+        .hero::before { content:''; position:absolute; inset:0; z-index:-2; opacity:.72; background-image:linear-gradient(rgba(232, 173, 103,.10) 1px, transparent 1px),linear-gradient(90deg, rgba(232, 173, 103,.10) 1px, transparent 1px); background-size:72px 72px; mask-image:linear-gradient(to bottom, #000, transparent 80%); }
+        .hero::after { content:''; position:absolute; width:72rem; height:72rem; right:-34rem; top:-28rem; z-index:-1; border:1px solid rgba(232, 173, 103,.26); border-radius:50%; box-shadow:0 0 0 7rem rgba(232, 173, 103,.035),0 0 0 14rem rgba(232, 173, 103,.025),0 0 110px rgba(6,182,212,.25); }
         .hero .container { width:min(1320px,100%); }
         .hero-content { max-width:830px; padding-top:5rem; }
         .hero-kicker { display:flex; align-items:center; gap:.65rem; margin-bottom:1.5rem; color:var(--accent); font:600 .78rem/1 'Fira Code',monospace; letter-spacing:.12em; text-transform:uppercase; }
@@ -1234,6 +1234,9 @@
         :root[data-theme="light"] .hero { background:linear-gradient(130deg, rgba(6,182,212,.18), transparent 42%),linear-gradient(180deg, #fff, transparent); }
         :root[data-theme="light"] .hero-metric { background:rgba(255,255,255,.74); }
         @media (max-width:768px) { .hero { text-align:left; } .hero-content { padding-top:3.5rem; } .hero-meta { grid-template-columns:repeat(3,1fr); margin-top:2.6rem; } .hero-metric { padding:.85rem .7rem; } .hero-metric strong { font-size:1.15rem; } .hero-metric span { font-size:.61rem; } .cta-group,.social-links { justify-content:flex-start; } .scroll-indicator { display:none; } }
+    
+        .project-card-tellurion { border-color: color-mix(in srgb, var(--accent) 58%, var(--border)); background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 11%, var(--secondary)), var(--secondary)); }
+        .project-card-tellurion .project-icon { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 48%, transparent); }
     </style>
 </head>
 <body>
@@ -1268,7 +1271,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <p class="hero-kicker" data-i18n="heroKicker">Systems for a living planet</p>
+                    <p class="hero-kicker" data-i18n="heroKicker">Tellurion · systems for a living planet</p>
                     <h1>Carlo Cancellieri</h1>
                     <p class="hero-subtitle" data-i18n="heroSubtitle">Open Geospatial Systems Architect · Creator of Tellurion</p>
                     <p class="hero-description" data-i18n="heroDescription">
@@ -1393,6 +1396,14 @@
                 <h2 class="section-title" data-i18n="featuredProjects">Featured Projects</h2>
 
                 <div class="projects-grid">
+                    <!-- Tellurion Italy demo -->
+                    <div class="project-card project-card-tellurion">
+                        <div class="project-header"><div class="project-icon"><i class="fas fa-earth-europe" aria-hidden="true"></i></div><div><h3 class="project-title">Tellurion</h3><div class="project-meta"><span class="project-role">Creator</span><span class="project-year">2026</span></div></div></div>
+                        <p class="project-description">A public, reproducible field test in central Rome: OSM vector serving, ESA WorldCover raster analysis, and scoped performance comparisons with QGIS Processing and GeoServer.</p>
+                        <div class="project-tags"><span class="project-tag">Rust</span><span class="project-tag">OGC API</span><span class="project-tag">OSM</span><span class="project-tag">ESA WorldCover</span><span class="project-tag">Benchmarks</span></div>
+                        <div class="project-links"><a href="https://github.com/ccancellieri/tellurion-italy-demo" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Italy demo &amp; benchmarks</a></div>
+                    </div>
+
                     <!-- Tellurion -->
                     <div class="project-card">
                         <div class="project-header">
@@ -2240,7 +2251,7 @@
                 contactCta: 'Get in Touch', viewProjects: 'View Projects', about: 'About',
                 aboutRole: 'Standards into systems', featuredProjects: 'Featured Projects',
                 openSource: 'Open Source Contributions', experience: 'Experience', education: 'Education',
-                heroSubtitle: 'Open Geospatial Systems Architect · Creator of Tellurion', heroKicker: 'Systems for a living planet',
+                heroSubtitle: 'Open Geospatial Systems Architect · Creator of Tellurion', heroKicker: 'Tellurion · systems for a living planet',
                 heroDescription: 'I turn OGC API, STAC and ISO standards into operable systems — from multi-tenant cloud platforms to high-performance Rust services with reproducible benchmarks.',
                 metricYears: 'years in engineering', metricCountries: 'standards into systems', metricLayers: 'architecture through production'
             },
@@ -2249,7 +2260,7 @@
                 contactCta: 'Contattami', viewProjects: 'Vedi i progetti', about: 'Profilo',
                 aboutRole: 'Dagli standard ai sistemi', featuredProjects: 'Progetti in evidenza',
                 openSource: 'Contributi open source', experience: 'Esperienza', education: 'Formazione',
-                heroSubtitle: 'Architetto di sistemi geospaziali aperti · Creatore di Tellurion', heroKicker: 'Sistemi per un pianeta vivo',
+                heroSubtitle: 'Architetto di sistemi geospaziali aperti · Creatore di Tellurion', heroKicker: 'Tellurion · sistemi per un pianeta vivo',
                 heroDescription: 'Trasformo gli standard OGC API, STAC e ISO in sistemi operativi — dalle piattaforme cloud multi-tenant ai servizi Rust ad alte prestazioni con benchmark riproducibili.',
                 metricYears: 'anni di ingegneria', metricCountries: 'standard trasformati in sistemi', metricLayers: 'dall’architettura alla produzione'
             },
@@ -2258,7 +2269,7 @@
                 contactCta: 'Contacta conmigo', viewProjects: 'Ver proyectos', about: 'Perfil',
                 aboutRole: 'De los estándares a los sistemas', featuredProjects: 'Proyectos destacados',
                 openSource: 'Contribuciones open source', experience: 'Experiencia', education: 'Formación',
-                heroSubtitle: 'Arquitecto de sistemas geoespaciales abiertos · Creador de Tellurion', heroKicker: 'Sistemas para un planeta vivo',
+                heroSubtitle: 'Arquitecto de sistemas geoespaciales abiertos · Creador de Tellurion', heroKicker: 'Tellurion · sistemas para un planeta vivo',
                 heroDescription: 'Convierto los estándares OGC API, STAC e ISO en sistemas operativos — desde plataformas cloud multiinquilino hasta servicios Rust de alto rendimiento con benchmarks reproducibles.',
                 metricYears: 'años de ingeniería', metricCountries: 'estándares convertidos en sistemas', metricLayers: 'de la arquitectura a producción'
             }
