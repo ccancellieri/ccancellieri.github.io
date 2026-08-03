@@ -10,7 +10,7 @@ A professional single-page portfolio focused on open geospatial systems architec
 
 This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including work as a GeoServer core developer, technical leadership at the United Nations FAO and independent engineering work. The site showcases:
 
-- **Tellurion** — Rust geospatial serving engine with public, reproducible benchmark reporting
+- **Tellurion** — Rust geospatial serving engine with seven public demo paths, four read-only services, a downloadable 0.3.0 release and a separately bounded Rome benchmark
 - **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
 - **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
@@ -53,7 +53,7 @@ This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial
 
 1. **Hero** — Name, tagline, and call-to-action
 2. **About** — Professional background, tech stack, key stats
-3. **Featured Projects** — 8 major projects with expandable details
+3. **Featured Projects** — 7 major projects with expandable details; Tellurion leads from live gallery to release, field case and benchmark evidence
 4. **Open Source** — Contributions, organization memberships
 5. **Experience** — Timeline of roles and responsibilities
 6. **Education** — Degrees and qualifications
@@ -71,6 +71,7 @@ portfolio/
 ├── sitemap.xml         # Search engine sitemap
 ├── privacy-policy.html # Standalone privacy policy for the Planner app
 ├── README.md           # This file
+├── tests/              # Public evidence regression contracts
 └── .gitignore          # Git ignore patterns
 ```
 
@@ -216,6 +217,7 @@ The site includes:
 
 - **v1.0** (2026-03) — Initial release with 6 featured projects, open-source section, timeline, education, and contact
 - **v1.1** (2026-07) — 8 featured projects, OG image and social metadata, robots/sitemap, mobile nav and accessibility polish, 404 page
+- **v1.2** (2026-08) — Consolidated Tellurion into one evidence-led project story spanning the live gallery, 0.3.0 artifacts, Rome field case and version-bounded benchmark
 
 ## License
 
