@@ -1275,15 +1275,15 @@
                     <h1>Carlo Cancellieri</h1>
                     <p class="hero-subtitle" data-i18n="heroSubtitle">Open Geospatial Systems Architect · Creator of Tellurion</p>
                     <p class="hero-description" data-i18n="heroDescription">
-                        I turn OGC API, STAC and ISO standards into operable systems —
-                        from multi-tenant cloud platforms to high-performance Rust services with reproducible benchmarks.
+                        I turn OGC API, STAC and ISO standards into geospatial systems you can run,
+                        inspect and keep under your control — from multi-tenant platforms to native Rust services.
                     </p>
                     <div class="cta-group">
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-arrow-right" aria-hidden="true"></i> <span data-i18n="viewProjects">View Projects</span>
+                        <a href="https://ccancellieri.github.io/tellurion-demos/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i> <span data-i18n="exploreTellurion">Explore live Tellurion</span>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contactCta">Get in Touch</span>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i> <span data-i18n="viewProjects">View Projects</span>
                         </a>
                     </div>
                     <div class="hero-meta" aria-label="Professional highlights">
@@ -1326,9 +1326,10 @@
                             tiles, coverages, processing, joins and 3D delivery.
                         </p>
                         <p>
-                            Independently, I created <strong>Tellurion</strong>, a Rust geospatial serving engine that explores
-                            embedded-first deployment, bounded resource use and standards-driven interfaces. The public Italy
-                            demonstration separates reproducibility evidence, measured results and stated limitations from the engine itself.
+                            Independently, I created <strong>Tellurion</strong>, a Rust geospatial serving engine built around
+                            embedded-first deployment, bounded resource use and standards-driven interfaces. Its public gallery
+                            makes seven vector, raster, multidimensional, 3D and protocol paths inspectable through four read-only
+                            services. The separate Italy field case keeps reproduction evidence, measured results and limitations together.
                         </p>
                         <p>
                             As I conclude my FAO chapter, I am exploring principal architect and senior technical leadership
@@ -1398,16 +1399,8 @@
                 <h2 class="section-title" data-i18n="featuredProjects">Featured Projects</h2>
 
                 <div class="projects-grid">
-                    <!-- Tellurion Italy demo -->
-                    <div class="project-card project-card-tellurion">
-                        <div class="project-header"><div class="project-icon"><i class="fas fa-earth-europe" aria-hidden="true"></i></div><div><h3 class="project-title">Tellurion</h3><div class="project-meta"><span class="project-role">Creator</span><span class="project-year">2026</span></div></div></div>
-                        <p class="project-description">A public, reproducible field test in central Rome: OSM vector serving, ESA WorldCover raster analysis, and scoped performance comparisons with QGIS Processing and GeoServer.</p>
-                        <div class="project-tags"><span class="project-tag">Rust</span><span class="project-tag">OGC API</span><span class="project-tag">OSM</span><span class="project-tag">ESA WorldCover</span><span class="project-tag">Benchmarks</span></div>
-                        <div class="project-links"><a href="https://github.com/ccancellieri/tellurion-italy-demo" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Italy demo &amp; benchmarks</a></div>
-                    </div>
-
                     <!-- Tellurion -->
-                    <div class="project-card">
+                    <div class="project-card project-card-tellurion">
                         <div class="project-header">
                             <div class="project-icon">
                                 <i class="fas fa-bolt" aria-hidden="true"></i>
@@ -1421,9 +1414,10 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            An independent Rust geospatial serving engine for OGC API Features, Tiles, Maps and Styles,
-                            STAC workflows, COG/Zarr raster lanes and 3D Tiles. Embedded GeoPackage is the low-ceremony
-                            default; PostGIS supports larger deployments.
+                            A Rust geospatial serving engine with seven public demonstration paths across Features, Tiles,
+                            Maps, Styles, STAC, CQL2, COG, Zarr and 3D Tiles. Four read-only Render services make the
+                            published 0.3.0 distribution inspectable; GeoPackage stays the embedded default and PostGIS
+                            supports larger deployments.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Rust</span>
@@ -1436,14 +1430,17 @@
                             <span class="project-tag">3D Tiles 1.1</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/ccancellieri/tellurion-italy-demo" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github" aria-hidden="true"></i> Public evidence
+                            <a href="https://ccancellieri.github.io/tellurion-demos/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-play-circle" aria-hidden="true"></i> Explore live demos
+                            </a>
+                            <a href="https://github.com/ccancellieri/tellurion-demos/releases/tag/tellurion-v0.3.0" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download Tellurion 0.3.0
                             </a>
                             <a href="https://ccancellieri.github.io/tellurion-italy-demo/" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Italy 3D Demo
+                                <i class="fas fa-earth-europe" aria-hidden="true"></i> Inspect the Rome field case
                             </a>
                             <a href="https://github.com/ccancellieri/tellurion-italy-demo/blob/main/evidence/BENCHMARK-REPORT.md" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-chart-line" aria-hidden="true"></i> Benchmark evidence
+                                <i class="fas fa-chart-line" aria-hidden="true"></i> Read the benchmark report
                             </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
@@ -1451,13 +1448,13 @@
                             <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
-                            <strong>Public evidence with bounded claims:</strong>
+                            <strong>Public evidence with explicit boundaries:</strong>
                             <ul>
-                                <li><strong>Reproducibility:</strong> workload, environment, method, raw evidence and limitations are published together</li>
-                                <li><strong>Comparable lanes:</strong> raster analysis and geospatial serving are evaluated as distinct jobs</li>
-                                <li><strong>Measured tools only:</strong> no performance result is inferred for software that was not run under a licensed, controlled setup</li>
-                                <li><strong>Standards precision:</strong> demonstrated interface behavior is not presented as certification or broad conformance</li>
-                                <li><strong>Scope:</strong> the Rome field test is evidence for a bounded workload, not a production- or country-scale capacity claim</li>
+                                <li><strong>Live gallery:</strong> seven visual paths sit in front of four read-only services; synthetic fixtures and protocol limits are labelled</li>
+                                <li><strong>Deployment:</strong> free Render services can sleep after inactivity. Hosted timings are not benchmark evidence</li>
+                                <li><strong>Release:</strong> public demos use checksum-pinned Tellurion 0.3.0 artifacts; newer engine work is not presented as deployed</li>
+                                <li><strong>Rome measurement:</strong> the published result remains a Tellurion 0.2.0 smoke-scale benchmark with its method and caveats</li>
+                                <li><strong>Standards precision:</strong> demonstrated behavior is not presented as certification or blanket conformance</li>
                             </ul>
                         </div>
                     </div>
@@ -2250,29 +2247,29 @@
         const translations = {
             en: {
                 navAbout: 'About', navProjects: 'Projects', navExperience: 'Experience', navContact: 'Contact',
-                contactCta: 'Get in Touch', viewProjects: 'View Projects', about: 'About',
+                contactCta: 'Get in Touch', viewProjects: 'View Projects', exploreTellurion: 'Explore live Tellurion', about: 'About',
                 aboutRole: 'Standards into systems', featuredProjects: 'Featured Projects',
                 openSource: 'Open Source Contributions', experience: 'Experience', education: 'Education',
                 heroSubtitle: 'Open Geospatial Systems Architect · Creator of Tellurion', heroKicker: 'Tellurion · systems for a living planet',
-                heroDescription: 'I turn OGC API, STAC and ISO standards into operable systems — from multi-tenant cloud platforms to high-performance Rust services with reproducible benchmarks.',
+                heroDescription: 'I turn OGC API, STAC and ISO standards into geospatial systems you can run, inspect and keep under your control — from multi-tenant platforms to native Rust services.',
                 metricYears: 'years in engineering', metricCountries: 'standards into systems', metricLayers: 'architecture through production'
             },
             it: {
                 navAbout: 'Profilo', navProjects: 'Progetti', navExperience: 'Esperienza', navContact: 'Contatti',
-                contactCta: 'Contattami', viewProjects: 'Vedi i progetti', about: 'Profilo',
+                contactCta: 'Contattami', viewProjects: 'Vedi i progetti', exploreTellurion: 'Esplora Tellurion dal vivo', about: 'Profilo',
                 aboutRole: 'Dagli standard ai sistemi', featuredProjects: 'Progetti in evidenza',
                 openSource: 'Contributi open source', experience: 'Esperienza', education: 'Formazione',
                 heroSubtitle: 'Architetto di sistemi geospaziali aperti · Creatore di Tellurion', heroKicker: 'Tellurion · sistemi per un pianeta vivo',
-                heroDescription: 'Trasformo gli standard OGC API, STAC e ISO in sistemi operativi — dalle piattaforme cloud multi-tenant ai servizi Rust ad alte prestazioni con benchmark riproducibili.',
+                heroDescription: 'Trasformo gli standard OGC API, STAC e ISO in sistemi geospaziali che puoi eseguire, ispezionare e mantenere sotto il tuo controllo — dalle piattaforme multi-tenant ai servizi Rust nativi.',
                 metricYears: 'anni di ingegneria', metricCountries: 'standard trasformati in sistemi', metricLayers: 'dall’architettura alla produzione'
             },
             es: {
                 navAbout: 'Perfil', navProjects: 'Proyectos', navExperience: 'Experiencia', navContact: 'Contacto',
-                contactCta: 'Contacta conmigo', viewProjects: 'Ver proyectos', about: 'Perfil',
+                contactCta: 'Contacta conmigo', viewProjects: 'Ver proyectos', exploreTellurion: 'Explorar Tellurion en vivo', about: 'Perfil',
                 aboutRole: 'De los estándares a los sistemas', featuredProjects: 'Proyectos destacados',
                 openSource: 'Contribuciones open source', experience: 'Experiencia', education: 'Formación',
                 heroSubtitle: 'Arquitecto de sistemas geoespaciales abiertos · Creador de Tellurion', heroKicker: 'Tellurion · sistemas para un planeta vivo',
-                heroDescription: 'Convierto los estándares OGC API, STAC e ISO en sistemas operativos — desde plataformas cloud multiinquilino hasta servicios Rust de alto rendimiento con benchmarks reproducibles.',
+                heroDescription: 'Convierto los estándares OGC API, STAC e ISO en sistemas geoespaciales que puedes ejecutar, inspeccionar y mantener bajo tu control — desde plataformas multiinquilino hasta servicios Rust nativos.',
                 metricYears: 'años de ingeniería', metricCountries: 'estándares convertidos en sistemas', metricLayers: 'de la arquitectura a producción'
             }
         };
