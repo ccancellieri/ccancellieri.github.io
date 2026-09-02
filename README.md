@@ -10,7 +10,7 @@ A professional single-page portfolio focused on open geospatial systems architec
 
 This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including work as a GeoServer core developer, technical leadership at the United Nations FAO and independent engineering work. The site showcases:
 
-- **Tellurion** — Rust geospatial serving engine with seven public demo paths, four read-only services, a downloadable 0.3.0 release and a separately bounded Rome benchmark
+- **Tellurion** — Rust geospatial serving engine with seven public demo paths, four active read-only services, an explicit proof brief, a downloadable 0.3.0 release and a separately bounded Rome benchmark
 - **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
 - **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
