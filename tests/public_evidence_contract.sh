@@ -4,7 +4,10 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 INDEX=$ROOT/index.html
 
+test -f "$ROOT/tellurion-mark.svg"
+xmllint --noout "$ROOT/tellurion-mark.svg"
 test "$(grep -c '<h3 class="project-title">Tellurion</h3>' "$INDEX")" -eq 1
+grep -Fq 'src="tellurion-mark.svg" alt="Tellurion product mark"' "$INDEX"
 grep -Fq 'https://github.com/ccancellieri/tellurion' "$INDEX"
 grep -Fq 'Tellurion v0.4.0 release-candidate Community source' "$INDEX"
 grep -Fq 'independently created and owned by Carlo Cancellieri' "$INDEX"
