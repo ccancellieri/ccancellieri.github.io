@@ -522,41 +522,6 @@
             transform: translateY(-2px);
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            padding: 1.5rem;
-            background: rgba(217, 119, 63, 0.05);
-            border: 1px solid rgba(217, 119, 63, 0.1);
-            border-radius: 0.5rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            background: rgba(217, 119, 63, 0.15);
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-family: 'Fira Code', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
         @media (max-width: 768px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -1329,10 +1294,11 @@
                         <p>
                             Tellurion is independently created and owned by Carlo Cancellieri: a Rust geospatial serving engine
                             built around embedded-first deployment, bounded resource use and standards-driven interfaces. Its
-                            <a href="https://github.com/ccancellieri/tellurion" target="_blank" rel="noopener noreferrer">v0.4.0 release-candidate Community source</a>
-                            is available for self-hosted deployment. The public gallery
-                            makes seven vector, raster, multidimensional, 3D and protocol paths inspectable through four active read-only
-                            services. A fifth service definition remains visibly behind its deployment gate. The separate Italy field case
+                            <a href="https://github.com/ccancellieri/tellurion" target="_blank" rel="noopener noreferrer">v0.5.0-rc.1 Community source</a>
+                            is available under AGPL-3.0-only for self-hosted evaluation. The
+                            <a href="https://tellurion-public-demo.onrender.com/ui/" target="_blank" rel="noopener noreferrer">public evaluator</a>
+                            opens supported public HTTPS COG, GeoParquet and ZIP Shapefile sources as temporary maps.
+                            The gallery distinguishes current source deployments from historical demos. The separate Italy field case
                             keeps reproduction evidence, measured results and limitations together.
                         </p>
                         <p>
@@ -1341,33 +1307,6 @@
                         </p>
                     </div>
                     <div>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">20+</div>
-                                <div class="stat-label">Years in Software</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">Countries Served</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">12+</div>
-                                <div class="stat-label">Years at FAO</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1M+</div>
-                                <div class="stat-label">Designed Scale (records/users)</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">6</div>
-                                <div class="stat-label">Open Source Projects</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1k+</div>
-                                <div class="stat-label">GitHub Contributions/year</div>
-                            </div>
-                        </div>
-
                         <div style="margin-top: 3rem;">
                             <h3 style="color: var(--accent); margin-bottom: 1rem;">Tech Stack</h3>
                             <div class="tech-stack">
@@ -1430,7 +1369,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Tellurion v0.4.0 release-candidate Community source is an independently created and owned,
+                            Tellurion v0.5.0-rc.1 Community source is an independently created and owned,
                             self-hosted Rust geospatial serving engine. It covers Features, Tiles, Maps, Styles, STAC, CQL2,
                             COG, Zarr and 3D Tiles; GeoPackage stays the embedded default and PostGIS supports larger deployments.
                         </p>
@@ -1454,8 +1393,8 @@
                             <a href="https://ccancellieri.github.io/tellurion-demos/proof/" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="fas fa-clipboard-check" aria-hidden="true"></i> Review the proof brief
                             </a>
-                            <a href="https://github.com/ccancellieri/tellurion-demos/releases/tag/tellurion-v0.3.0" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-download" aria-hidden="true"></i> Download Tellurion 0.3.0
+                            <a href="https://tellurion-public-demo.onrender.com/ui/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-map" aria-hidden="true"></i> Try your own public file
                             </a>
                             <a href="https://ccancellieri.github.io/tellurion-italy-demo/" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="fas fa-earth-europe" aria-hidden="true"></i> Inspect the Rome field case
@@ -1471,10 +1410,10 @@
                         <div class="project-details">
                             <strong>Public evidence with explicit boundaries:</strong>
                             <ul>
-                                <li><strong>Source and operation:</strong> v0.4.0 release-candidate Community source is public for self-hosted deployment. There is no Tellurion Cloud and no service-level agreement</li>
-                                <li><strong>Public gallery:</strong> seven visual paths sit in front of four active services; a fifth service definition is explicitly marked as pending</li>
+                                <li><strong>Source and operation:</strong> v0.5.0-rc.1 Community source is public under AGPL-3.0-only for self-hosted evaluation. There is no Tellurion Cloud and no service-level agreement</li>
+                                <li><strong>Try a public file:</strong> COG and GeoParquet use bounded HTTPS range reads; ZIP Shapefile uses bounded temporary storage. Use a direct public HTTPS URL without credentials, query parameters, fragments or redirects. Sessions last up to 15 minutes and create no persistent tenant or catalog</li>
                                 <li><strong>Deployment:</strong> free Render services can sleep after inactivity. Hosted timings are not benchmark evidence</li>
-                                <li><strong>Release:</strong> historical demos still use checksum-pinned 0.3 artifacts until they are redeployed; v0.4.0 release-candidate source is not presented as deployed there</li>
+                                <li><strong>Release:</strong> the public evaluator and vector/STAC paths run public release-candidate source; historical raster, Zarr and 3D demos retain checksum-pinned 0.3 artifacts and their original terms</li>
                                 <li><strong>Rome measurement:</strong> the published result remains a Tellurion 0.2.0 smoke-scale benchmark with its method and caveats</li>
                                 <li><strong>Standards precision:</strong> demonstrated behavior is not presented as certification or blanket conformance</li>
                             </ul>
@@ -1965,9 +1904,9 @@
                         </a>
                     </div>
                     <div class="opensource-item">
-                        <div class="opensource-name">1000+ GitHub Contributions</div>
+                        <div class="opensource-name">Engineering in the open</div>
                         <div class="opensource-desc">
-                            Active open-source contributor with 1,000+ contributions per year across multiple ecosystems.
+                            Explore public repositories, implementation discussions and reproducible examples on GitHub.
                         </div>
                         <a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer" class="opensource-link">
                             <i class="fab fa-github" aria-hidden="true"></i> GitHub Profile

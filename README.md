@@ -10,7 +10,7 @@ A professional single-page portfolio focused on open geospatial systems architec
 
 This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including work as a GeoServer core developer, technical leadership at the United Nations FAO and independent engineering work. The site showcases:
 
-- **Tellurion** — independently created and owned by Carlo Cancellieri; its public v0.4.0 release-candidate Community source is available for self-hosted deployment. Seven historical demo paths, four active read-only services, an explicit proof brief and a bounded Rome benchmark remain available; those demo backends use checksum-pinned 0.3 artifacts until redeployed. There is no Tellurion Cloud or service-level agreement.
+- **Tellurion** — independently created and owned by Carlo Cancellieri; its public v0.5.0-rc.1 Community source is available under AGPL-3.0-only for self-hosted evaluation. The public evaluator accepts supported public HTTPS COG, GeoParquet and ZIP Shapefile sources for temporary map sessions. The gallery identifies current vector/STAC source deployments separately from historical 0.3 raster, Zarr and 3D artifacts, with explicit limitations and attribution. There is no Tellurion Cloud or service-level agreement.
 - **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
 - **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
