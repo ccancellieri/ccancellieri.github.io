@@ -14,6 +14,9 @@ grep -Fq 'Tellurion Cloud' "$INDEX"
 grep -Fq 'service-level agreement' "$INDEX"
 grep -Fq 'https://ccancellieri.github.io/tellurion-demos/' "$INDEX"
 grep -Fq 'https://ccancellieri.github.io/tellurion-demos/proof/' "$INDEX"
+grep -Fq 'href="https://ccancellieri.github.io/tellurion-demos/releases/"' "$INDEX"
+grep -Fq 'https://github.com/ccancellieri/tellurion/tree/main/demo/gallery' "$INDEX"
+grep -Fq 'https://github.com/ccancellieri/tellurion/blob/main/demo/gallery/docs/articles/from-stac-discovery-to-a-live-map.md' "$INDEX"
 grep -Fq 'href="https://tellurion-public-demo.onrender.com/ui/"' "$INDEX"
 if grep -Fq 'href="https://github.com/ccancellieri/tellurion-demos/releases/tag/tellurion-v0.3.0"' "$INDEX"; then
     printf 'Retired binary release must not replace the current evaluator action.\n' >&2
