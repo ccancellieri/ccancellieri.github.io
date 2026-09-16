@@ -18,6 +18,11 @@ grep -Fq 'href="https://ccancellieri.github.io/tellurion/releases/"' "$INDEX"
 grep -Fq 'https://github.com/ccancellieri/tellurion/tree/main/demo/gallery' "$INDEX"
 grep -Fq 'https://github.com/ccancellieri/tellurion/blob/main/demo/gallery/docs/articles/from-stac-discovery-to-a-live-map.md' "$INDEX"
 grep -Fq 'href="https://tellurion-public-demo.onrender.com/ui/"' "$INDEX"
+grep -Fq 'href="https://www.linkedin.com/feed/update/urn:li:activity:7505973347441328128/"' "$INDEX"
+grep -Fq 'Watch the 90-second walkthrough' "$INDEX"
+grep -Fq 'This edited walkthrough is not a performance benchmark' "$INDEX"
+grep -Fq 'Monaco building footprints (GeoParquet)' "$INDEX"
+grep -Fq 'Natural Earth coastline (ZIP Shapefile)' "$INDEX"
 if grep -Fq 'href="https://github.com/ccancellieri/tellurion-demos/releases/tag/tellurion-v0.3.0"' "$INDEX"; then
     printf 'Retired binary release must not replace the current evaluator action.\n' >&2
     exit 1

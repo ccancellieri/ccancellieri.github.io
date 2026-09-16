@@ -17,6 +17,10 @@ This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial
   [canonical gallery source](https://github.com/ccancellieri/tellurion/tree/main/demo/gallery).
   The gallery and Italy case study now share the Tellurion site; archived pages
   preserve dated viewers, not a promise of historical backend uptime.
+  The [90-second walkthrough on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7505973347441328128/)
+  shows ESA WorldCover COG, Monaco GeoParquet and Natural Earth ZIP Shapefile
+  sources in temporary map previews. It is an edited demonstration, not a
+  performance benchmark or a persistent administration workflow.
 - **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
 - **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
 - **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
