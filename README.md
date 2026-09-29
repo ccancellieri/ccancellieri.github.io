@@ -27,7 +27,7 @@ This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial
 - **Hyrax SQL Handler** — OPeNDAP database access module (Google Summer of Code 2009–2010)
 - **GeoServer Ecosystem** — Core contributions to GeoServer, GeoNetwork, GeoTools
 - **CKAN Extensions** — Open data platform tooling
-- **MCP Skill Hub** — Local MCP server for semantic skill search and task memory (Ollama-powered)
+- **MCP Skill Hub** — Alpha Python context service by Carlo Cancellieri, released under [Apache 2.0](https://github.com/ccancellieri/mcp-skill-hub/blob/main/LICENSE). It retrieves project-scoped skill and task evidence with source references and a reviewable prompt preview. Interactive retrieval needs no local model; an optional 8-tool profile reduces the measured MCP schema and instruction payload. [Design and boundaries](https://github.com/ccancellieri/mcp-skill-hub/blob/main/docs/context-service.md) · [Measured results](https://github.com/ccancellieri/mcp-skill-hub/blob/main/benchmarks/VERIFIED_RESULTS.md)
 - **Open Source Contributions** — 1,000+ GitHub contributions per year
 
 ## Features

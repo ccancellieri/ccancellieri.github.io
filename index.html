@@ -1820,20 +1820,19 @@
                             </div>
                             <div>
                                 <h3 class="project-title">MCP Skill Hub</h3>
-                                <div class="project-meta">
-                                    <span class="project-role">Creator</span>
-                                    <span class="project-year">2026</span>
+                                <div class="project-meta" style="gap: 0.75rem; flex-wrap: wrap;">
+                                    <span class="project-role">By Carlo Cancellieri</span>
+                                    <span class="project-year">Alpha (2026)</span>
                                 </div>
                             </div>
                         </div>
                         <p class="project-description">
-                            A local MCP server that gives Claude Code semantic skill search, cross-session task memory,
-                            and zero-token command interception — all powered by Ollama running entirely on your machine.
+                            A Python MCP context service that brings relevant skills and task evidence into coding sessions.
+                            It keeps the original request intact, scopes retrieval to the project, and shows where each result came from.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">FastMCP</span>
-                            <span class="project-tag">Ollama</span>
                             <span class="project-tag">SQLite</span>
                             <span class="project-tag">MCP</span>
                         </div>
@@ -1841,25 +1840,32 @@
                             <a href="https://github.com/ccancellieri/mcp-skill-hub" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="fab fa-github" aria-hidden="true"></i> GitHub
                             </a>
+                            <a href="https://github.com/ccancellieri/mcp-skill-hub/blob/main/docs/context-service.md" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Design &amp; boundaries
+                            </a>
+                            <a href="https://github.com/ccancellieri/mcp-skill-hub/blob/main/benchmarks/VERIFIED_RESULTS.md" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-chart-bar" aria-hidden="true"></i> Measured results
+                            </a>
+                            <a href="https://github.com/ccancellieri/mcp-skill-hub/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-balance-scale" aria-hidden="true"></i> Apache 2.0 license
+                            </a>
                         </div>
                         <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false">
                             <span>Learn more</span>
                             <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="project-details">
-                            <strong>Key Features:</strong>
+                            <strong>Engineering scope:</strong>
                             <ul>
-                                <li><strong>Semantic Skill Search:</strong> Find Claude Code skills by meaning using Ollama embeddings — no keywords needed</li>
-                                <li><strong>Zero-Token Hook:</strong> UserPromptSubmit hook intercepts "save task", "close task" commands locally before Claude sees them</li>
-                                <li><strong>Cross-Session Memory:</strong> Save open tasks, compact closed ones with a local LLM (~200 tokens vs ~5000 raw)</li>
-                                <li><strong>Three-Signal Learning:</strong> Teachings, feedback ratings, and passive session history improve rankings over time</li>
-                                <li><strong>Plugin Management:</strong> Enable/disable Claude plugins live; suggest relevant disabled plugins by context</li>
-                                <li><strong>Token Profiling:</strong> Tracks estimated Claude API tokens saved per hook interception</li>
+                                <li><strong>Scoped retrieval:</strong> Select task memory and skill descriptions for the current project, with size limits and source references</li>
+                                <li><strong>Reviewable context:</strong> Inspect the original prompt, supplemental evidence, sources and omissions in the Context page</li>
+                                <li><strong>Client integration:</strong> Use the same retrieval service through MCP or a prompt hook; leave permission and continuation decisions with the coding client</li>
+                                <li><strong>Smaller tool surface:</strong> An optional 8-tool profile measured 1,242 <code>o200k_base</code> tokens for serialized MCP schemas and instructions, down from 16,362 for the 87-tool profile (92.41% lower). This is a schema comparison, not a measure of total task usage</li>
+                                <li><strong>Resilient path:</strong> Pass the original prompt through when context is unavailable or retrieval times out</li>
                             </ul>
                             <p style="margin-top: 1rem;">
-                                Designed for developers who run many Claude Code plugins and want to keep context lean.
-                                Runs entirely offline on your machine using Ollama (deepseek-r1, nomic-embed-text).
-                                Install in one command: <code>./install.sh</code>
+                                Interactive retrieval needs no local model or API key. Optional indexing and memory curation
+                                run outside the prompt path.
                             </p>
                         </div>
                     </div>
