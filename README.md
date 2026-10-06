@@ -1,245 +1,87 @@
-# Carlo Cancellieri — Portfolio Website
+# Carlo Cancellieri — Personal Portfolio
 
-A professional single-page portfolio focused on open geospatial systems architecture, standards-driven platforms and evidence-led engineering.
+A public, evidence-led portfolio of software engineering, architecture,
+DevOps, cloud and geospatial work, open-source contributions and international
+collaboration. The homepage presents Carlo's career; Tellurion has its own
+[project site](https://ccancellieri.github.io/tellurion/).
 
-## Live Demo
+Live portfolio: [ccancellieri.github.io](https://ccancellieri.github.io/).
 
-**URL:** `https://ccancellieri.github.io`
+## Content
 
-## Overview
+- Professional introduction and technical foundations, including Linux since
+  1997 and development across Linux, macOS and Windows. Early computing
+  experience is kept separate from professional employment dates.
+- Selected work spanning FAO platforms, GeoServer, OPeNDAP, independent
+  Tellurion development and MCP Skill Hub research.
+- Career and team context, education, selected writing and engineering
+  principles grounded in concrete work.
+- Public professional links, with institutional work distinguished from
+  independent projects. The portfolio does not imply institutional endorsement.
 
-This portfolio presents Carlo Cancellieri's 20+ years of software and geospatial engineering experience, including work as a GeoServer core developer, technical leadership at the United Nations FAO and independent engineering work. The site showcases:
+Project descriptions identify Carlo's role and distinguish demonstrated
+results, proposed standards and intended capacity. Private employment records,
+contact details, client data and unpublished internal materials do not belong
+in this repository. Historical articles are dated sources, not automatic proof
+of current capability, availability or operational scale.
 
-- **Tellurion** — independently created and owned by Carlo Cancellieri; its public v0.5.0-rc.1 Community source is available under AGPL-3.0-only for self-hosted evaluation. The public evaluator accepts supported public HTTPS COG, GeoParquet and ZIP Shapefile sources for temporary map sessions. The gallery identifies current vector/STAC source deployments separately from historical 0.3 raster, Zarr and 3D artifacts, with explicit limitations and attribution. There is no Tellurion Cloud or service-level agreement.
+## Website
 
-  [Choose a demo version](https://ccancellieri.github.io/tellurion/releases/)
-  for dated viewers and checksums, or inspect the
-  [canonical gallery source](https://github.com/ccancellieri/tellurion/tree/main/demo/gallery).
-  The gallery and Italy case study now share the Tellurion site; archived pages
-  preserve dated viewers, not a promise of historical backend uptime.
-  The [90-second walkthrough on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7505973347441328128/)
-  shows ESA WorldCover COG, Monaco GeoParquet and Natural Earth ZIP Shapefile
-  sources in temporary map previews. It is an edited demonstration, not a
-  performance benchmark or a persistent administration workflow.
-- **GeoID / DynaStore** — Multi-tenant OGC API and STAC platform architecture developed at FAO
-- **Remote Sensing Portal** — STAC-native earth observation discovery and access platform (STAC-FastAPI, Elasticsearch)
-- **Keystone** — Unified IAM built on Keycloak (designed to scale to millions of users)
-- **Hyrax SQL Handler** — OPeNDAP database access module (Google Summer of Code 2009–2010)
-- **GeoServer Ecosystem** — Core contributions to GeoServer, GeoNetwork, GeoTools
-- **CKAN Extensions** — Open data platform tooling
-- **MCP Skill Hub** — Alpha Python context service by Carlo Cancellieri, released under [Apache 2.0](https://github.com/ccancellieri/mcp-skill-hub/blob/main/LICENSE). It retrieves project-scoped skill and task evidence with source references and a reviewable prompt preview. Interactive retrieval needs no local model; an optional 8-tool profile reduces the measured MCP schema and instruction payload. [Design and boundaries](https://github.com/ccancellieri/mcp-skill-hub/blob/main/docs/context-service.md) · [Measured results](https://github.com/ccancellieri/mcp-skill-hub/blob/main/benchmarks/VERIFIED_RESULTS.md)
-- **Open Source Contributions** — 1,000+ GitHub contributions per year
+Static HTML, CSS and JavaScript; no framework or build step. English is the
+supported content language. Visitor theme preferences are optional; content
+and navigation remain available without JavaScript or browser storage.
 
-## Features
+- `index.html`: public content and search/social metadata.
+- `portfolio.css`: responsive personal-brand presentation.
+- `portfolio.js`: theme preferences, mobile navigation and deep-link focus.
+- `social-card.svg` and `og-personal.png`: editable sharing graphic and its
+  1200 × 630 PNG rendition.
+- `sitemap.xml`, `robots.txt`, `404.html`: discovery and route recovery.
+- `tests/`: navigation, metadata, content and historical-demo regression checks.
 
-✨ **Modern Design**
-- Dark mode with cyan/teal accent colors
-- Responsive design (mobile-friendly)
-- Smooth animations and transitions
-- Clean, developer-focused aesthetic
+To preview locally from this directory:
 
-🎯 **Single-Page Application**
-- Self-contained HTML file (no build process needed)
-- No external dependencies (fonts/icons via CDN only)
-- Fast loading, great performance
-
-📱 **Responsive Layout**
-- Works seamlessly on desktop, tablet, and mobile
-- Fluid typography and spacing
-- Touch-friendly navigation
-
-🔍 **SEO & Accessibility**
-- Proper semantic HTML
-- Meta tags for Open Graph and Twitter Cards
-- Accessible focus states and navigation
-
-🎨 **Interactive Components**
-- Expandable project cards with detailed descriptions
-- Smooth scroll navigation with active link highlighting
-- Intersection Observer animations on scroll
-- Hover effects and micro-interactions
-
-## Sections
-
-1. **Hero** — Name, tagline, and call-to-action
-2. **About** — Professional background, tech stack, key stats
-3. **Featured Projects** — 7 major projects with expandable details; Tellurion leads with its public Community source, then live-gallery, field-case and benchmark evidence
-4. **Open Source** — Contributions, organization memberships
-5. **Experience** — Timeline of roles and responsibilities
-6. **Education** — Degrees and qualifications
-7. **Contact** — Multiple ways to get in touch
-8. **Footer** — Links and copyright
-
-## File Structure
-
-```
-portfolio/
-├── index.html          # Single-file application
-├── 404.html            # Not-found page matching the site theme
-├── og-image.png        # Social sharing preview (1200×630)
-├── robots.txt          # Crawler directives
-├── sitemap.xml         # Search engine sitemap
-├── privacy-policy.html # Standalone privacy policy for the Planner app
-├── README.md           # This file
-├── tests/              # Public evidence regression contracts
-└── .gitignore          # Git ignore patterns
+```sh
+python3 -m http.server 8767 --bind 127.0.0.1
 ```
 
-## Deployment to GitHub Pages
+Open [localhost:8767](http://127.0.0.1:8767/).
 
-### Option 1: Deploy to `username.github.io` Repository
+## Verification
 
-1. **Create a new GitHub repository** named `ccancellieri.github.io` (replace with your username)
-
-2. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ccancellieri/ccancellieri.github.io.git
-   cd ccancellieri.github.io
-   ```
-
-3. **Copy portfolio files:**
-   ```bash
-   cp path/to/portfolio/index.html .
-   cp path/to/portfolio/README.md .
-   ```
-
-4. **Commit and push:**
-   ```bash
-   git add .
-   git commit -m "Initial portfolio site"
-   git push origin main
-   ```
-
-5. **View your site:**
-   - Visit `https://ccancellieri.github.io` in your browser
-
-### Option 2: Deploy to a Project Repository (`gh-pages` Branch)
-
-1. **Create or use existing repository:**
-   ```bash
-   git clone https://github.com/ccancellieri/portfolio.git
-   cd portfolio
-   ```
-
-2. **Copy portfolio files to repo root:**
-   ```bash
-   cp path/to/portfolio/index.html .
-   ```
-
-3. **Create and switch to `gh-pages` branch:**
-   ```bash
-   git checkout --orphan gh-pages
-   git add .
-   git commit -m "Deploy portfolio"
-   git push origin gh-pages
-   ```
-
-4. **Configure GitHub Pages:**
-   - Go to repository **Settings** → **Pages**
-   - Set **Source** to `gh-pages` branch
-   - Save
-
-5. **View your site:**
-   - Visit `https://ccancellieri.github.io/portfolio` (or your custom domain)
-
-## Customization
-
-### Update Personal Information
-
-Edit these sections in `index.html`:
-
-- **Hero section:** Change name, tagline, description
-- **Social links:** Update GitHub, LinkedIn, email URLs
-- **Contact section:** Update email addresses
-- **Projects:** Modify project titles, descriptions, links
-- **Experience:** Update timeline entries
-- **Education:** Change degrees and schools
-
-### Customize Colors
-
-Modify CSS variables in the `<style>` tag:
-
-```css
-:root {
-    --primary: #0f172a;           /* Dark background */
-    --secondary: #1e293b;          /* Card backgrounds */
-    --accent: #06b6d4;             /* Cyan/teal accent */
-    --accent-dark: #0891b2;        /* Darker accent */
-    --text-primary: #f1f5f9;       /* Main text */
-    --text-secondary: #cbd5e1;     /* Secondary text */
-}
+```sh
+node --test tests/*.test.cjs
+sh tests/public_evidence_contract.sh
+git diff --check
 ```
 
-### Modify Fonts
+Also check the rendered page at desktop and narrow mobile widths, keyboard
+menu/focus behavior, both themes, direct section links and content without
+JavaScript. External sources and free hosted demos can change independently;
+a passing local regression does not establish their availability.
 
-Change the Google Fonts import in the `<head>` section. Current fonts:
-- **Inter** — Primary body font (300–700 weights)
-- **Fira Code** — Optional monospace for code blocks
+## Tellurion evidence and historical links
 
-### Add Your Own Logo/Avatar
+The [canonical gallery](https://ccancellieri.github.io/tellurion/),
+[proof brief](https://ccancellieri.github.io/tellurion/proof/),
+[version index](https://ccancellieri.github.io/tellurion/releases/) and
+[source](https://github.com/ccancellieri/tellurion/tree/main/demo/gallery)
+remain separate from the personal homepage. The public evaluator is temporary
+and is not a managed cloud service or a production service-level agreement.
+Historical viewers preserve dated evidence, not guaranteed backend uptime.
 
-Add an image section to the hero:
+Legacy demo directories and `legacy-tellurion-redirect.js` preserve existing
+shared URLs, including queries and fragments. Do not remove them during
+personal-portfolio updates. The standalone Planner privacy policy is retained.
 
-```html
-<img src="avatar.jpg" alt="Carlo Cancellieri" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 2rem;">
-```
+## Publishing
 
-## Optimization Tips
+Review the preview and public-safe copy before publishing through the existing
+GitHub Pages configuration. Keep the selected publishing source unchanged and
+verify the live homepage, social metadata and old demo links after deployment.
 
-### Image Optimization
-If you add images, optimize them:
-```bash
-# Using ImageMagick
-convert input.jpg -resize 800x600 -quality 85 output.jpg
-```
-
-### Performance
-- The current single-file approach is optimal for GitHub Pages
-- All CSS is inlined (no external stylesheets)
-- Minimal JavaScript for smooth interactions
-- Lighthouse scores typically 95+
-
-### SEO
-The site includes:
-- Descriptive `<title>` tags
-- Meta descriptions
-- Open Graph tags for social sharing
-- Semantic HTML structure
-- Proper heading hierarchy
-
-## Browser Support
-
-- ✅ Chrome/Edge 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Accessibility
-
-- Semantic HTML (`<section>`, `<nav>`, `<header>`, `<footer>`)
-- Proper heading hierarchy (h1–h6)
-- Focus states for keyboard navigation
-- High contrast colors (WCAG AA compliant)
-- Decorative icons hidden from assistive tech (`aria-hidden`)
-- Proper link semantics with title attributes
-
-## Version History
-
-- **v1.0** (2026-03) — Initial release with 6 featured projects, open-source section, timeline, education, and contact
-- **v1.1** (2026-07) — 8 featured projects, OG image and social metadata, robots/sitemap, mobile nav and accessibility polish, 404 page
-- **v1.2** (2026-08) — Consolidated Tellurion into one evidence-led project story spanning the live gallery, 0.3.0 artifacts, Rome field case and version-bounded benchmark
-- **v1.3** (2026-09) — Positioned Tellurion as independent, public v0.4.0 release-candidate Community source for self-hosting; retained explicit historical-demo and service-boundary notes
-
-## License
-
-This portfolio is provided as-is for personal use. Feel free to customize and deploy.
-
-## Support
-
-For issues, questions, or suggestions:
-- GitHub: https://github.com/ccancellieri
-- LinkedIn: https://linkedin.com/in/ccancellieri
-
----
-
-**Built with ❤️ by Carlo Cancellieri**
+Public profiles: [LinkedIn](https://www.linkedin.com/in/ccancellieri/),
+[GitHub](https://github.com/ccancellieri),
+[ORCID](https://orcid.org/0009-0006-4092-4234),
+[WordPress](https://ccancellieri.wordpress.com/) and
+[X](https://x.com/cancellieric).
