@@ -48,6 +48,14 @@ test('technical foundations are distinct from employment tenure', () => {
   assert.doesNotMatch(source, /As I conclude my FAO chapter|20\+ years|20 years architecting/i);
 });
 
+test('person metadata reflects Docker expertise without Kubernetes or Go', () => {
+  const source = html();
+  const person = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.ok(person.knowsAbout.includes('Docker'));
+  assert.ok(!person.knowsAbout.includes('Kubernetes'));
+  assert.ok(!person.knowsAbout.includes('Go'));
+});
+
 test('STAC and COG article is discoverable with matching metadata', () => {
   const articlePath = path.join(root, 'writing', 'stac-cog-reproducible-maps', 'index.html');
   const article = fs.readFileSync(articlePath, 'utf8');
