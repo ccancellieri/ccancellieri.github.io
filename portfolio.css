@@ -130,3 +130,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   .writing-item { grid-template-columns: 1fr; gap: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.portfolio-subheading { margin-top: 2.8rem; margin-bottom: 1.2rem; }
+.architecture-cases { margin-top: 1.2rem; }
+.architecture-case .institution-note { margin-top: 1rem; }
