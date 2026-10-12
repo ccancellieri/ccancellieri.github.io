@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A practical architecture for turning STAC discovery into a trustworthy map, with independent COG validation, explicit provenance and measured range delivery.">
+  <meta name="author" content="Carlo Cancellieri">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#142b3b">
+  <link rel="canonical" href="https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="From STAC Discovery to a Trustworthy Map: Verifying COG Data, Provenance and Delivery">
+  <meta property="og:description" content="A practical architecture for turning STAC discovery into a trustworthy map, with independent COG validation and explicit provenance.">
+  <meta property="og:url" content="https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/">
+  <meta property="og:image" content="https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/worldcover-stac-map.jpg">
+  <meta property="og:image:width" content="1473">
+  <meta property="og:image:height" content="857">
+  <meta property="og:image:alt" content="Tellurion showing an ESA WorldCover temporary layer over Italy with visible STAC provenance.">
+  <meta property="article:published_time" content="2026-10-12">
+  <meta property="article:author" content="Carlo Cancellieri">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="From STAC Discovery to a Trustworthy Map">
+  <meta name="twitter:description" content="Verifying COG pixels, provenance and range delivery in a STAC-to-map workflow.">
+  <meta name="twitter:image" content="https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/worldcover-stac-map.jpg">
+  <meta name="twitter:image:alt" content="Tellurion showing an ESA WorldCover temporary layer over Italy with visible STAC provenance.">
+  <title>From STAC Discovery to a Trustworthy Map | Carlo Cancellieri</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "From STAC Discovery to a Trustworthy Map: Verifying COG Data, Provenance and Delivery",
+    "description": "A practical architecture for turning STAC discovery into a trustworthy map, with independent COG validation, explicit provenance and measured range delivery.",
+    "datePublished": "2026-10-12",
+    "dateModified": "2026-10-12",
+    "mainEntityOfPage": "https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/",
+    "author": {"@type": "Person", "name": "Carlo Cancellieri", "url": "https://ccancellieri.github.io/"},
+    "image": "https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/worldcover-stac-map.jpg",
+    "keywords": ["STAC", "Cloud Optimized GeoTIFF", "COG", "geospatial architecture", "data provenance", "Tellurion", "ESA WorldCover"]
+  }
+  </script>
+  <link rel="stylesheet" href="../../portfolio.css">
+  <style>
+    .article-nav { justify-content: space-between; }
+    .article-nav a { color: var(--ink); }
+    .article-shell { width: min(760px, calc(100% - 48px)); margin-inline: auto; }
+    .article-hero { padding: 5rem 0 2.5rem; }
+    .article-kicker, .article-meta { color: var(--teal); font-weight: 650; }
+    .article-kicker { margin: 0 0 1rem; }
+    .article-hero h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); max-width: 17ch; }
+    .article-deck { color: var(--slate); font-size: 1.2rem; max-width: 63ch; }
+    .article-meta { font-size: .9rem; }
+    .article-cover { width: min(1120px, calc(100% - 48px)); margin: 0 auto 3.5rem; }
+    .article-cover img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+    figcaption { color: var(--slate); font-size: .82rem; margin-top: .7rem; }
+    .article-body { padding: 0 0 5rem; }
+    .article-body h2 { font-size: clamp(1.55rem, 3vw, 2rem); line-height: 1.25; letter-spacing: -.025em; margin: 2.8rem 0 1rem; }
+    .article-body p, .article-body li { max-width: 74ch; }
+    .article-body li + li { margin-top: .55rem; }
+    .evidence-note { border-left: 3px solid var(--teal); padding: .2rem 0 .2rem 1.25rem; color: var(--slate); }
+    .flow { margin: 2.4rem 0; border: 1px solid var(--line); background: var(--surface); }
+    .flow svg { display: block; width: 100%; height: auto; }
+    .resources { border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1rem; }
+    @media (max-width: 620px) {
+      .article-shell, .article-cover { width: calc(100% - 32px); }
+      .article-hero { padding-top: 3rem; }
+      .article-nav .logo span { display: none; }
+    }
+  </style>
+</head>
+<body>
+<a href="#article" class="skip-link">Skip to article</a>
+<header><nav class="site-nav article-nav" aria-label="Article navigation">
+  <a href="../../" class="logo">Carlo Cancellieri <span>/ Software &amp; systems</span></a>
+  <a href="../../#writing">All writing</a>
+</nav></header>
+<main id="article">
+  <article>
+    <header class="article-hero article-shell">
+      <p class="article-kicker">Geospatial architecture in practice</p>
+      <h1>From STAC Discovery to a Trustworthy Map: Verifying COG Data, Provenance and Delivery</h1>
+      <p class="article-deck">A map is the end of a data path, not proof that the path is correct. This case study follows one ESA WorldCover asset through discovery, inspection, independent pixel validation and browser delivery.</p>
+      <p class="article-meta">By Carlo Cancellieri · <time datetime="2026-10-12">12 October 2026</time></p>
+    </header>
+
+    <figure class="article-cover">
+      <img src="worldcover-stac-map.jpg" width="1473" height="857" alt="Tellurion interface showing a classified ESA WorldCover raster over Italy, with its STAC collection, item, asset and attribution displayed above the map.">
+      <figcaption>An authentic browser validation of the temporary WorldCover layer. Catalog identity and attribution remain visible beside the rendered result. © ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium. Licensed under CC BY 4.0.</figcaption>
+    </figure>
+
+    <div class="article-body article-shell">
+      <p>STAC makes geospatial assets discoverable. A Cloud Optimized GeoTIFF makes a raster addressable through HTTP byte ranges. Neither statement guarantees that the pixels reaching a map are the intended pixels, that the renderer chose the right overview, or that a user can still identify the source after clicking “Preview”. Those are system properties. They have to be designed and tested across catalog, data access, rendering and interface boundaries.</p>
+
+      <p>I used Tellurion, my independent Rust geospatial project, to examine that full path. The test case was a real ESA WorldCover 2021 tile covering part of Italy. This was a bounded engineering validation, not a claim of production service, general STAC conformance, or support for every COG profile. The useful result is the method: make each boundary explicit, compare the raster output with an independent oracle, and report delivery behaviour exactly as observed.</p>
+
+      <figure class="flow">
+        <svg viewBox="0 0 760 220" role="img" aria-labelledby="flow-title flow-desc">
+          <title id="flow-title">Trust path from STAC discovery to map delivery</title>
+          <desc id="flow-desc">Four stages connected from left to right: discover the STAC item, inspect the COG, verify pixels independently, and deliver the map while retaining provenance.</desc>
+          <rect width="760" height="220" fill="var(--surface)"/>
+          <g fill="none" stroke="var(--line)" stroke-width="2"><path d="M176 110h36"/><path d="M364 110h36"/><path d="M552 110h36"/></g>
+          <g fill="var(--teal)"><path d="M212 110l-10-6v12z"/><path d="M400 110l-10-6v12z"/><path d="M588 110l-10-6v12z"/></g>
+          <g fill="var(--paper)" stroke="var(--teal)" stroke-width="2"><rect x="24" y="62" width="152" height="96" rx="5"/><rect x="212" y="62" width="152" height="96" rx="5"/><rect x="400" y="62" width="152" height="96" rx="5"/><rect x="588" y="62" width="148" height="96" rx="5"/></g>
+          <g fill="var(--ink)" font-family="system-ui, sans-serif" text-anchor="middle"><text x="100" y="98" font-size="17" font-weight="700">Discover</text><text x="100" y="124" font-size="13">STAC identity</text><text x="288" y="98" font-size="17" font-weight="700">Inspect</text><text x="288" y="124" font-size="13">COG structure</text><text x="476" y="98" font-size="17" font-weight="700">Verify</text><text x="476" y="124" font-size="13">independent pixels</text><text x="662" y="98" font-size="17" font-weight="700">Deliver</text><text x="662" y="124" font-size="13">map + provenance</text></g>
+        </svg>
+      </figure>
+
+      <h2>Discovery should not cause execution</h2>
+      <p>The STAC search returned items and their assets without registering or fetching those assets. That separation matters. Catalog metadata comes from another trust domain, and merely browsing results should not create server-side resources or trigger large downloads. Tellurion offered Preview only for a finite set of recognized candidates, then revalidated the selected descriptor at the transition into a temporary source.</p>
+
+      <p>One explicit action registered one temporary source. While that source was active, another preview could not silently replace it. The interface carried the collection, item, asset, media type, roles, source item link and catalog-supplied description into the inspection and map steps. It also kept catalog description separate from server attribution. This is provenance as product behaviour: the map does not detach from the record that led to it.</p>
+
+      <h2>Inspect the object before interpreting it</h2>
+      <p>The source was a 36,000 × 36,000 pixel, single-band palette raster in EPSG:4326. Its internal tiles were 1,024 × 1,024 pixels, nodata was class 0, and the embedded palette contained 256 entries. Six overviews sat below the main image, creating seven levels from 36,000 pixels square down to 562 pixels square. For this object, Tellurion exposed one compatible rendering choice: its embedded palette. That fact belongs to this file and implementation; it should not be generalized into a broad profile claim.</p>
+
+      <p>This inspection step gives the renderer constraints it can defend. Coordinate reference system, extent, nodata, palette and overview structure all affect the final RGBA tile. If any of them are assumed rather than read, a plausible map can still be wrong.</p>
+
+      <h2>Use an independent pixel oracle</h2>
+      <p>The strongest check did not compare screenshots. It compared five 256 × 256 RGBA tiles, spanning the main image, two overview levels and two source edges. That is 327,680 pixels in total. Every RGBA value matched, including every alpha value.</p>
+
+      <p>The oracle was deliberately independent. GDAL explicitly extracted the same image file directory selected by Tellurion: the main IFD for the high-zoom tile, overview ordinal 3 at 2,250 × 2,250, and overview ordinal 5 at 562 × 562. A separate script mapped each destination pixel centre through inverse Web Mercator, floored the source coordinate, read the class value and applied the source palette and nodata alpha. It did not call GDAL’s generic warp sampler or reuse Tellurion’s rendering code.</p>
+
+      <p>That detail resolved a valuable discrepancy. A whole-dataset GDAL warp was exact at high zoom but differed by hundreds of pixels at lower zoom. That comparison exercised a different sampling operation. The exact match was established only after fixing the selected IFD and pixel-centre/floor contract explicitly. An oracle is useful only when its sampling contract is explicit.</p>
+
+      <h2>Measure delivery without inventing a cache story</h2>
+      <p>COG efficiency is often summarized as “reads only what it needs.” The actual observations were more precise. After source registration, driver metadata inspection returned 65,536 bytes in one range request. The registration probe was excluded from the driver counters, so this is not an end-to-end cold HTTP request count. One representative z10 tile required four range reads totalling 349,694 bytes. Repeating that tile produced the same four reads and the same 349,694 bytes.</p>
+
+      <p class="evidence-note">The measured repeat showed no reduction in range requests or returned bytes on this path. It is not evidence of a warm-cache improvement.</p>
+
+      <p>This distinction matters to platform leaders because a format capability is not an operational outcome. Object layout, network latency, request coalescing, application caching and CDN policy all shape cost and responsiveness. A trustworthy report records the layer where a measurement was made and avoids turning one local observation into a production capacity claim.</p>
+
+      <h2>The architecture lesson</h2>
+      <p>A credible geospatial platform makes evidence travel with data. Discovery stays read-only. Execution requires an explicit transition. Inspection produces constraints for rendering. Pixel correctness is checked outside the implementation. Delivery telemetry describes real I/O. Provenance survives into the map rather than disappearing behind a layer title.</p>
+
+      <p>The boundaries also create useful ownership. A catalog team can define what makes an asset eligible for preview without deciding how raster samples are produced. A rendering team can document its selection and sampling rules without rewriting the discovery client. Platform engineers can observe requests and bytes at the gateway without treating a browser screenshot as a performance test. The interface then gives users enough context to challenge the output. Clear contracts make failures easier to locate: an incorrect asset identity, a misunderstood COG structure, a pixel mismatch and an inefficient delivery path are different problems with different evidence.</p>
+
+      <p>This is also how I approach architecture work more broadly. Interfaces should expose the decisions operators and users need to evaluate, while tests cross implementation boundaries instead of merely repeating internal logic. In Tellurion, the case is intentionally narrow: one real WorldCover object, one compatible palette path, five exact tiles, and a browser workflow exercised against a real backend. The limits are part of the result.</p>
+
+      <div class="resources">
+        <h2>Sources and further reading</h2>
+        <ul>
+          <li><a href="https://esa-worldcover.org/en/data-access">ESA WorldCover data access</a> and the <a href="https://doi.org/10.5281/zenodo.7254221">WorldCover 2021 v200 dataset record</a> — official access, attribution and dataset citation.</li>
+          <li><a href="https://github.com/radiantearth/stac-spec">SpatioTemporal Asset Catalog specification</a> — the catalog model used for discovery and provenance.</li>
+          <li><a href="https://www.ogc.org/standards/ogc-cloud-optimized-geotiff/">OGC Cloud Optimized GeoTIFF standard</a> — the layout and range-access standard behind the raster object.</li>
+          <li><a href="https://github.com/ccancellieri/tellurion">Tellurion source code</a> and the <a href="https://ccancellieri.github.io/tellurion/">Tellurion demonstration gallery</a>.</li>
+          <li><a href="https://github.com/ccancellieri/tellurion/blob/main/docs/verification/worldcover-cog.md">Reproducible WorldCover COG verification method</a> — commands, boundaries and independent-oracle procedure for the 12 October 2026 evidence.</li>
+          <li><a href="https://github.com/ccancellieri/tellurion/blob/main/demo/gallery/docs/articles/from-stac-discovery-to-a-live-map.md">Earlier field note: From STAC discovery to a live map</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</main>
+<footer><div class="footer-content"><span>© 2026 Carlo Cancellieri</span><div class="footer-links"><a href="../../">Portfolio</a><a href="../../#writing">Writing</a><a href="https://github.com/ccancellieri" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ccancellieri/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
+</body>
+</html>

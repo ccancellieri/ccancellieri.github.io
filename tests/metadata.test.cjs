@@ -29,7 +29,7 @@ test('person metadata uses supported current title and cross-platform breadth', 
 
 test('homepage sitemap has current revision date', () => {
   const xml = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
-  assert.match(xml, /<loc>https:\/\/ccancellieri.github.io\/<\/loc>\s*<lastmod>2026-10-06<\/lastmod>/);
+  assert.match(xml, /<loc>https:\/\/ccancellieri.github.io\/<\/loc>\s*<lastmod>2026-10-12<\/lastmod>/);
 });
 
 test('public presence and research writing remain visible without scripts', () => {
@@ -46,4 +46,21 @@ test('technical foundations are distinct from employment tenure', () => {
   assert.match(source, /C99/);
   assert.match(source, /Feb 2020–Present/);
   assert.doesNotMatch(source, /As I conclude my FAO chapter|20\+ years|20 years architecting/i);
+});
+
+test('STAC and COG article is discoverable with matching metadata', () => {
+  const articlePath = path.join(root, 'writing', 'stac-cog-reproducible-maps', 'index.html');
+  const article = fs.readFileSync(articlePath, 'utf8');
+  const canonical = 'https://ccancellieri.github.io/writing/stac-cog-reproducible-maps/';
+  assert.match(html(), /href="writing\/stac-cog-reproducible-maps\/"/);
+  assert.ok(fs.existsSync(path.join(root, 'writing', 'stac-cog-reproducible-maps', 'worldcover-stac-map.jpg')));
+  assert.ok(article.includes(`<link rel="canonical" href="${canonical}">`));
+  assert.ok(article.includes(`property="og:url" content="${canonical}"`));
+  assert.match(article, /name="twitter:card" content="summary_large_image"/);
+  const json = JSON.parse(article.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(json['@type'], 'Article');
+  assert.equal(json.datePublished, '2026-10-12');
+  assert.equal(json.mainEntityOfPage, canonical);
+  assert.equal(json.author.name, 'Carlo Cancellieri');
+  assert.match(fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), new RegExp(canonical.replaceAll('/', '\\/')));
 });
