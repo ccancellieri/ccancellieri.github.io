@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone: identity and access across platform and cloud | Carlo Cancellieri</title>
+<meta name="description" content="Implemented Keycloak and Google Cloud Workforce Identity Federation integration, with platform policies and cloud IAM kept as separate authorization scopes.">
+<meta name="author" content="Carlo Cancellieri">
+<meta name="theme-color" content="#142b3b">
+<link rel="canonical" href="https://ccancellieri.github.io/projects/keystone/">
+<meta property="og:title" content="Keystone: identity and access across platform and cloud | Carlo Cancellieri">
+<meta property="og:description" content="Implemented Keycloak and Google Cloud Workforce Identity Federation integration, with platform policies and cloud IAM kept as separate authorization scopes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ccancellieri.github.io/projects/keystone/">
+<meta property="og:image" content="https://ccancellieri.github.io/og-personal.png">
+<meta property="og:image:alt" content="Software engineering and architecture portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keystone: identity and access across platform and cloud | Carlo Cancellieri">
+<meta name="twitter:description" content="Implemented Keycloak and Google Cloud Workforce Identity Federation integration, with platform policies and cloud IAM kept as separate authorization scopes.">
+<meta name="twitter:image" content="https://ccancellieri.github.io/og-personal.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "name": "Keystone: identity and access across platform and cloud", "description": "Implemented Keycloak and Google Cloud Workforce Identity Federation integration, with platform policies and cloud IAM kept as separate authorization scopes.", "url": "https://ccancellieri.github.io/projects/keystone/", "author": {"@type": "Person", "name": "Carlo Cancellieri", "url": "https://ccancellieri.github.io"}, "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccancellieri.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ccancellieri.github.io/#projects"}, {"@type": "ListItem", "position": 3, "name": "Keystone: identity and access across platform and cloud", "item": "https://ccancellieri.github.io/projects/keystone/"}]}]}</script>
+<link rel="stylesheet" href="/portfolio.css">
+<script src="/portfolio.js" defer></script>
+<script src="/portfolio-enhancements.js" defer></script>
+</head>
+<body class="case-page">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a href="/#home" class="logo">Carlo Cancellieri <span>/ Software &amp; systems</span></a>
+<ul class="nav-links" id="primary-navigation"><li><a href="/#paths" class="nav-link">Paths</a></li><li><a href="/#projects" class="nav-link">Projects</a></li><li><a href="/#experience" class="nav-link">Career</a></li><li><a href="/library/" class="nav-link">Library</a></li><li><a href="/#contact" class="nav-link">Connect</a></li></ul>
+<div class="site-controls"><button id="theme-toggle" class="control-button" type="button" hidden>Dark theme</button><button id="menu-toggle" class="menu-button" aria-controls="primary-navigation" aria-expanded="false" type="button" hidden>Menu</button></div>
+</nav></header>
+
+<main id="main-content" tabindex="-1"><div class="case-heading container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#projects">Projects</a> / <span aria-current="page">Keystone: identity and access across platform and cloud</span></nav><p class="case-meta">Institutional · 2023–2024</p><h1>Keystone: identity and access across platform and cloud</h1><p class="case-role">Architecture and implementation contribution with FAO colleagues; presentation co-author</p><p class="case-summary">In 2023–2024, we developed Keystone with Keycloak and Open Policy Agent alongside GCP IAM, integrating a Google Cloud Workforce Identity Pool with Keycloak. My contribution combined identity integration, access-policy architecture and implementation with FAO colleagues.</p><div class="path-labels"><a class="path-label" href="/#path-architecture">Systems architecture</a> <a class="path-label" href="/#path-security">Security &amp; identity</a> <a class="path-label" href="/#path-cloud">Cloud &amp; DevOps</a> <a class="path-label" href="/#path-leadership">Technical leadership</a></div><div class="case-actions"><button type="button" class="btn btn-primary" hidden data-presenter-start>Present this case</button><a class="btn btn-secondary" href="#sources">Sources &amp; scope</a><a class="btn btn-secondary" href="/library/">Document library</a></div></div><nav class="case-toc container" aria-label="Case sections"><a href="#problem">Problem: identity alone is not resource access</a><a href="#architecture">Architecture: identity provider, gateway and client</a><a href="#decisions">Decisions: central policy with explicit enforcement boundaries</a><a href="#outcomes">Outcomes: a reviewable integration design</a><a href="#learning">Learning: follow the permission all the way to the resource</a></nav><div class="presenter-controls" hidden data-presenter-controls><button type="button" data-presenter-prev>Previous</button><span data-presenter-status aria-live="polite"></span><button type="button" data-presenter-next>Next</button><button type="button" data-presenter-exit>Exit presentation</button></div><div data-case-content><section class="case-section" id="problem" tabindex="-1" data-case-section><div class="container"><h2>Problem: identity alone is not resource access</h2><div class="case-prose"><p>A platform identity and a cloud identity do not automatically grant the same access. Applications, service accounts and administrators need a consistent way to express permissions for platform resources and the associated cloud services.</p><p>The inspected twelve-slide presentation frames Keystone around unified identity management, centralized authorization and GCP resource access. It supports this architectural scope; it does not establish a start date, a population served or measured security outcomes.</p></div></div></section><section class="case-section" id="architecture" tabindex="-1" data-case-section><div class="container"><h2>Architecture: identity provider, gateway and client</h2><div class="case-prose"><p>We developed Keystone in 2023–2024 with Keycloak and Open Policy Agent (OPA), integrating Keycloak with Google Cloud Workforce Identity Federation and IAM. The twelve-slide presentation also describes OpenID Connect authentication, a FastAPI gateway and a Python client for gateway interactions.</p><p>Workforce federation lets externally authenticated users access Google Cloud under IAM permissions. It is user identity federation, distinct from workload identity federation for software workloads. OPA supplies a policy-decision responsibility for application access; gateway/platform enforcement and Google IAM resource permissions are separate scopes.</p><p>The diagrams combine the confirmed implemented integration with Google’s documented federation model. The product flow exchanges an external credential through Security Token Service for short-lived access; the particular provider claims, token caches and revocation behavior of this deployment have not been inspected.</p></div><nav class="diagram-view-nav" data-view-count="1" aria-label="Architecture views"><a href="#diagram-keystone-architecture-0">Context</a></nav><figure class="architecture-diagram" id="diagram-keystone-architecture-0" data-diagram><figcaption><h3>Federated user identity and two authorization scopes</h3><p>Keycloak authenticates users. A workforce identity pool/provider trusts that identity for access governed by Google Cloud IAM. A separate platform policy/gateway lane supports FAO Maps access. These scopes remain distinct; the view does not invent deployment replicas or provider attribute mappings.</p></figcaption><div class="diagram-actions"><a class="diagram-open" href="/assets/diagrams/keystone-context.svg">Open full-size SVG</a><div class="diagram-controls" hidden data-diagram-controls><button type="button" data-zoom="out" aria-label="Zoom out diagram">−</button><button type="button" data-zoom="in" aria-label="Zoom in diagram">+</button><button type="button" data-zoom="reset">Reset view</button><button type="button" data-flow-toggle aria-pressed="false">Highlight flows</button><span data-zoom-status aria-live="polite">100%</span></div></div><div class="diagram-viewport" tabindex="0" role="region" aria-label="Federated user identity and two authorization scopes; scroll to explore"><div class="diagram-canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="keystone-context-title keystone-context-desc" id="keystone-context-root"><title id="keystone-context-title">Keystone · federated identity, two authorization scopes</title><desc id="keystone-context-desc">Applications authenticate through Keycloak. A Google Cloud workforce identity pool/provider federates user identities for IAM resource access. Open Policy Agent provides application decisions for gateway/platform enforcement, separately from Google IAM.</desc>
+<defs><marker id="keystone-context-sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="keystone-context-event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="keystone-context-store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>#keystone-context-root text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}#keystone-context-root .heading{font-size:30px;font-weight:700}#keystone-context-root .lane{font-size:19px;font-weight:700;letter-spacing:.8px}#keystone-context-root .name{font-size:21px;font-weight:700}#keystone-context-root .minor{fill:#476071}#keystone-context-root .label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}#keystone-context-root .sync{stroke:#147D83}#keystone-context-root .event{stroke:#355AD8;stroke-dasharray:8 6}#keystone-context-root .store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">Keystone · federated identity, two authorization scopes</text>
+<text x="34" y="80" class="minor">Implemented with FAO colleagues, 2023–2024 · GCP Workforce Identity Federation</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">AUTHENTICATION RESPONSIBILITY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Applications and external identity provider</text>
+<rect x="65" y="162" width="315" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="192" class="name">Applications</text>
+<text x="82" y="219" class="minor">Users / Python client integration</text>
+<rect x="650" y="162" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="192" class="name">Keycloak + OIDC</text>
+<text x="667" y="219" class="minor">Authenticate the user</text>
+<path d="M380 202.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="515" y="186" class="label" text-anchor="middle">authenticate</text>
+<rect x="28" y="303" width="1104" height="155" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="332" class="lane">GOOGLE CLOUD FEDERATION</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Workforce identity is for users, not workloads</text>
+<rect x="65" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="387" class="name">Workforce pool / provider</text>
+<text x="82" y="414" class="minor">Trust the external identity provider</text>
+<rect x="650" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="387" class="name">Google Cloud IAM</text>
+<text x="667" y="414" class="minor">Authorize federated principals</text>
+<path d="M865 245.0V280.0H280V357.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="567" y="278" class="label" text-anchor="middle">federate user identity</text>
+<path d="M495 397.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="572" y="381" class="label" text-anchor="middle">principal</text>
+<rect x="28" y="518" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="547" class="lane">ACCESS RESPONSIBILITIES</text>
+<text x="1110" y="547" class="minor" text-anchor="end">Platform policy remains distinct from GCP IAM</text>
+<rect x="65" y="587" width="330" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="617" class="name">Open Policy Agent</text>
+<text x="82" y="644" class="minor">Application policy decisions</text>
+<rect x="520" y="587" width="260" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="537" y="617" class="name">FastAPI gateway</text>
+<text x="537" y="644" class="minor">Platform enforcement</text>
+<rect x="875" y="587" width="215" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="892" y="617" class="name">GCP resources</text>
+<text x="892" y="644" class="minor">Buckets / BigQuery</text>
+<path d="M210 245.0V282.0H45V689.0H650V670.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="280" y="686" class="label" text-anchor="middle">platform call</text>
+<path d="M520 609.0H395" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="458" y="594" class="label" text-anchor="middle">query</text>
+<path d="M395 646.0H520" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="458" y="665" class="label" text-anchor="middle">decision</text>
+<path d="M985 440.0V587.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="985" y="495" class="label" text-anchor="middle">IAM access</text>
+<text x="35" y="720" class="minor">Workforce federation integration and 2023–2024 development are confirmed in my contribution account.</text>
+<text x="35" y="744" class="minor">The presentation establishes gateway / client scope; exact provider claims, cache and revocation timing are unspecified.</text>
+<rect x="40" y="117" width="343" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">AUTHENTICATION RESPONSIBILITY</text>
+<rect x="727" y="117" width="387" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Applications and external identity provider</text>
+<rect x="40" y="310" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">GOOGLE CLOUD FEDERATION</text>
+<rect x="700" y="310" width="414" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Workforce identity is for users, not workloads</text>
+<rect x="40" y="525" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="547" class="lane">ACCESS RESPONSIBILITIES</text>
+<rect x="709" y="525" width="405" height="32" fill="#F5F8FB"/>
+<text x="1110" y="547" class="minor" text-anchor="end">Platform policy remains distinct from GCP IAM</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#keystone-context-sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#keystone-context-event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#keystone-context-store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg></div></div></figure></div></section><section class="case-section" id="decisions" tabindex="-1" data-case-section><div class="container"><h2>Decisions: central policy with explicit enforcement boundaries</h2><div class="case-prose"><p>Authentication answers who is requesting access. Authorization answers whether that identity can perform an operation on a resource. The presentation connects both, while naming policy enforcement for buckets and BigQuery and access rules for FAO Maps.</p><p>The presentation describes RBAC and ReBAC for platform users and service accounts. The implemented stack also uses OPA. Policy decisions and enforcement should be distinguished: naming OPA does not mean it replaces Google IAM or prove particular Rego rules, decision caching or resource attribute mappings.</p><p>A retrospective alternative is to let each application maintain its own identity-to-cloud mapping. That reduces central dependencies, but multiplies permission administration and makes alignment harder. I would evaluate the central gateway against that administrative cost, while measuring its own availability and policy-propagation requirements.</p></div><nav class="diagram-view-nav" data-view-count="1" aria-label="Architecture views"><a href="#diagram-keystone-decisions-0">Trust boundaries</a></nav><figure class="architecture-diagram" id="diagram-keystone-decisions-0" data-diagram><figcaption><h3>Three security responsibilities</h3><p>Authentication establishes the user in Keycloak. Workforce federation represents the external identity in Google Cloud; its documented token exchange uses STS. IAM grants resource permissions, while platform RBAC/ReBAC has its own scope. Google product mechanics are distinguished from uninspected deployment settings.</p></figcaption><div class="diagram-actions"><a class="diagram-open" href="/assets/diagrams/keystone-boundaries.svg">Open full-size SVG</a><div class="diagram-controls" hidden data-diagram-controls><button type="button" data-zoom="out" aria-label="Zoom out diagram">−</button><button type="button" data-zoom="in" aria-label="Zoom in diagram">+</button><button type="button" data-zoom="reset">Reset view</button><button type="button" data-flow-toggle aria-pressed="false">Highlight flows</button><span data-zoom-status aria-live="polite">100%</span></div></div><div class="diagram-viewport" tabindex="0" role="region" aria-label="Three security responsibilities; scroll to explore"><div class="diagram-canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="keystone-boundaries-title keystone-boundaries-desc" id="keystone-boundaries-root"><title id="keystone-boundaries-title">Keystone · authentication, federation and authorization</title><desc id="keystone-boundaries-desc">Keycloak authenticates users. Google workforce federation trusts that external identity and, through Security Token Service, exchanges a credential for short-lived access. Google IAM controls resource permissions, while Keystone platform policies are a separate scope.</desc>
+<defs><marker id="keystone-boundaries-sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="keystone-boundaries-event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="keystone-boundaries-store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>#keystone-boundaries-root text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}#keystone-boundaries-root .heading{font-size:30px;font-weight:700}#keystone-boundaries-root .lane{font-size:19px;font-weight:700;letter-spacing:.8px}#keystone-boundaries-root .name{font-size:21px;font-weight:700}#keystone-boundaries-root .minor{fill:#476071}#keystone-boundaries-root .label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}#keystone-boundaries-root .sync{stroke:#147D83}#keystone-boundaries-root .event{stroke:#355AD8;stroke-dasharray:8 6}#keystone-boundaries-root .store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">Keystone · authentication, federation and authorization</text>
+<text x="34" y="80" class="minor">Trust-boundary view · Google product flow distinguished from project configuration</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="139" class="lane">EXTERNAL IDENTITY PROVIDER</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Keycloak authenticates the workforce user</text>
+<rect x="65" y="162" width="315" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="192" class="name">Workforce user</text>
+<text x="82" y="219" class="minor">Human identity</text>
+<rect x="650" y="162" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="192" class="name">Keycloak</text>
+<text x="667" y="219" class="minor">OpenID Connect identity provider</text>
+<path d="M380 202.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-boundaries-sync)"/>
+<text x="515" y="186" class="label" text-anchor="middle">sign in</text>
+<rect x="28" y="303" width="1104" height="155" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="332" class="lane">GOOGLE FEDERATION TRUST BOUNDARY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Pool / provider configuration</text>
+<rect x="65" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="387" class="name">Workforce identity provider</text>
+<text x="82" y="414" class="minor">Federated identity trust</text>
+<rect x="650" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="387" class="name">Security Token Service</text>
+<text x="667" y="414" class="minor">Google product credential exchange</text>
+<path d="M865 245.0V280.0H280V357.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-boundaries-sync)"/>
+<text x="567" y="278" class="label" text-anchor="middle">external credential</text>
+<path d="M495 397.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-boundaries-sync)"/>
+<text x="572" y="381" class="label" text-anchor="middle">exchange</text>
+<rect x="28" y="518" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="547" class="lane">SEPARATE AUTHORIZATION SCOPES</text>
+<text x="1110" y="547" class="minor" text-anchor="end">Identity federation does not itself grant every permission</text>
+<rect x="65" y="587" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="617" class="name">OPA application policies</text>
+<text x="82" y="644" class="minor">Policy decisions; gateway enforcement</text>
+<rect x="650" y="587" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="617" class="name">IAM-controlled cloud resources</text>
+<text x="667" y="644" class="minor">Federated user access + allow policies</text>
+<path d="M865 440.0V587.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#keystone-boundaries-sync)"/>
+<text x="865" y="495" class="label" text-anchor="middle">short-lived access</text>
+<text x="35" y="720" class="minor">STS and short-lived credentials describe Google’s documented product flow, not inspected deployment settings.</text>
+<text x="35" y="744" class="minor">Workforce federation concerns user identities. Workload federation and service-account flows are different mechanisms.</text>
+<rect x="40" y="117" width="310" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">EXTERNAL IDENTITY PROVIDER</text>
+<rect x="745" y="117" width="369" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Keycloak authenticates the workforce user</text>
+<rect x="40" y="310" width="376" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">GOOGLE FEDERATION TRUST BOUNDARY</text>
+<rect x="853" y="310" width="261" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Pool / provider configuration</text>
+<rect x="40" y="525" width="343" height="32" fill="#F5F8FB"/>
+<text x="48" y="547" class="lane">SEPARATE AUTHORIZATION SCOPES</text>
+<rect x="592" y="525" width="522" height="32" fill="#F5F8FB"/>
+<text x="1110" y="547" class="minor" text-anchor="end">Identity federation does not itself grant every permission</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#keystone-boundaries-sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#keystone-boundaries-event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#keystone-boundaries-store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg></div></div></figure></div></section><section class="case-section" id="outcomes" tabindex="-1" data-case-section><div class="container"><h2>Outcomes: a reviewable integration design</h2><div class="case-prose"><p>We implemented Keystone using Keycloak and OPA alongside GCP IAM, with Workforce Identity Pool integration, in 2023–2024. The architecture presentation documents the FastAPI gateway, Python client, authentication and role/group/policy administration, including an authentication demo section.</p><p>This is FAO institutional work delivered with colleagues. The public case describes the evidenced components and my contribution, without asserting user counts, token-lifetime guarantees, particular deployment infrastructure or independent security certification.</p></div></div></section><section class="case-section" id="learning" tabindex="-1" data-case-section><div class="container"><h2>Learning: follow the permission all the way to the resource</h2><div class="case-prose"><p>An identity integration is only as clear as the enforcement boundaries around it. A design review should trace user identity, service-account identity, the policy decision and the final resource operation separately.</p><p>The next evidence I would request for an operational review is a resource-specific access trace, including denied access, token revocation and service failure. These are review criteria, not a statement that a particular caching or recovery mechanism was implemented.</p></div></div></section></div><section class="case-support"><div class="container"><h2>Questions &amp; discussion</h2><details class="case-question"><summary>How do authentication, federation and IAM differ?</summary><p>Keycloak authenticates the user. Workforce federation lets Google Cloud trust an external user identity. IAM determines allowed cloud operations; the platform’s access policy remains a separate authorization scope.</p><a href="#architecture">Read the relevant section</a></details><details class="case-question"><summary>How quickly does revoked access take effect?</summary><p>The inspected presentation does not establish revocation timing or token caching. A defensible answer requires the implemented token lifetimes, policy refresh behavior and final resource enforcement path.</p><a href="#decisions">Read the relevant section</a></details><details class="case-question"><summary>Why a Python client?</summary><p>The slides explicitly describe a library that simplifies interaction with the FastAPI gateway. It creates an integration surface for applications; the deck does not prove retries, caching or token exchange internals.</p><a href="#learning">Read the relevant section</a></details><details class="case-question"><summary>Does OPA replace Google Cloud IAM?</summary><p>No such replacement is claimed. OPA is the application policy-decision component; IAM permissions govern Google Cloud resources. The exact gateway decision inputs and enforcement sequence require implementation evidence.</p><a href="#decisions">Read the relevant section</a></details></div></section><section class="case-support" id="sources"><div class="container"><h2>Sources &amp; scope</h2><ul class="source-list"><li id="source-keystone-deck"><a href="https://github.com/ccancellieri/ccancellieri_projects/tree/main/keystone">Keystone — Unified Identity and Access Control Platform</a><p class="source-note">Twelve-slide architecture presentation inspected October 2026; FAO institutional presentation; co-authored with colleagues</p></li><li id="source-keystone-contribution"><a href="https://github.com/ccancellieri/ccancellieri_projects">Contribution and employment context</a><p class="source-note">Implemented Keycloak + OPA over GCP IAM with Workforce Identity Pool integration; 2023–2024 development confirmed October 2026; Contribution account, not an independently audited deployment record</p></li><li id="source-gcp-workforce"><a href="https://docs.cloud.google.com/iam/docs/workforce-identity-federation">Google Cloud Workforce Identity Federation</a><p class="source-note">Official documentation inspected October 2026; Google Cloud; product flow is explanatory context, not inspection of deployment claims</p></li><li id="source-opa-docs"><a href="https://www.openpolicyagent.org/docs/latest/">Open Policy Agent documentation</a><p class="source-note">Official documentation inspected October 2026; Open Policy Agent; explains decisions versus enforcement, not project-specific policy rules</p></li></ul></div></section><section class="case-support"><div class="container"><h2>Related documents</h2><article class="library-document" id="document-keystone-platform"><div><p class="case-meta">Presentation · 2025 edition</p><h2><a href="/assets/documents/keystone-platform.pdf">Keystone: Unified Identity and Access Control Platform</a></h2></div><div><p>Complete 12-slide source presentation on identity integration, the FastAPI gateway, permissions, Google Cloud access and Keycloak. Colleague credit and an institutional role identifier are redacted.</p><p class="source-note">Joint presentation by Carlo Cancellieri and a colleague; contributor names omitted from this public copy. Edition dated from source metadata; this does not establish the project start date.</p><p><a href="/projects/keystone/">Read the related case study</a></p></div></article></div></section><nav class="related-cases container" aria-label="Related case studies"><h2>Continue exploring</h2><a href="/projects/dynastore/">DynaStore: canonical data and recoverable projections</a><a href="/projects/ckan-jsonschema-indexing/">CKAN: structured metadata and separate indexing flows</a></nav></main>
+<footer><div class="footer-content"><span>© 2026 Carlo Cancellieri</span><div class="footer-links"><a href="/#about">About</a><a href="/#writing">Writing</a><a href="/library/">Library</a><a href="/#contact">Connect</a></div></div><p class="container institution-note">A personal portfolio describing my contributions. Institutional projects are team work; views and independent projects do not imply endorsement by FAO or other organizations.</p></footer>
+
+</body>
+</html>

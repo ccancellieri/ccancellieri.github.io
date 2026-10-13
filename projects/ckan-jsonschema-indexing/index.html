@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CKAN: structured metadata and separate indexing flows | Carlo Cancellieri</title>
+<meta name="description" content="Structured metadata forms, validation and Solr indexing, with FAO ISO catalogue leadership and a separate Eventarc indexing integration.">
+<meta name="author" content="Carlo Cancellieri">
+<meta name="theme-color" content="#142b3b">
+<link rel="canonical" href="https://ccancellieri.github.io/projects/ckan-jsonschema-indexing/">
+<meta property="og:title" content="CKAN: structured metadata and separate indexing flows | Carlo Cancellieri">
+<meta property="og:description" content="Structured metadata forms, validation and Solr indexing, with FAO ISO catalogue leadership and a separate Eventarc indexing integration.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ccancellieri.github.io/projects/ckan-jsonschema-indexing/">
+<meta property="og:image" content="https://ccancellieri.github.io/og-personal.png">
+<meta property="og:image:alt" content="Software engineering and architecture portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CKAN: structured metadata and separate indexing flows | Carlo Cancellieri">
+<meta name="twitter:description" content="Structured metadata forms, validation and Solr indexing, with FAO ISO catalogue leadership and a separate Eventarc indexing integration.">
+<meta name="twitter:image" content="https://ccancellieri.github.io/og-personal.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "name": "CKAN: structured metadata and separate indexing flows", "description": "Structured metadata forms, validation and Solr indexing, with FAO ISO catalogue leadership and a separate Eventarc indexing integration.", "url": "https://ccancellieri.github.io/projects/ckan-jsonschema-indexing/", "author": {"@type": "Person", "name": "Carlo Cancellieri", "url": "https://ccancellieri.github.io"}, "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccancellieri.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ccancellieri.github.io/#projects"}, {"@type": "ListItem", "position": 3, "name": "CKAN: structured metadata and separate indexing flows", "item": "https://ccancellieri.github.io/projects/ckan-jsonschema-indexing/"}]}]}</script>
+<link rel="stylesheet" href="/portfolio.css">
+<script src="/portfolio.js" defer></script>
+<script src="/portfolio-enhancements.js" defer></script>
+</head>
+<body class="case-page">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a href="/#home" class="logo">Carlo Cancellieri <span>/ Software &amp; systems</span></a>
+<ul class="nav-links" id="primary-navigation"><li><a href="/#paths" class="nav-link">Paths</a></li><li><a href="/#projects" class="nav-link">Projects</a></li><li><a href="/#experience" class="nav-link">Career</a></li><li><a href="/library/" class="nav-link">Library</a></li><li><a href="/#contact" class="nav-link">Connect</a></li></ul>
+<div class="site-controls"><button id="theme-toggle" class="control-button" type="button" hidden>Dark theme</button><button id="menu-toggle" class="menu-button" aria-controls="primary-navigation" aria-expanded="false" type="button" hidden>Menu</button></div>
+</nav></header>
+
+<main id="main-content" tabindex="-1"><div class="case-heading container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#projects">Projects</a> / <span aria-current="page">CKAN: structured metadata and separate indexing flows</span></nav><p class="case-meta">Open Source · Extension development and data integration</p><h1>CKAN: structured metadata and separate indexing flows</h1><p class="case-role">Extension developer and custom metadata-indexing contributor</p><p class="case-summary">I developed ckanext-jsonschema for richer metadata forms, validation and Solr indexing. My wider work includes technical leadership of FAO’s ISO metadata catalogue and a separate custom Eventarc indexing integration with Elasticsearch, Solr and object storage.</p><div class="path-labels"><a class="path-label" href="/#path-architecture">Systems architecture</a> <a class="path-label" href="/#path-geospatial">Geospatial &amp; interoperability</a> <a class="path-label" href="/#path-cloud">Cloud &amp; DevOps</a></div><div class="case-actions"><button type="button" class="btn btn-primary" hidden data-presenter-start>Present this case</button><a class="btn btn-secondary" href="#sources">Sources &amp; scope</a><a class="btn btn-secondary" href="/library/">Document library</a></div></div><nav class="case-toc container" aria-label="Case sections"><a href="#problem">Problem: rich metadata in a catalog built around simpler fields</a><a href="#architecture">Architecture: the public extension’s documented surface</a><a href="#decisions">Decisions: separate provenance from a plausible architecture</a><a href="#outcomes">Outcomes: a public extension with visible scope</a><a href="#learning">Learning: every projection needs a reason to exist</a></nav><div class="presenter-controls" hidden data-presenter-controls><button type="button" data-presenter-prev>Previous</button><span data-presenter-status aria-live="polite"></span><button type="button" data-presenter-next>Next</button><button type="button" data-presenter-exit>Exit presentation</button></div><div data-case-content><section class="case-section" id="problem" tabindex="-1" data-case-section><div class="container"><h2>Problem: rich metadata in a catalog built around simpler fields</h2><div class="case-prose"><p>Geospatial and other domain metadata can contain nested structures, schema-specific fields and validation rules. A catalog needs a usable editing experience and a way to discover the resulting records without flattening away their meaning.</p><p>The public extension addresses that CKAN metadata problem. The separate multi-destination event design addresses propagation to additional representations. They are related concerns, but the extension repository does not establish that it implements the external pipeline.</p></div></div></section><section class="case-section" id="architecture" tabindex="-1" data-case-section><div class="container"><h2>Architecture: the public extension’s documented surface</h2><div class="case-prose"><p>The public repository’s extra branch describes JSON Schema metadata types stored with CKAN extra fields, a JSON Editor interface and validation. It also documents schema registries, import/export, cloning and related metadata functions.</p><p>Solr projection fields support schema-related resource/view metadata, and the documented view search concerns public metadata. This is evidence for the extension’s CKAN/Solr feature set; it is not proof of a particular CKAN callback or database commit hook.</p></div><nav class="diagram-view-nav" data-view-count="1" aria-label="Architecture views"><a href="#diagram-ckan-jsonschema-indexing-architecture-0">Components</a></nav><figure class="architecture-diagram" id="diagram-ckan-jsonschema-indexing-architecture-0" data-diagram><figcaption><h3>CKAN extension and documented Solr projection</h3><p>The public extension boundary includes structured metadata editing and validation plus its documented Solr projection. CKAN stores the metadata; Solr serves a derived discovery representation. The arrow into Solr is labeled as a documented projection, without claiming an inspected commit hook or delivery guarantee.</p></figcaption><div class="diagram-actions"><a class="diagram-open" href="/assets/diagrams/ckan-extension.svg">Open full-size SVG</a><div class="diagram-controls" hidden data-diagram-controls><button type="button" data-zoom="out" aria-label="Zoom out diagram">−</button><button type="button" data-zoom="in" aria-label="Zoom in diagram">+</button><button type="button" data-zoom="reset">Reset view</button><button type="button" data-flow-toggle aria-pressed="false">Highlight flows</button><span data-zoom-status aria-live="polite">100%</span></div></div><div class="diagram-viewport" tabindex="0" role="region" aria-label="CKAN extension and documented Solr projection; scroll to explore"><div class="diagram-canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="ckan-extension-title ckan-extension-desc" id="ckan-extension-root"><title id="ckan-extension-title">CKAN · structured metadata, discoverable projection</title><desc id="ckan-extension-desc">JSON Editor and JSON Schema validation extend CKAN metadata. The extension documents CKAN extra-field storage and a Solr projection for resource and view metadata, with public view search.</desc>
+<defs><marker id="ckan-extension-sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="ckan-extension-event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="ckan-extension-store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>#ckan-extension-root text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}#ckan-extension-root .heading{font-size:30px;font-weight:700}#ckan-extension-root .lane{font-size:19px;font-weight:700;letter-spacing:.8px}#ckan-extension-root .name{font-size:21px;font-weight:700}#ckan-extension-root .minor{fill:#476071}#ckan-extension-root .label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}#ckan-extension-root .sync{stroke:#147D83}#ckan-extension-root .event{stroke:#355AD8;stroke-dasharray:8 6}#ckan-extension-root .store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">CKAN · structured metadata, discoverable projection</text>
+<text x="34" y="80" class="minor">Public ckanext-jsonschema feature set · extra branch README</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">EDITOR AND SCHEMA RESPONSIBILITY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Public extension scope</text>
+<rect x="65" y="160" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="190" class="name">Metadata editor</text>
+<text x="82" y="217" class="minor">JSON Editor interface</text>
+<rect x="480" y="160" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="190" class="name">Schema registry</text>
+<text x="497" y="217" class="minor">Types and validation</text>
+<rect x="860" y="160" width="220" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="190" class="name">Metadata tools</text>
+<text x="877" y="217" class="minor">Import / export / clone</text>
+<path d="M350 202.0H480" fill="none" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="413" y="184" class="label" text-anchor="middle">validate</text>
+<path d="M860 202.0H765" fill="none" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="812" y="184" class="label" text-anchor="middle">tools</text>
+<rect x="28" y="305" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="334" class="lane">CKAN DATA OWNERSHIP</text>
+<text x="1110" y="334" class="minor" text-anchor="end">Structured metadata retained with catalog records</text>
+<rect x="65" y="360" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="390" class="name">Dataset / resource / view</text>
+<text x="82" y="417" class="minor">CKAN metadata entities</text>
+<rect x="480" y="360" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="390" class="name">Extra fields</text>
+<text x="497" y="417" class="minor">Schema type + JSON metadata</text>
+<path d="M623 243.0V279.0H210V360.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="440" y="278" class="label" text-anchor="middle">validated data</text>
+<path d="M350 401.0H480" fill="none" stroke-width="2.4" class="store" marker-end="url(#ckan-extension-store)"/>
+<text x="415" y="384" class="label" text-anchor="middle">store</text>
+<rect x="28" y="520" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="549" class="lane">SOLR PROJECTION</text>
+<text x="1110" y="549" class="minor" text-anchor="end">Derived discovery; not canonical metadata ownership</text>
+<rect x="65" y="579" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="609" class="name">Solr schema fields</text>
+<rect x="480" y="579" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="609" class="name">Public view search</text>
+<rect x="860" y="579" width="220" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="609" class="name">Search clients</text>
+<path d="M625 443.0V488.0H210V579.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-extension-event)"/>
+<text x="457" y="487" class="label" text-anchor="middle">index</text>
+<path d="M480 610.0H350" fill="none" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="415" y="593" class="label" text-anchor="middle">query</text>
+<path d="M860 610.0H765" fill="none" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="812" y="593" class="label" text-anchor="middle">search</text>
+<text x="35" y="720" class="minor">The README establishes a Solr projection, not an inspected CKAN callback or commit/delivery contract.</text>
+<text x="35" y="744" class="minor">Eventarc, Elasticsearch and the external object-storage design are separate from this extension boundary.</text>
+<rect x="40" y="117" width="376" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">EDITOR AND SCHEMA RESPONSIBILITY</text>
+<rect x="916" y="117" width="198" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Public extension scope</text>
+<rect x="40" y="312" width="233" height="32" fill="#F5F8FB"/>
+<text x="48" y="334" class="lane">CKAN DATA OWNERSHIP</text>
+<rect x="673" y="312" width="441" height="32" fill="#F5F8FB"/>
+<text x="1110" y="334" class="minor" text-anchor="end">Structured metadata retained with catalog records</text>
+<rect x="40" y="527" width="189" height="32" fill="#F5F8FB"/>
+<text x="48" y="549" class="lane">SOLR PROJECTION</text>
+<rect x="655" y="527" width="459" height="32" fill="#F5F8FB"/>
+<text x="1110" y="549" class="minor" text-anchor="end">Derived discovery; not canonical metadata ownership</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#ckan-extension-sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#ckan-extension-event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#ckan-extension-store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg></div></div></figure></div></section><section class="case-section" id="decisions" tabindex="-1" data-case-section><div class="container"><h2>Decisions: separate provenance from a plausible architecture</h2><div class="case-prose"><p>Separately, I implemented a custom metadata indexer with Eventarc and destinations in Elasticsearch, Solr and object storage. The integration overview shows my implementation account alongside the public extension. The public README does not establish the external publisher, authoritative record or purpose of the bucket.</p><p>Google’s Eventarc Standard documentation specifies at-least-once delivery and no FIFO ordering guarantee. Therefore duplicate and stale-event handling are requirements to examine, not capabilities to assume were already implemented in this integration.</p><p>For a retrospective design review, I would compare a stable versioned snapshot event with an event that contains only an entity reference. A snapshot improves repeatable replay but can spread stale or private data; a reference reduces payload duplication but requires source availability and a clear version policy.</p><p>Idempotent destination updates, visibility-change removal, replay and reconciliation are sensible reliability controls to evaluate. They are presented as review considerations, not as fabricated historical implementation details.</p></div><nav class="diagram-view-nav" data-view-count="1" aria-label="Architecture views"><a href="#diagram-ckan-jsonschema-indexing-decisions-0">Flow</a></nav><figure class="architecture-diagram" id="diagram-ckan-jsonschema-indexing-decisions-0" data-diagram><figcaption><h3>Custom metadata indexing integration</h3><p>A metadata publisher sends change events through Eventarc to a custom metadata indexer, which updates configured Elasticsearch, Solr and object-storage destinations. This overview is grounded in my contribution account. The exact publisher, authority and replay implementation are not established by the extension README.</p></figcaption><div class="diagram-actions"><a class="diagram-open" href="/assets/diagrams/ckan-external.svg">Open full-size SVG</a><div class="diagram-controls" hidden data-diagram-controls><button type="button" data-zoom="out" aria-label="Zoom out diagram">−</button><button type="button" data-zoom="in" aria-label="Zoom in diagram">+</button><button type="button" data-zoom="reset">Reset view</button><button type="button" data-flow-toggle aria-pressed="false">Highlight flows</button><span data-zoom-status aria-live="polite">100%</span></div></div><div class="diagram-viewport" tabindex="0" role="region" aria-label="Custom metadata indexing integration; scroll to explore"><div class="diagram-canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="ckan-external-title ckan-external-desc" id="ckan-external-root"><title id="ckan-external-title">CKAN · the separately described integration</title><desc id="ckan-external-desc">The candidate account describes a separate Eventarc integration serving Elasticsearch, Solr and object storage. Exact event source, authoritative record and bucket role are unverified; no outbox or reconciliation implementation is asserted.</desc>
+<defs><marker id="ckan-external-sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="ckan-external-event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="ckan-external-store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>#ckan-external-root text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}#ckan-external-root .heading{font-size:30px;font-weight:700}#ckan-external-root .lane{font-size:19px;font-weight:700;letter-spacing:.8px}#ckan-external-root .name{font-size:21px;font-weight:700}#ckan-external-root .minor{fill:#476071}#ckan-external-root .label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}#ckan-external-root .sync{stroke:#147D83}#ckan-external-root .event{stroke:#355AD8;stroke-dasharray:8 6}#ckan-external-root .store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">CKAN · the separately described integration</text>
+<text x="34" y="80" class="minor">Separate Eventarc integration · based on my contribution account</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="139" class="lane">SOURCE BOUNDARY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Metadata change publication</text>
+<rect x="65" y="160" width="365" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="190" class="name">Metadata publisher</text>
+<text x="82" y="217" class="minor">Source integration unspecified</text>
+<rect x="650" y="160" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="190" class="name">Eventarc</text>
+<text x="667" y="217" class="minor">At-least-once; no FIFO guarantee</text>
+<path d="M430 201.0H650" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="540" y="184" class="label" text-anchor="middle">change event</text>
+<rect x="28" y="303" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="332" class="lane">CUSTOM INDEXING RESPONSIBILITY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Implemented separately from the public extension</text>
+<rect x="330" y="353" width="500" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="347" y="383" class="name">Custom metadata indexer</text>
+<text x="347" y="410" class="minor">Update configured destinations</text>
+<path d="M865 243.0V280.0H580V353.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="718" y="278" class="label" text-anchor="middle">event delivery</text>
+<rect x="28" y="497" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="526" class="lane">CONFIGURED DESTINATIONS</text>
+<text x="1110" y="526" class="minor" text-anchor="end">Search and object-storage targets</text>
+<rect x="65" y="562" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="592" class="name">Elasticsearch</text>
+<rect x="480" y="562" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="592" class="name">Solr</text>
+<rect x="860" y="562" width="220" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="592" class="name">Object storage</text>
+<path d="M410 436.0V477.0H210V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="302" y="475" class="label" text-anchor="middle">update target</text>
+<path d="M580 436.0V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="580" y="483" class="label" text-anchor="middle">update target</text>
+<path d="M750 436.0V477.0H970V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="859" y="475" class="label" text-anchor="middle">update target</text>
+<text x="35" y="720" class="minor">Integration scope comes from my account. The extension README documents the CKAN / Solr feature separately.</text>
+<text x="35" y="744" class="minor">Exact source authority, event versioning, replay and deletion behavior require implementation-specific review.</text>
+<rect x="40" y="117" width="189" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">SOURCE BOUNDARY</text>
+<rect x="871" y="117" width="243" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Metadata change publication</text>
+<rect x="40" y="310" width="354" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">CUSTOM INDEXING RESPONSIBILITY</text>
+<rect x="682" y="310" width="432" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Implemented separately from the public extension</text>
+<rect x="40" y="504" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="526" class="lane">CONFIGURED DESTINATIONS</text>
+<rect x="817" y="504" width="297" height="32" fill="#F5F8FB"/>
+<text x="1110" y="526" class="minor" text-anchor="end">Search and object-storage targets</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#ckan-external-sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#ckan-external-event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#ckan-external-store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg></div></div></figure></div></section><section class="case-section" id="outcomes" tabindex="-1" data-case-section><div class="container"><h2>Outcomes: a public extension with visible scope</h2><div class="case-prose"><p>The repository documents a substantial metadata extension and Solr-based view-search behavior. My public CKAN discussion describes releasing it with ISO metadata work and import/export/clone/validation/indexing functions.</p><p>I lead the technical work on FAO’s ISO metadata catalogue, associated with data.fao.org and the agro-informatics portal and supporting a broad range of FAO projects. I also participated in ISO 19115-4 standardization work. The companion AIP catalogue case explains that institutional context alongside the separate STAC discovery lane.</p><p>The external pipeline is documented separately through my implementation account. Neither the README nor that account establishes operational volume, index freshness, an availability target or a production reliability result.</p></div></div></section><section class="case-section" id="learning" tabindex="-1" data-case-section><div class="container"><h2>Learning: every projection needs a reason to exist</h2><div class="case-prose"><p>An architecture drawing becomes useful when it can say why each destination exists, who owns the canonical record and what happens when visibility changes. Adding a bucket and two search engines does not answer those questions by itself.</p><p>This case preserves the gap rather than inventing a precise event envelope or integration hook. The next step for a deeper review is to trace one real update and one delete through each destination, then test replay and stale-event behavior.</p></div></div></section></div><section class="case-support"><div class="container"><h2>Questions &amp; discussion</h2><details class="case-question"><summary>Does ckanext-jsonschema implement Eventarc or Elasticsearch?</summary><p>The public README documents CKAN metadata and Solr indexing. I implemented the Eventarc/Elasticsearch/object-storage integration separately; those services are not features established by the public extension repository.</p><a href="#architecture">Read the relevant section</a></details><details class="case-question"><summary>Which destination is authoritative?</summary><p>CKAN metadata is the source within the extension diagram. The separate pipeline’s authority and bucket role require confirmation. Search projections should not silently become authority merely because they are convenient to query.</p><a href="#decisions">Read the relevant section</a></details><details class="case-question"><summary>How would you review ordering and duplicates?</summary><p>Start from Eventarc’s at-least-once, unordered delivery. Inspect the actual event identity/version and destination update behavior. Version checks and idempotent writes are proposed review criteria until their implementation is established.</p><a href="#learning">Read the relevant section</a></details></div></section><section class="case-support" id="sources"><div class="container"><h2>Sources &amp; scope</h2><ul class="source-list"><li id="source-ckan-repo"><a href="https://github.com/ccancellieri/ckanext-jsonschema">ckanext-jsonschema repository</a><p class="source-note">README on extra branch, inspected October 2026; Public extension repository</p></li><li id="source-ckan-discussion"><a href="https://github.com/ckan/ckan/discussions/6498">CKAN community discussion of the extension</a><p class="source-note">Public discussion; Author’s public contribution account</p></li><li id="source-eventarc"><a href="https://docs.cloud.google.com/eventarc/standard/docs/overview">Eventarc Standard overview</a><p class="source-note">Current product documentation inspected October 2026; Google Cloud; product behavior is not deployment evidence</p></li><li id="source-ckan-account"><a href="https://github.com/ccancellieri/ckanext-jsonschema">Separate custom metadata indexing integration</a><p class="source-note">My supplied architecture account; Source link documents the extension only; the external design is candidate-described</p></li><li id="source-fao-catalogue-scope"><a href="https://data.fao.org/">FAO catalogue leadership and institutional scope</a><p class="source-note">Technical leadership and broad project support confirmed October 2026; Candidate-confirmed institutional contribution</p></li><li id="source-iso-standardization"><a href="https://www.iso.org/standard/86968.html">ISO/TR 19115-4 project context</a><p class="source-note">Official Technical Report entry under publication, inspected October 2026; ISO project context; my participation is candidate-confirmed</p></li></ul></div></section><nav class="related-cases container" aria-label="Related case studies"><h2>Continue exploring</h2><a href="/projects/aip-catalogues/">AIP catalogues: two discovery models, shared programme delivery</a><a href="/projects/dynastore/">DynaStore: canonical data and recoverable projections</a><a href="/projects/keystone/">Keystone: identity and access across platform and cloud</a></nav></main>
+<footer><div class="footer-content"><span>© 2026 Carlo Cancellieri</span><div class="footer-links"><a href="/#about">About</a><a href="/#writing">Writing</a><a href="/library/">Library</a><a href="/#contact">Connect</a></div></div><p class="container institution-note">A personal portfolio describing my contributions. Institutional projects are team work; views and independent projects do not imply endorsement by FAO or other organizations.</p></footer>
+
+</body>
+</html>

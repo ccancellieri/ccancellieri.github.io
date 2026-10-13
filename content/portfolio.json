@@ -1,0 +1,182 @@
+{
+  "site": {
+    "name": "Carlo Cancellieri",
+    "url": "https://ccancellieri.github.io",
+    "updated": "2026-10-13"
+  },
+  "paths": [
+    {
+      "id": "architecture",
+      "title": "Systems architecture",
+      "description": "Boundaries, contracts and decisions that make systems easier to evolve."
+    },
+    {
+      "id": "geospatial",
+      "title": "Geospatial & interoperability",
+      "description": "Geospatial engineering and information management through open standards and reusable access to spatial data."
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud & DevOps",
+      "description": "Infrastructure management, infrastructure as code and automation across the operational life of a platform."
+    },
+    {
+      "id": "security",
+      "title": "Security & identity",
+      "description": "Identity and access management, trust boundaries and delivery controls that support DevSecOps."
+    },
+    {
+      "id": "leadership",
+      "title": "Technical leadership",
+      "description": "Engineering judgment, collaboration and knowledge transfer, with an incident-management approach grounded in diagnosis and recoverable operations."
+    },
+    {
+      "id": "ai-strategy",
+      "title": "AI & business strategy",
+      "description": "Responsible AI, research and the decisions that connect technology to business."
+    }
+  ],
+  "homepageProjects": [
+    {
+      "title": "GeoServer Active-Active",
+      "slug": "geoserver-active-active",
+      "paths": [
+        "architecture",
+        "geospatial",
+        "cloud"
+      ]
+    },
+    {
+      "title": "CKAN JSON Schema and indexing",
+      "slug": "ckan-jsonschema-indexing",
+      "paths": [
+        "architecture",
+        "geospatial",
+        "cloud"
+      ]
+    },
+    {
+      "title": "DynaStore architecture and read-in-place",
+      "slug": "dynastore",
+      "paths": [
+        "architecture",
+        "geospatial",
+        "cloud",
+        "leadership"
+      ]
+    },
+    {
+      "title": "GeoID",
+      "slug": "geoid",
+      "paths": [
+        "architecture",
+        "geospatial",
+        "cloud",
+        "leadership"
+      ]
+    },
+    {
+      "title": "DynaStore",
+      "slug": "dynastore",
+      "paths": [
+        "architecture",
+        "geospatial",
+        "cloud",
+        "leadership"
+      ]
+    },
+    {
+      "title": "Statistical Working System",
+      "slug": "sws",
+      "paths": [
+        "architecture",
+        "cloud",
+        "leadership"
+      ]
+    },
+    {
+      "title": "GeoServer Ecosystem",
+      "slug": "geoserver-active-active",
+      "paths": [
+        "architecture",
+        "geospatial"
+      ]
+    },
+    {
+      "title": "Hyrax SQL Handler",
+      "slug": "hyrax-sql-handler",
+      "paths": [
+        "architecture",
+        "geospatial"
+      ]
+    },
+    {
+      "title": "Remote Sensing Portal",
+      "paths": [
+        "geospatial",
+        "cloud",
+        "leadership"
+      ],
+      "slug": "aip-catalogues"
+    },
+    {
+      "title": "Keystone",
+      "slug": "keystone",
+      "paths": [
+        "architecture",
+        "security",
+        "cloud"
+      ]
+    },
+    {
+      "title": "CKAN Extensions",
+      "slug": "ckan-jsonschema-indexing",
+      "paths": [
+        "architecture",
+        "geospatial"
+      ]
+    },
+    {
+      "title": "Tellurion",
+      "slug": "tellurion",
+      "paths": [
+        "architecture",
+        "geospatial"
+      ]
+    },
+    {
+      "title": "MCP Skill Hub",
+      "slug": "mcp-skill-hub",
+      "paths": [
+        "architecture",
+        "ai-strategy"
+      ]
+    },
+    {
+      "title": "Planner App",
+      "paths": [
+        "architecture",
+        "ai-strategy"
+      ]
+    },
+    {
+      "title": "Pi Media Server",
+      "paths": [
+        "cloud"
+      ]
+    }
+  ],
+  "mapTitles": {
+    "geoserver-active-active": "GeoServer Active/Active",
+    "ckan-jsonschema-indexing": "CKAN JSON Schema",
+    "dynastore": "DynaStore",
+    "geoid": "GeoID",
+    "sws": "Statistical Working System",
+    "hyrax-sql-handler": "Hyrax SQL Handler",
+    "keystone": "Keystone",
+    "tellurion": "Tellurion",
+    "mcp-skill-hub": "MCP Skill Hub",
+    "mba-responsible-ai": "Responsible AI & ESG",
+    "aip-catalogues": "AIP metadata & STAC catalogues"
+  }
+}

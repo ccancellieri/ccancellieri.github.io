@@ -1,0 +1,104 @@
+{
+  "documents": [
+    {
+      "id": "mba-thesis",
+      "title": "Ethical AI Practices and ESG Integration: A Framework for Sustainability",
+      "description": "Complete 64-page May 2024 MBA dissertation. Literature review, AERI proposal and hypothetical workforce simulation, with private advisor details removed. Read the accompanying methodology and errata guide.",
+      "type": "Thesis",
+      "year": "2024",
+      "url": "/assets/documents/mba-thesis.pdf",
+      "attribution": "Carlo Cancellieri, Neapolis University Pafos. Copyright 2024 Carlo Cancellieri. Public copy of the original dissertation.",
+      "verification": "document-inspected",
+      "project": "mba-responsible-ai"
+    },
+    {
+      "id": "sql-handler",
+      "title": "SQLHandler use cases for OPeNDAP Hyrax",
+      "description": "Original 13-page demonstration from 18 August 2010: relational data access through the Hyrax back end, dataset discovery, filtering and projection. Contacts and mentor names are omitted.",
+      "type": "Presentation",
+      "year": "2010",
+      "url": "/assets/documents/sql-handler.pdf",
+      "attribution": "Carlo Cancellieri. Original slides acknowledge Google Summer of Code 2010 funding and describe the software as LGPL. Mentor names omitted for privacy.",
+      "verification": "document-inspected",
+      "project": "hyrax-sql-handler"
+    },
+    {
+      "id": "keystone-platform",
+      "title": "Keystone: Unified Identity and Access Control Platform",
+      "description": "Complete 12-slide source presentation on identity integration, the FastAPI gateway, permissions, Google Cloud access and Keycloak. Colleague credit and an institutional role identifier are redacted.",
+      "type": "Presentation",
+      "year": "2025 edition",
+      "url": "/assets/documents/keystone-platform.pdf",
+      "attribution": "Joint presentation by Carlo Cancellieri and a colleague; contributor names omitted from this public copy. Edition dated from source metadata; this does not establish the project start date.",
+      "verification": "document-inspected",
+      "project": "keystone"
+    },
+    {
+      "id": "gcp-geoserver-cluster",
+      "title": "Geospatial platforms on Google Cloud: deployment and replication",
+      "description": "Complete 19-slide source presentation on Terraform modules, product and infrastructure pipelines, review and production workflows, regional replicas and rolling updates. Contacts and operational screenshots are redacted. Capacity statements describe intended design.",
+      "type": "Presentation",
+      "year": "Undated source edition",
+      "url": "/assets/documents/gcp-geoserver-cluster.pdf",
+      "attribution": "Carlo Cancellieri. Public copy of the original GCP geospatial cluster presentation. Historical product descriptions and region counts remain as originally presented.",
+      "verification": "document-inspected",
+      "project": "gcp-geospatial-delivery"
+    },
+    {
+      "id": "geoid-dynastore-names",
+      "title": "Why GeoID and DynaStore exist",
+      "description": "Complete nine-slide revised July 2026 presentation: stable UUIDv7 feature identity, operation routing, storage capabilities and deployment choices. Demonstration descriptions make no benchmark latency claim.",
+      "type": "Presentation",
+      "year": "2026",
+      "url": "/assets/documents/geoid-dynastore-names.pdf",
+      "attribution": "Carlo Cancellieri. Revised source edition, July 2026. Public repository cited in the slides: github.com/un-fao/GeoID.",
+      "verification": "document-inspected",
+      "project": "geoid"
+    },
+    {
+      "id": "geoid-platform-upgrade",
+      "title": "Agro-Informatics Platform: GeoID and DynaStore development upgrade",
+      "description": "Complete eight-slide source presentation for the v0.20.83 to v0.27.89 development-environment upgrade. Service boundaries, bounded database waits, task execution and catalog integrity. Claims concern the described development environment.",
+      "type": "Presentation",
+      "year": "2026",
+      "url": "/assets/documents/geoid-platform-upgrade.pdf",
+      "attribution": "Carlo Cancellieri. July 2026 source presentation. Development-environment architecture and upgrade account; no production scale or independent performance validation is asserted.",
+      "verification": "document-inspected",
+      "project": "dynastore"
+    }
+  ],
+  "notes": [
+    {
+      "title": "About the public document copies",
+      "paragraphs": [
+        "These downloads preserve the complete page and slide sequences of the inspected originals. Public copies remove contact details, private advisor and mentor names, operational identifiers in screenshots, and document annotations or metadata. Neutral labels mark substantive privacy omissions.",
+        "Keystone is a joint presentation. The public copy retains Carlo Cancellieri’s name and omits a colleague’s name for privacy. The revised GeoID naming deck represents the two closely related source editions. These documents record the designs and claims of their original editions."
+      ]
+    },
+    {
+      "title": "MBA thesis: methodology and reading guide",
+      "paragraphs": [
+        "Ethical AI Practices and ESG Integration: A Framework for Sustainability is Carlo Cancellieri’s May 2024 MBA dissertation at Neapolis University Pafos. It combines a literature review, a proposed AI Empowerment and Replacement Index (AERI), and a hypothetical simulation for CC&Co. with an initial workforce of 100. It contains no empirical workplace trial or validated causal estimate of AI’s effect on employment.",
+        "The original academic text is retained, including its numerical and terminology inconsistencies. The accompanying project page sets out the proposed formulas, limitations, and errata separately. Environmental score E stays constant in the simulation. The workforce and productivity inputs are assumptions.",
+        "Page references in the reading guide use physical PDF pages, starting with the cover as page 1. From the abstract onward, the printed body page number is four less than the physical page number."
+      ]
+    }
+  ],
+  "selected_notes": [
+    {
+      "title": "From STAC Discovery to a Trustworthy Map",
+      "url": "/writing/stac-cog-reproducible-maps/",
+      "description": "2026: independent COG pixel validation, explicit provenance and measured range delivery."
+    },
+    {
+      "title": "GeoServer on JBoss",
+      "url": "https://ccancellieri.wordpress.com/2012/01/27/geoserver-on-jboss/",
+      "description": "2012: a historical deployment note connecting Java application servers and geospatial infrastructure."
+    },
+    {
+      "title": "Why I paused visual context compression",
+      "url": "https://www.linkedin.com/pulse/55-fewer-tokens-one-wrong-source-why-i-paused-visual-cancellieri-r3zwe/",
+      "description": "2026: an AI research experiment, its quality gate and the limits of a promising result."
+    }
+  ]
+}

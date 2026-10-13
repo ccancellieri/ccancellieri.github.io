@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="title desc"><title id="title">SIGEO / SMAI · connect measurements to monitoring views</title><desc id="desc">Two datasets are integrated through a shared field and environmental measurements are presented in graph views. R&amp;D leadership coordinates engineering delivery, Agile practices and scope with consortium partners.</desc>
+<defs><marker id="sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}.heading{font-size:30px;font-weight:700}.lane{font-size:19px;font-weight:700;letter-spacing:.8px}.name{font-size:21px;font-weight:700}.minor{fill:#476071}.label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}.sync{stroke:#147D83}.event{stroke:#355AD8;stroke-dasharray:8 6}.store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">SIGEO / SMAI · connect measurements to monitoring views</text>
+<text x="34" y="80" class="minor">Conceptual contribution map, 2018–2019 · R&amp;D and engineering delivery</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">SOURCE DATA RESPONSIBILITY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Source technologies and cadence unspecified</text>
+<rect x="65" y="162" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="192" class="name">Dataset A</text>
+<text x="82" y="219" class="minor">Shared field and source data</text>
+<rect x="650" y="162" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="192" class="name">Dataset B</text>
+<text x="667" y="219" class="minor">Shared field and measurement data</text>
+<rect x="28" y="303" width="1104" height="155" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="332" class="lane">INTEGRATION RESPONSIBILITY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Shared field connects the datasets</text>
+<rect x="65" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="387" class="name">Common-field join</text>
+<text x="82" y="414" class="minor">Match the two data representations</text>
+<rect x="650" y="357" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="387" class="name">Measurement graph views</text>
+<text x="667" y="414" class="minor">Environmental monitoring presentation</text>
+<path d="M280 245.0V357.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="280" y="287" class="label" text-anchor="middle">dataset input</text>
+<path d="M865 245.0V280.0H510V397.0H495" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="632" y="278" class="label" text-anchor="middle">dataset input</text>
+<path d="M495 420.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="572" y="441" class="label" text-anchor="middle">joined data</text>
+<rect x="28" y="518" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="547" class="lane">DELIVERY RESPONSIBILITY</text>
+<text x="1110" y="547" class="minor" text-anchor="end">R&amp;D lead contribution within a consortium project</text>
+<rect x="65" y="587" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="617" class="name">Engineering delivery</text>
+<text x="82" y="644" class="minor">Agile practices and team coordination</text>
+<rect x="650" y="587" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="617" class="name">Consortium scope</text>
+<text x="667" y="644" class="minor">Coordinate expected monitoring views</text>
+<path d="M495 626.0H650" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="572" y="610" class="label" text-anchor="middle">scope alignment</text>
+<path d="M865 587.0V440.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="865" y="495" class="label" text-anchor="middle">view requirements</text>
+<text x="35" y="720" class="minor">This is a contribution-level reconstruction, not an inventory of sensor networks or production services.</text>
+<text x="35" y="744" class="minor">Review the join key’s meaning, unmatched / duplicate records and the lineage of values shown in graphs.</text>
+<rect x="40" y="117" width="310" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">SOURCE DATA RESPONSIBILITY</text>
+<rect x="727" y="117" width="387" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Source technologies and cadence unspecified</text>
+<rect x="40" y="310" width="310" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">INTEGRATION RESPONSIBILITY</text>
+<rect x="808" y="310" width="306" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Shared field connects the datasets</text>
+<rect x="40" y="525" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="547" class="lane">DELIVERY RESPONSIBILITY</text>
+<rect x="673" y="525" width="441" height="32" fill="#F5F8FB"/>
+<text x="1110" y="547" class="minor" text-anchor="end">R&amp;D lead contribution within a consortium project</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg>

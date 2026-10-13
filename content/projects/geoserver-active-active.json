@@ -1,0 +1,134 @@
+{
+  "slug": "geoserver-active-active",
+  "title": "GeoServer Active/Active: separate serving from authoring",
+  "description": "Original JMS clustering work: distributed GeoServer configuration, active query nodes and explicit data-management boundaries.",
+  "period": "2010–2014",
+  "role": "Original plugin developer and author at GeoSolutions",
+  "kind": "open-source",
+  "paths": [
+    "architecture",
+    "geospatial",
+    "cloud"
+  ],
+  "summary": "I developed the original GeoServer JMS clustering plugin and related articles at GeoSolutions. The central distinction is between serving queries on several instances and controlling who changes the configuration those instances share.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: several servers, one coherent publishing setup",
+      "paragraphs": [
+        "A GeoServer installation has more than geospatial data. Its catalog, service settings and styles tell the server how to expose that data. Adding query-serving instances creates a second coordination problem: carrying configuration changes to those instances.",
+        "The extension addressed internal configuration propagation. It did not make shapefiles, raster files or databases replicate through JMS. That boundary matters because a replica with the right catalog can still point at missing or different spatial data."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: two planes with different responsibilities",
+      "paragraphs": [
+        "GeoServer instances use Java, Spring and JMS messaging through ActiveMQ. An authoring instance persists configuration and publishes changes; subscribing instances apply received configuration to their in-memory catalog and persist it locally. Multiple instances can serve OGC queries concurrently.",
+        "The topology drawn here is a documented design with private data directories and a designated configuration writer. It is an original reconstruction of the published architecture, not a deployment inventory. A broker can be standalone or embedded; the training also describes broker networks.",
+        "Durable subscriptions support delivery of changes missed while a registered replica is offline. They concern the configuration message channel. Spatial sources and accompanying files still need their own sharing or synchronization arrangements."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/geoserver-topology.svg",
+          "title": "Serving, configuration and spatial data",
+          "description": "Read traffic can enter either GeoServer node. Administrative changes enter the designated writer, pass through the configuration message channel and are persisted at the replica. Both nodes obtain spatial data through a separate data-management lane. Solid arrows show requests; dashed arrows show JMS messages; ochre arrows show persistence.",
+          "view": "Deployment"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: make the configuration writer explicit",
+      "paragraphs": [
+        "Active/Active query service does not imply safe concurrent catalog editing. The documentation warns about concurrent writes to shared directories and recommends directing frequent configuration changes through one authoring node with failover. A pure replica should not receive REST or UI configuration edits.",
+        "Private directories avoid treating a shared filesystem as a concurrent configuration database, but place catch-up responsibility on messaging and replica persistence. A shared-directory topology has different operational constraints, including separate instance configuration locations.",
+        "A retrospective alternative is a declarative configuration rollout: distribute a versioned artifact and reload serving instances through a controlled procedure. That can improve auditability but trades immediate fine-grained propagation for rollout coordination. It is an alternative I would evaluate today, not a claim that it was implemented in this work."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/geoserver-flow.svg",
+          "title": "Configuration change and replica responsibility",
+          "description": "This flow separates authoring, message delivery and replica application. Durability can bridge an offline interval, but the inspected documentation does not establish a single transaction across local persistence and broker publication, conflict resolution for concurrent authors, or exactly-once effects.",
+          "view": "Flow"
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: an enduring community extension",
+      "paragraphs": [
+        "I was the sole developer of the original plugin and author of the related articles during 2010–2014. The original work was committed in SVN and later migrated to Git. The current community module includes subsequent maintenance by others; its present contents should not all be attributed to me.",
+        "The public documentation remains available and explains configuration propagation and deployment choices. This case claims a delivered extension and documented architecture, without converting that evidence into a throughput, availability or customer-count result."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: availability has more than one state",
+      "paragraphs": [
+        "The most useful design lesson is to name what is consistent: a catalog object, a style, an external graphic and a dataset are different things. A service can remain available for queries while a replica is temporarily behind on publishing configuration.",
+        "For a new implementation, I would test a configuration edit while the broker is unavailable, a crash between persistence and publication, a replica reconnecting to a durable subscription, mutable catalog objects across serialization, duplicate/reordered events and safe writer failover. Those are reliability questions raised by this architecture, not invented incidents from its history."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Does Active/Active mean every node can safely edit the catalog?",
+      "answer": "No. Query traffic can be served by several nodes, while configuration authoring is deliberately constrained. The documented warnings around shared directories and pure replicas rule out describing this as conflict-free multiwriter consensus.",
+      "section": "architecture"
+    },
+    {
+      "question": "What happens when a replica is offline?",
+      "answer": "A configured durable subscription can deliver missed configuration messages on reconnection. Spatial-file synchronization remains separate. The delivery and application semantics need examination before claiming any stronger end-to-end guarantee.",
+      "section": "decisions"
+    },
+    {
+      "question": "What did you personally build?",
+      "answer": "I developed the original plugin and related articles at GeoSolutions during 2010–2014. Community maintenance continued afterward; current module authorship is shared across its history.",
+      "section": "outcomes"
+    }
+  ],
+  "sources": [
+    {
+      "id": "gs-docs",
+      "title": "GeoServer JMS clustering documentation",
+      "url": "https://docs.geoserver.org/main/en/user/community/jms-cluster/",
+      "version": "Current community documentation, inspected October 2026",
+      "attribution": "GeoServer community",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "gs-training",
+      "title": "GeoSolutions clustering topology training",
+      "url": "https://geoserver.geosolutionsgroup.com/edu/en/clustering/clustering/active/topologies.html",
+      "version": "Training documentation, inspected October 2026",
+      "attribution": "GeoSolutions; training material is CC BY-NC-SA. Diagrams here are original reconstructions, not copied artwork.",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "gs-article",
+      "title": "Advanced clustering with GeoServer",
+      "url": "https://www.geosolutionsgroup.com/blog/advanced-clustering-geoserver/",
+      "version": "Historical article",
+      "attribution": "GeoSolutions; original authorship described in my confirmed account",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "gs-source",
+      "title": "GeoServer JMS extension source",
+      "url": "https://github.com/geoserver/geoserver/tree/main/src/community/jms-cluster",
+      "version": "Historical authorship retained in source; module maintained by the community",
+      "attribution": "Original contribution by Carlo Cancellieri and later community contributions",
+      "verification": "source-inspected"
+    }
+  ],
+  "related": [
+    "dynastore",
+    "hyrax-sql-handler"
+  ],
+  "documents": [],
+  "homepageTitle": "GeoServer Ecosystem"
+}

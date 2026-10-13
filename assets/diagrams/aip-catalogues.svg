@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="title desc"><title id="title">AIP catalogues · two discovery responsibilities</title><desc id="desc">CKAN and JSON Schema support descriptive ISO metadata workflows and a Solr projection. SFEOS supports STAC item and collection discovery through a configured Elasticsearch or OpenSearch backend and returns asset references. The two lanes are distinct and no synchronization between them is asserted.</desc>
+<defs><marker id="sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}.heading{font-size:30px;font-weight:700}.lane{font-size:19px;font-weight:700;letter-spacing:.8px}.name{font-size:21px;font-weight:700}.minor{fill:#476071}.label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}.sync{stroke:#147D83}.event{stroke:#355AD8;stroke-dasharray:8 6}.store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">AIP catalogues · two discovery responsibilities</text>
+<text x="34" y="80" class="minor">FAO programme delivery · descriptive metadata and spatiotemporal asset discovery</text>
+<rect x="355" y="110" width="450" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="372" y="140" class="name">Catalogue users and publishers</text>
+<text x="372" y="167" class="minor">Different discovery and publishing needs</text>
+<rect x="28" y="215" width="535" height="490" rx="10" fill="#F5F8FB" stroke="#BACBD5"/><rect x="597" y="215" width="535" height="490" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="245" class="lane">CKAN / ISO METADATA</text>
+<text x="617" y="245" class="lane">SFEOS / STAC ASSETS</text>
+<rect x="65" y="278" width="475" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="308" class="name">JSON Schema metadata workflow</text>
+<text x="82" y="335" class="minor">Editing and validation</text>
+<rect x="65" y="430" width="475" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="460" class="name">CKAN descriptive records</text>
+<text x="82" y="487" class="minor">Catalogue metadata ownership</text>
+<rect x="65" y="607" width="475" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="637" class="name">Solr discovery projection</text>
+<text x="82" y="664" class="minor">Metadata and public view search</text>
+<rect x="650" y="278" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="308" class="name">SFEOS STAC API</text>
+<text x="667" y="335" class="minor">Spatial / temporal / property discovery</text>
+<rect x="650" y="430" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="460" class="name">Configured ES / OpenSearch</text>
+<text x="667" y="487" class="minor">Collection and item search representation</text>
+<rect x="650" y="607" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="637" class="name">STAC asset references</text>
+<text x="667" y="664" class="minor">Links returned for discovered assets</text>
+<path d="M355 147.0H280V278.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="280" y="204" class="label" text-anchor="middle">metadata workflow</text>
+<path d="M805 147.0H865V278.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="865" y="204" class="label" text-anchor="middle">asset discovery</text>
+<path d="M280 361.0V430.0" fill="none" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="280" y="406" class="label" text-anchor="middle">save metadata</text>
+<path d="M280 513.0V607.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="280" y="590" class="label" text-anchor="middle">index metadata</text>
+<path d="M865 361.0V430.0" fill="none" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="865" y="406" class="label" text-anchor="middle">search</text>
+<path d="M1080 320.0H1110V648.0H1080" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="1052" y="585" class="label" text-anchor="middle">asset links</text>
+<text x="35" y="720" class="minor">The lanes show complementary catalogue responsibilities, not automatic synchronization or shared authority.</text>
+<text x="35" y="744" class="minor">Technical catalogue leadership and FAO adoption are contribution evidence; upstream capabilities are documented separately.</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg>

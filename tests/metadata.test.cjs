@@ -27,9 +27,14 @@ test('person metadata uses supported current title and cross-platform breadth', 
   assert.equal(person.telephone, undefined);
 });
 
-test('homepage sitemap has current revision date', () => {
+test('homepage sitemap uses the configured revision while historical article dates stay unchanged', () => {
   const xml = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
-  assert.match(xml, /<loc>https:\/\/ccancellieri.github.io\/<\/loc>\s*<lastmod>2026-10-12<\/lastmod>/);
+  const revision = JSON.parse(fs.readFileSync(path.join(root, 'content/portfolio.json'), 'utf8')).site.updated;
+  const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => match[1]);
+  const home = entries.find(entry => entry.includes('<loc>https://ccancellieri.github.io/</loc>'));
+  assert.ok(home.includes(`<lastmod>${revision}</lastmod>`));
+  const article = entries.find(entry => entry.includes('/writing/stac-cog-reproducible-maps/'));
+  assert.ok(article.includes('<lastmod>2026-10-12</lastmod>'));
 });
 
 test('public presence and research writing remain visible without scripts', () => {

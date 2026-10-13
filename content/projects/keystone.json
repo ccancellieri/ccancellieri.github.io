@@ -1,0 +1,140 @@
+{
+  "slug": "keystone",
+  "title": "Keystone: identity and access across platform and cloud",
+  "description": "Implemented Keycloak and Google Cloud Workforce Identity Federation integration, with platform policies and cloud IAM kept as separate authorization scopes.",
+  "period": "2023–2024",
+  "role": "Architecture and implementation contribution with FAO colleagues; presentation co-author",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "security",
+    "cloud",
+    "leadership"
+  ],
+  "summary": "In 2023–2024, we developed Keystone with Keycloak and Open Policy Agent alongside GCP IAM, integrating a Google Cloud Workforce Identity Pool with Keycloak. My contribution combined identity integration, access-policy architecture and implementation with FAO colleagues.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: identity alone is not resource access",
+      "paragraphs": [
+        "A platform identity and a cloud identity do not automatically grant the same access. Applications, service accounts and administrators need a consistent way to express permissions for platform resources and the associated cloud services.",
+        "The inspected twelve-slide presentation frames Keystone around unified identity management, centralized authorization and GCP resource access. It supports this architectural scope; it does not establish a start date, a population served or measured security outcomes."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: identity provider, gateway and client",
+      "paragraphs": [
+        "We developed Keystone in 2023–2024 with Keycloak and Open Policy Agent (OPA), integrating Keycloak with Google Cloud Workforce Identity Federation and IAM. The twelve-slide presentation also describes OpenID Connect authentication, a FastAPI gateway and a Python client for gateway interactions.",
+        "Workforce federation lets externally authenticated users access Google Cloud under IAM permissions. It is user identity federation, distinct from workload identity federation for software workloads. OPA supplies a policy-decision responsibility for application access; gateway/platform enforcement and Google IAM resource permissions are separate scopes.",
+        "The diagrams combine the confirmed implemented integration with Google’s documented federation model. The product flow exchanges an external credential through Security Token Service for short-lived access; the particular provider claims, token caches and revocation behavior of this deployment have not been inspected."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/keystone-context.svg",
+          "title": "Federated user identity and two authorization scopes",
+          "description": "Keycloak authenticates users. A workforce identity pool/provider trusts that identity for access governed by Google Cloud IAM. A separate platform policy/gateway lane supports FAO Maps access. These scopes remain distinct; the view does not invent deployment replicas or provider attribute mappings.",
+          "view": "Context"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: central policy with explicit enforcement boundaries",
+      "paragraphs": [
+        "Authentication answers who is requesting access. Authorization answers whether that identity can perform an operation on a resource. The presentation connects both, while naming policy enforcement for buckets and BigQuery and access rules for FAO Maps.",
+        "The presentation describes RBAC and ReBAC for platform users and service accounts. The implemented stack also uses OPA. Policy decisions and enforcement should be distinguished: naming OPA does not mean it replaces Google IAM or prove particular Rego rules, decision caching or resource attribute mappings.",
+        "A retrospective alternative is to let each application maintain its own identity-to-cloud mapping. That reduces central dependencies, but multiplies permission administration and makes alignment harder. I would evaluate the central gateway against that administrative cost, while measuring its own availability and policy-propagation requirements."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/keystone-boundaries.svg",
+          "title": "Three security responsibilities",
+          "description": "Authentication establishes the user in Keycloak. Workforce federation represents the external identity in Google Cloud; its documented token exchange uses STS. IAM grants resource permissions, while platform RBAC/ReBAC has its own scope. Google product mechanics are distinguished from uninspected deployment settings.",
+          "view": "Trust boundaries"
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: a reviewable integration design",
+      "paragraphs": [
+        "We implemented Keystone using Keycloak and OPA alongside GCP IAM, with Workforce Identity Pool integration, in 2023–2024. The architecture presentation documents the FastAPI gateway, Python client, authentication and role/group/policy administration, including an authentication demo section.",
+        "This is FAO institutional work delivered with colleagues. The public case describes the evidenced components and my contribution, without asserting user counts, token-lifetime guarantees, particular deployment infrastructure or independent security certification."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: follow the permission all the way to the resource",
+      "paragraphs": [
+        "An identity integration is only as clear as the enforcement boundaries around it. A design review should trace user identity, service-account identity, the policy decision and the final resource operation separately.",
+        "The next evidence I would request for an operational review is a resource-specific access trace, including denied access, token revocation and service failure. These are review criteria, not a statement that a particular caching or recovery mechanism was implemented."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "How do authentication, federation and IAM differ?",
+      "answer": "Keycloak authenticates the user. Workforce federation lets Google Cloud trust an external user identity. IAM determines allowed cloud operations; the platform’s access policy remains a separate authorization scope.",
+      "section": "architecture"
+    },
+    {
+      "question": "How quickly does revoked access take effect?",
+      "answer": "The inspected presentation does not establish revocation timing or token caching. A defensible answer requires the implemented token lifetimes, policy refresh behavior and final resource enforcement path.",
+      "section": "decisions"
+    },
+    {
+      "question": "Why a Python client?",
+      "answer": "The slides explicitly describe a library that simplifies interaction with the FastAPI gateway. It creates an integration surface for applications; the deck does not prove retries, caching or token exchange internals.",
+      "section": "learning"
+    },
+    {
+      "question": "Does OPA replace Google Cloud IAM?",
+      "answer": "No such replacement is claimed. OPA is the application policy-decision component; IAM permissions govern Google Cloud resources. The exact gateway decision inputs and enforcement sequence require implementation evidence.",
+      "section": "decisions"
+    }
+  ],
+  "sources": [
+    {
+      "id": "keystone-deck",
+      "title": "Keystone — Unified Identity and Access Control Platform",
+      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/main/keystone",
+      "version": "Twelve-slide architecture presentation inspected October 2026",
+      "attribution": "FAO institutional presentation; co-authored with colleagues",
+      "verification": "document-inspected"
+    },
+    {
+      "id": "keystone-contribution",
+      "title": "Contribution and employment context",
+      "url": "https://github.com/ccancellieri/ccancellieri_projects",
+      "version": "Implemented Keycloak + OPA over GCP IAM with Workforce Identity Pool integration; 2023–2024 development confirmed October 2026",
+      "attribution": "Contribution account, not an independently audited deployment record",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "gcp-workforce",
+      "title": "Google Cloud Workforce Identity Federation",
+      "url": "https://docs.cloud.google.com/iam/docs/workforce-identity-federation",
+      "version": "Official documentation inspected October 2026",
+      "attribution": "Google Cloud; product flow is explanatory context, not inspection of deployment claims",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "opa-docs",
+      "title": "Open Policy Agent documentation",
+      "url": "https://www.openpolicyagent.org/docs/latest/",
+      "version": "Official documentation inspected October 2026",
+      "attribution": "Open Policy Agent; explains decisions versus enforcement, not project-specific policy rules",
+      "verification": "source-inspected"
+    }
+  ],
+  "related": [
+    "dynastore",
+    "ckan-jsonschema-indexing"
+  ],
+  "documents": [],
+  "homepageTitle": "Keystone"
+}

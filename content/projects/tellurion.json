@@ -1,0 +1,120 @@
+{
+  "slug": "tellurion",
+  "title": "Tellurion: a small deployment with explicit capabilities",
+  "description": "Independent Rust geospatial serving engine: an embedded GeoPackage default, optional PostGIS, public demonstrations and bounded evaluation evidence.",
+  "period": "2026–present",
+  "role": "Independent creator and owner",
+  "kind": "independent",
+  "paths": [
+    "architecture",
+    "geospatial",
+    "cloud"
+  ],
+  "summary": "Tellurion is my independent Rust geospatial serving engine. It combines a small self-hosted deployment with capability-aware geospatial interfaces and public evidence that readers can inspect.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: evaluate geospatial serving without a large platform",
+      "paragraphs": [
+        "A geospatial server should be useful before an evaluator commits to a fleet of services. At the same time, a small default deployment should not hide the limitations of its storage and protocol implementations.",
+        "Tellurion starts from a native serving engine and an embedded GeoPackage path. The architectural challenge is preserving that accessible entry point while supporting other storage capabilities and inspectable data journeys."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: native serving, routed storage",
+      "paragraphs": [
+        "The repository describes a Rust engine with OGC API and STAC surfaces, routed storage drivers and an embedded GeoPackage default. PostGIS is an optional storage choice for deployments needing its capabilities.",
+        "The public gallery preserves separate vector, raster and other demonstration journeys. A STAC discovery case connects a bounded WorldCover Item to GeoPackage and COG serving lanes, with provenance and live resources for inspection.",
+        "The architecture diagram deliberately separates protocol surfaces from storage capabilities. It does not imply every driver implements every query or format."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/tellurion-lanes.svg",
+          "title": "A native engine with distinct storage capabilities",
+          "description": "Clients use geospatial interfaces through one native engine. GeoPackage provides an embedded path; PostGIS provides a separate database path; COG and other supported sources use capability-specific serving. Public demos illustrate bounded journeys rather than a uniform backend contract.",
+          "view": "Components"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: make evaluation boundaries visible",
+      "paragraphs": [
+        "The embedded default reduces infrastructure requirements for evaluation. A database service remains a choice rather than a prerequisite for every run. Driver capability limits must be explained alongside the API surface.",
+        "The gallery includes source and evidence, retained version entry points and dated artifacts. A public walkthrough demonstrates an edited journey; it is not a throughput benchmark. Likewise, hosted response timings are affected by the demonstration environment.",
+        "For a retrospective architectural comparison, I would consider a deployment that always requires a database. It could simplify uniform server-side spatial behavior but increases the minimum setup. Tellurion’s embedded path makes that tradeoff visible to an evaluator."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: self-hosted software and public journeys",
+      "paragraphs": [
+        "Tellurion’s public source and demonstration gallery let readers inspect its serving approach. The independent project is distinct from FAO institutional work. Community source is offered under AGPL-3.0-only; the repository and release documentation define applicable terms.",
+        "The retained Rome result is a Tellurion 0.2.0 smoke-scale benchmark with its own method and caveats. It is not generalized to later releases or other datasets. Demonstrated standards behavior is not presented as certification or blanket conformance.",
+        "The project offers self-hosted software; it does not offer a Tellurion Cloud service or a service-level agreement."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: a demo is stronger when its claim is bounded",
+      "paragraphs": [
+        "A credible evaluator journey should identify the build, data source, interface and limitation. A short map preview can be valuable evidence of that journey while remaining insufficient evidence for general capacity or availability.",
+        "For a deployment decision I would measure the intended dataset, query mix and chosen driver directly, and verify unsupported capabilities explicitly rather than treating a successful gallery example as a universal guarantee."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why use GeoPackage as the default?",
+      "answer": "It supports a self-contained entry point without a required database service. PostGIS remains a separate capability choice for more demanding workloads.",
+      "section": "decisions"
+    },
+    {
+      "question": "Do the demos prove full OGC conformance?",
+      "answer": "No. They evidence named behaviors and bounded journeys. Certification or general conformance requires a separately scoped assessment.",
+      "section": "outcomes"
+    },
+    {
+      "question": "Can the Rome benchmark predict another deployment?",
+      "answer": "It is a retained 0.2.0 smoke-scale result. Its dataset, build, method and caveats apply to that measurement; another deployment needs its own benchmark.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "tellurion-repo",
+      "title": "Tellurion Community source",
+      "url": "https://github.com/ccancellieri/tellurion",
+      "version": "Public repository and local source documentation inspected October 2026; release evidence is version-specific",
+      "attribution": "Independent project by Carlo Cancellieri",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "tellurion-gallery",
+      "title": "Tellurion public demonstration gallery",
+      "url": "https://ccancellieri.github.io/tellurion/",
+      "version": "Versioned demonstrations and proof links retained on portfolio",
+      "attribution": "Author’s public demonstrations",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "tellurion-proof",
+      "title": "Tellurion proof brief",
+      "url": "https://ccancellieri.github.io/tellurion/proof/",
+      "version": "Bounded public evaluation evidence",
+      "attribution": "Author’s evidence collection",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "dynastore",
+    "hyrax-sql-handler"
+  ],
+  "documents": [],
+  "homepageTitle": "Tellurion"
+}

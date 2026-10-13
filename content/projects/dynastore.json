@@ -1,0 +1,130 @@
+{
+  "slug": "dynastore",
+  "title": "DynaStore: canonical data and recoverable projections",
+  "description": "Operation-specific storage, stable feature identity and asynchronous indexing, with a precisely bounded PostgreSQL bulk-write outbox contract.",
+  "period": "Programme work since 2023",
+  "role": "Architecture and technical leadership at FAO, delivered with colleagues and collaborators",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "geospatial",
+    "cloud",
+    "leadership"
+  ],
+  "summary": "DynaStore separates API adapters, domain modules, storage capabilities and background tasks. My work connects those boundaries so that geospatial data can be exposed through interoperable APIs while search and slower work remain recoverable projections.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: one geospatial domain, several storage capabilities",
+      "paragraphs": [
+        "A catalog may need exact geometry, spatial joins, discovery search and access to existing files. Those operations do not have identical storage requirements. A platform that hides the differences behind a universal backend risks making unreliable promises about behavior and fallback.",
+        "The programme began in 2023. This case describes the inspected public repository snapshot and its documented contracts, not a claim that every branch component is deployed or that repository tests establish production capacity."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: extensions, modules and tasks",
+      "paragraphs": [
+        "HTTP extensions translate API requests; modules own domain logic and data; tasks handle asynchronous work. Canonical PostgreSQL/PostGIS storage is distinct from secondary search indexes and drivers with other capabilities, including DuckDB read-in-place for supported files.",
+        "Routing separates WRITE, READ and INDEX operations. SEARCH is derived from INDEX, with READ as a configuration fallback. Query hints can favor a capable read driver, but do not redirect the primary write lane. An empty Elasticsearch result is not a universal trigger to retry a query in PostgreSQL.",
+        "Logical feature identity is separate from catalog names and physical backend identifiers. That separation helps route the same domain object across storage and index representations."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/dynastore-components.svg",
+          "title": "Domain ownership and operation lanes",
+          "description": "API extensions enter a module boundary, which resolves domain identity and storage capabilities. The canonical write/read lane reaches PostgreSQL/PostGIS; asynchronous index work reaches a derived search store. File access remains a capability-specific lane. This is a component map, not a claim about production replicas.",
+          "view": "Components"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: bind the guarantee to the exact write path",
+      "paragraphs": [
+        "In the PostgreSQL-primary bulk-upsert path, canonical rows, lightweight indexing obligations and the storage-drain task obligation use one transaction. The outbox stores IDs or write IDs; draining rereads canonical state before materialization rather than treating copied payloads as authoritative.",
+        "Ordinary item-upsert paths dispatch indexing after the primary write through a separate transaction. They do not inherit the bulk path’s atomicity. Cross-call outbox duplicates are also possible; retry-oriented materialization is not exactly-once delivery.",
+        "Tasks use capability-aware dispatch and database claiming, with heartbeat/visibility recovery and reaping of stale work. Collection lifecycle states constrain access during provisioning and deletion. External cleanup hooks can still be best-effort; a state machine does not prove every external side effect is fenced.",
+        "A retrospective alternative is synchronous dual writing to the primary database and search index. It gives a simpler visible request flow but creates a partial-failure window across systems. The outbox approach makes the pending obligation durable on the specified bulk path, while accepting index lag."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/dynastore-outbox.svg",
+          "title": "Bulk write transaction and asynchronous drain",
+          "description": "Only the PostgreSQL-primary bulk path is inside the atomic boundary: canonical rows, ID/write-ID outbox obligations and a storage-drain task obligation. After commit, workers reread canonical data and materialize indexes. The separate ordinary-upsert path is explicitly outside this shared transaction guarantee.",
+          "view": "Flow"
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: explicit contracts in public source",
+      "paragraphs": [
+        "The inspected snapshot exposes the storage lanes, modular architecture, lifecycle state model and recoverable task machinery. Selected unit tests cover outbox rollback contracts and routing/lifecycle behavior. The atomicity tests use test seams and mocks; they are not a production or real-database rollback demonstration.",
+        "A published DuckDB case study illustrates querying supported geospatial files in place. It provides a complementary access pattern rather than evidence that all formats, all drivers or all queries share the same semantics.",
+        "DynaStore and its institutional deployments are FAO work delivered with colleagues and collaborators. This case does not turn design capacity, code coverage or conformance declarations into observed operational outcomes."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: a useful abstraction preserves differences",
+      "paragraphs": [
+        "Write durability, search freshness and read capability are separate contracts. Naming them makes an architecture easier to reason about and avoids describing a derived index as a second canonical database.",
+        "For further operational validation I would test real database rollback, worker death during index updates, delayed visibility changes and stale cleanup work. These are concrete verification targets beyond the source evidence inspected here."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Is the database write atomic with indexing?",
+      "answer": "The PostgreSQL-primary bulk-upsert commits canonical rows and durable indexing/task obligations together. External indexing happens later. Ordinary upsert paths use separate dispatch transactions and must be described separately.",
+      "section": "architecture"
+    },
+    {
+      "question": "Will failed or empty search always fall back to PostgreSQL?",
+      "answer": "No universal runtime failover is established. SEARCH configuration derives from INDEX and then READ, and selected helper paths have fallback behavior. The exact query path and driver capabilities control the semantics.",
+      "section": "decisions"
+    },
+    {
+      "question": "Why reread canonical state when draining?",
+      "answer": "The inspected outbox carries lightweight IDs or write IDs. Rereading makes PostgreSQL the source for projection content and supports retry-oriented materialization; it does not imply globally ordered events or exactly-once effects.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "dynastore-repo",
+      "title": "DynaStore / GeoID source repository",
+      "url": "https://github.com/ccancellieri/GeoID",
+      "version": "Public main snapshot 4da3f58bf704b26dec8191794fe98d364dc16eaa, September 2026",
+      "attribution": "FAO programme work with colleagues; source contracts reviewed in supplied research",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "dynastore-architecture",
+      "title": "DynaStore architecture overview",
+      "url": "https://github.com/ccancellieri/GeoID/tree/main/docs/architecture",
+      "version": "Architecture documentation in the inspected snapshot",
+      "attribution": "Project documentation",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "dynastore-duckdb",
+      "title": "Querying files in place with DynaStore’s DuckDB driver",
+      "url": "https://ccancellieri.wordpress.com/2026/06/19/show-the-file-dont-ingest-it-querying-parquet-and-shapefiles-in-place-with-dynastores-duckdb-driver/",
+      "version": "Published June 2026",
+      "attribution": "Author’s technical case study",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "keystone",
+    "tellurion",
+    "ckan-jsonschema-indexing"
+  ],
+  "documents": [],
+  "homepageTitle": "DynaStore"
+}

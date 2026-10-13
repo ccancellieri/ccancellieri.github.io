@@ -1,0 +1,116 @@
+{
+  "slug": "hyrax-sql-handler",
+  "title": "Hyrax SQL Handler: relational data through a scientific interface",
+  "description": "Original C++ BES module linking OPeNDAP Hyrax with SQL databases through ODBC, with explicit historical authorship and current maintenance boundaries.",
+  "period": "Google Summer of Code 2009–2010",
+  "role": "Original author, developed with OPeNDAP mentorship",
+  "kind": "open-source",
+  "paths": [
+    "architecture",
+    "geospatial"
+  ],
+  "summary": "I authored the Hyrax SQL Handler during Google Summer of Code work with OPeNDAP. It brings relational data into the same data-access interface used by scientific clients, through a C++ BES module and ODBC.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: relational tables outside a scientific data interface",
+      "paragraphs": [
+        "Scientific clients often know a data protocol rather than each database’s driver, credentials and query interface. Relational data needs a bridge if it is to appear beside other Hyrax datasets.",
+        "The engineering problem is a translation boundary: dataset definitions, tabular query results and database types must become a representation the Data Access Protocol can expose."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: a BES module with an ODBC connector",
+      "paragraphs": [
+        "The public repository describes a separately buildable C++ BES module using unixODBC and a database-specific driver. Dataset definition files select the connection and tables or columns exposed through Hyrax.",
+        "Hyrax provides the web-facing data interface and BES dispatches to the handler. The handler accesses the configured database through ODBC. The diagram is a high-level reconstruction from the repository and official guide; it does not claim every query is pushed down identically."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/hyrax-bridge.svg",
+          "title": "Protocol and database responsibility boundary",
+          "description": "A scientific client requests a configured dataset through Hyrax. The BES SQL module bridges that request to an ODBC driver and database. The database remains behind a server-side definition boundary, while type mapping connects relational results to DAP representation.",
+          "view": "Components"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: reusable database access, explicit mappings",
+      "paragraphs": [
+        "ODBC offers a common connection surface, but does not remove database-specific driver configuration. The module’s setup and datatype mappings remain important parts of the integration.",
+        "A retrospective alternative is to export database results into scientific files before serving them. That moves the integration boundary into an ETL process and can simplify read-only distribution, while introducing copied data and refresh work. The handler instead addresses access through a configured database bridge."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: public source and historical documentation",
+      "paragraphs": [
+        "The OPeNDAP repository retains the module, installation guidance and database examples. My original work belongs to the 2009–2010 Google Summer of Code period; current source includes later maintenance.",
+        "The current official Hyrax guide labels the SQL handler unsupported. This portfolio presents it as historical engineering and interoperability work, without claiming current supported production operation or a peer-reviewed publication."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: interoperability needs precise type and query contracts",
+      "paragraphs": [
+        "A common protocol does not make SQL and scientific data models identical. A useful adapter must be clear about supported types, query constraints, configuration and failure behavior.",
+        "For a renewed implementation I would test nulls, numeric precision, large result sets, cancellation and driver failures against each supported backend. That is a present-day validation plan, not a claim about tests performed during the original project."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Does an ODBC interface imply identical behavior across databases?",
+      "answer": "No. It supplies a connector boundary. Drivers, type mappings and query semantics still need verification per database.",
+      "section": "architecture"
+    },
+    {
+      "question": "Is the module currently supported?",
+      "answer": "The official Hyrax guide labels it unsupported. The public source remains useful historical evidence; source availability does not establish current operational support.",
+      "section": "outcomes"
+    },
+    {
+      "question": "What would you validate before reviving the adapter?",
+      "answer": "Type conversion, null/precision behavior, bounded result processing, cancellation and failure isolation, then database-specific configuration and query behavior.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "hyrax-repo",
+      "title": "OPeNDAP SQL Handler repository",
+      "url": "https://github.com/OPENDAP/sql_handler",
+      "version": "Repository documentation inspected October 2026",
+      "attribution": "OPeNDAP; original Carlo Cancellieri contribution with subsequent maintenance",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "hyrax-guide",
+      "title": "Official Hyrax installation and configuration guide",
+      "url": "https://opendap.github.io/hyrax_guide/Master_Hyrax_Guide.html",
+      "version": "Current guide inspected October 2026",
+      "attribution": "OPeNDAP; explicitly labels SQL handler unsupported",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "hyrax-history",
+      "title": "Original project material",
+      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/main/opendap-sql-handler",
+      "version": "Original project account and presentation collection",
+      "attribution": "Historical authorship and GSoC context",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "geoserver-active-active",
+    "tellurion"
+  ],
+  "documents": [],
+  "homepageTitle": "Hyrax SQL Handler"
+}

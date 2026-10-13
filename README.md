@@ -27,17 +27,48 @@ of current capability, availability or operational scale.
 
 ## Website
 
-Static HTML, CSS and JavaScript; no framework or build step. English is the
+Static HTML, CSS and JavaScript, with a Python standard-library generator and no framework. English is the
 supported content language. Visitor theme preferences are optional; content
 and navigation remain available without JavaScript or browser storage.
 
-- `index.html`: public content and search/social metadata.
+- `templates/home.html`: homepage source; preserve existing projects, evidence and section anchors.
+- `content/portfolio.json`: six paths, homepage project mappings and site metadata.
+- `content/projects/*.json`: case-study text, source URLs and diagram references.
+- `content/library.json`: inspected public documents and source notes.
+- `scripts/build_portfolio.py`: deterministic generation of the homepage, case studies, library and sitemap.
+- `index.html`: generated public content and search/social metadata.
+- `projects/<slug>/index.html` and `library/index.html`: generated static reading pages.
 - `portfolio.css`: responsive personal-brand presentation.
 - `portfolio.js`: theme preferences, mobile navigation and deep-link focus.
+- `portfolio-enhancements.js`: path highlighting, five-section presentations and scrollable diagram zoom.
 - `social-card.svg` and `og-personal.png`: editable sharing graphic and its
   1200 × 630 PNG rendition.
 - `sitemap.xml`, `robots.txt`, `404.html`: discovery and route recovery.
 - `tests/`: navigation, metadata, content and historical-demo regression checks.
+
+To rebuild after editing the source content or templates:
+
+```sh
+python3 scripts/build_portfolio.py
+python3 scripts/build_portfolio.py --check
+```
+
+The build writes only changed files. `--check` validates strict references without
+writing output. During an incomplete content edit, normal builds can render
+missing diagram references; run the strict check before publishing. Public
+sources must use HTTPS or public root-relative routes. Text is HTML-escaped and
+SVG diagrams are checked before embedding. Sitemap entries for historical routes
+are retained; the configured revision date applies to changed generated pages.
+
+The homepage retains all projects and offers six connected paths. Selecting a
+path highlights matching work while keeping every project visible. Case studies
+have five reading sections, source context, questions and related documents.
+All content and ordinary links work without JavaScript. With JavaScript, use
+“Present this case”, the Previous/Next buttons or arrow/Page keys, Home/End and
+Escape. Exit restores the reading page and focus. Printing includes all sections.
+Diagram views remain ordinary anchor links; zoom and flow emphasis are optional.
+On narrow screens diagrams scroll horizontally to keep labels readable, and a
+full-size SVG link is always available.
 
 To preview locally from this directory:
 
@@ -50,7 +81,9 @@ Open [localhost:8767](http://127.0.0.1:8767/).
 ## Verification
 
 ```sh
-node --test tests/*.test.cjs
+python3 scripts/build_portfolio.py --check
+python3 -m unittest discover -s tests -p 'test_*.py'
+node --test tests/*.test.cjs tests/*.test.mjs
 sh tests/public_evidence_contract.sh
 git diff --check
 ```

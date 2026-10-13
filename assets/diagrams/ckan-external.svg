@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="title desc"><title id="title">CKAN · the separately described integration</title><desc id="desc">The candidate account describes a separate Eventarc integration serving Elasticsearch, Solr and object storage. Exact event source, authoritative record and bucket role are unverified; no outbox or reconciliation implementation is asserted.</desc>
+<defs><marker id="sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}.heading{font-size:30px;font-weight:700}.lane{font-size:19px;font-weight:700;letter-spacing:.8px}.name{font-size:21px;font-weight:700}.minor{fill:#476071}.label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}.sync{stroke:#147D83}.event{stroke:#355AD8;stroke-dasharray:8 6}.store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">CKAN · the separately described integration</text>
+<text x="34" y="80" class="minor">Separate Eventarc integration · based on my contribution account</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="139" class="lane">SOURCE BOUNDARY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Metadata change publication</text>
+<rect x="65" y="160" width="365" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="190" class="name">Metadata publisher</text>
+<text x="82" y="217" class="minor">Source integration unspecified</text>
+<rect x="650" y="160" width="430" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="667" y="190" class="name">Eventarc</text>
+<text x="667" y="217" class="minor">At-least-once; no FIFO guarantee</text>
+<path d="M430 201.0H650" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="540" y="184" class="label" text-anchor="middle">change event</text>
+<rect x="28" y="303" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="332" class="lane">CUSTOM INDEXING RESPONSIBILITY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Implemented separately from the public extension</text>
+<rect x="330" y="353" width="500" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="347" y="383" class="name">Custom metadata indexer</text>
+<text x="347" y="410" class="minor">Update configured destinations</text>
+<path d="M865 243.0V280.0H580V353.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="718" y="278" class="label" text-anchor="middle">event delivery</text>
+<rect x="28" y="497" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5" stroke-dasharray="8 6"/>
+<text x="48" y="526" class="lane">CONFIGURED DESTINATIONS</text>
+<text x="1110" y="526" class="minor" text-anchor="end">Search and object-storage targets</text>
+<rect x="65" y="562" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="592" class="name">Elasticsearch</text>
+<rect x="480" y="562" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="592" class="name">Solr</text>
+<rect x="860" y="562" width="220" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="592" class="name">Object storage</text>
+<path d="M410 436.0V477.0H210V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="302" y="475" class="label" text-anchor="middle">update target</text>
+<path d="M580 436.0V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="580" y="483" class="label" text-anchor="middle">update target</text>
+<path d="M750 436.0V477.0H970V562.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="859" y="475" class="label" text-anchor="middle">update target</text>
+<text x="35" y="720" class="minor">Integration scope comes from my account. The extension README documents the CKAN / Solr feature separately.</text>
+<text x="35" y="744" class="minor">Exact source authority, event versioning, replay and deletion behavior require implementation-specific review.</text>
+<rect x="40" y="117" width="189" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">SOURCE BOUNDARY</text>
+<rect x="871" y="117" width="243" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Metadata change publication</text>
+<rect x="40" y="310" width="354" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">CUSTOM INDEXING RESPONSIBILITY</text>
+<rect x="682" y="310" width="432" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Implemented separately from the public extension</text>
+<rect x="40" y="504" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="526" class="lane">CONFIGURED DESTINATIONS</text>
+<rect x="817" y="504" width="297" height="32" fill="#F5F8FB"/>
+<text x="1110" y="526" class="minor" text-anchor="end">Search and object-storage targets</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg>

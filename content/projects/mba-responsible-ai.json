@@ -1,0 +1,108 @@
+{
+  "slug": "mba-responsible-ai",
+  "title": "Responsible AI and ESG: the MBA research proposal",
+  "description": "A critical reading of Carlo Cancellieri’s 2024 MBA dissertation on responsible AI, workforce change and ESG, with the original thesis and transparent methodology notes.",
+  "period": "May 2024",
+  "role": "MBA dissertation author",
+  "kind": "research",
+  "paths": [
+    "ai-strategy",
+    "leadership"
+  ],
+  "summary": "How should an organisation account for productivity gains alongside workforce displacement when adopting AI? This dissertation proposes a workforce-sensitive extension to ESG scoring and explores it through a hypothetical company. The contribution is a research proposal and decision framework, with limitations exposed for further work.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "The question behind the research",
+      "paragraphs": [
+        "The thesis asks how AI adoption might affect environmental, social and governance assessment, with particular attention to productivity, workforce displacement and the memory of earlier employment decisions. Its central concern is whether a productivity improvement can obscure harm to workers.",
+        "The work combines literature review, model construction and a simulated scenario. CC&Co. is hypothetical and begins with 100 workers. Its layoffs, rehiring and training figures are assumed inputs. No organisation’s actual employment outcomes are measured."
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "The proposed AERI model",
+      "paragraphs": [
+        "AERI principally means AI Empowerment and Replacement Index in the thesis. Other passages expand it as AI-ESG Relationship Index or AI ESG Responsibility Index. These naming variants belong to the original text and do not describe separate validated models.",
+        "The proposed Productivity Impact Score is PIS = (output increase + time savings + error reduction + cost savings) / 4, with equally weighted components. The thesis suggests questionnaires to collect input, but does not establish how their ordinal answers translate into the percentage measures in this formula (physical PDF pages 35–37, printed pages 31–33).",
+        "The proposed annual AI Workforce Replacement Index is ARI_y = 100 × (AI-related hires_y − AI-related firings_y) / workforce_y. Its sign follows net hiring in the stated equation, so a positive value means net hiring and a negative value means net firing. The denominator and the causal attribution of an event need a consistent definition (physical pages 38–39, printed pages 34–35).",
+        "The stated Long-Term Behavior formula is LTB = Σ(ARI_y × y / n), placing greater weight on later years. The final combined expression is AERI = E × We + (S + PIS) × Ws + (G + LTB) × Wg. The earlier expression on physical page 41 places weights differently, so the final expression alone does not resolve every ambiguity (physical pages 39–42, printed pages 35–38)."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/mba-model.svg",
+          "title": "AERI proposal, simulation and interpretation",
+          "description": "Assumed ESG scores, an assumed productivity score and a series of AI-related workforce changes enter the final weighted expression stated in the thesis. Human interpretation remains necessary. The simulation is hypothetical, empirical validation is not established, and the original numerical and weighting inconsistencies are documented separately rather than resolved by this diagram.",
+          "view": "Flow"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "What the simulation can establish",
+      "paragraphs": [
+        "The simulation makes a policy choice visible: a score can recover while the workforce remains smaller. The published example starts at 78.75, ends at 78.8125, and has 75 workers at the end rather than the initial 100. This result is a consequence of the chosen assumptions and scoring rules. It cannot establish that AI adoption produced a socially beneficial employment outcome.",
+        "The environmental component remains E = 81 throughout the example. Environmental benefit from AI is discussed in the literature review but is not estimated in this simulation. Economic pressure explains the layoff narrative, while ARI treats it as AI-related. The thesis does not establish that causal bridge.",
+        "A useful next research step would define a consistent workforce denominator and measurement period, distinguish productivity from employee welfare, normalise the time-weighted series, and test sensitivity to the ESG weights. Empirical validation would then require measured inputs and a design capable of separating AI effects from other changes. These are proposed next steps, not completed findings."
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "Errata and limitations in the original",
+      "paragraphs": [
+        "The downloadable thesis preserves its original calculations. This guide records inconsistencies without silently replacing the academic text. All references below use physical PDF pages, with the corresponding printed body pages in parentheses."
+      ],
+      "bullets": [
+        "Page 45 (41): the year-two weighted terms sum to 66.25, while the following prose states 72.5.",
+        "Page 46 (42): rehiring 25 workers with a workforce denominator of 50 gives ARI = 50%, but the LTB substitution uses 25. The later example therefore does not consistently use the stated ARI.",
+        "Pages 39 and 41 (35 and 37): the weighted sum Σ(ARI_y × y / n) has no normalisation that confines it to the claimed range −1 to +1. ARI is itself expressed as a percentage.",
+        "Page 41 (37): weights appear inside component definitions as well as in the aggregate expression. Their placement is inconsistent with the final expression on page 42 (38).",
+        "Pages 43 and 45–47 (39 and 41–43): the narrative calendar sequence and the numbered worked example order training and rehiring differently.",
+        "Pages 36–37 (32–33): the suggested questionnaire mixes ordinal, binary and qualitative responses without defining a validated bridge to the PIS percentage components.",
+        "Pages 43–47 (39–43): layoffs are motivated by economic pressure, but the example enters them into an AI-related index without establishing causation.",
+        "Page 47 (43): the final score of 78.8125 exceeds the 78.75 baseline despite a workforce of 75. This exposes a question about the scoring policy rather than evidence of ethical effectiveness."
+      ]
+    },
+    {
+      "id": "learning",
+      "title": "What I would carry forward",
+      "paragraphs": [
+        "The useful idea is to retain a visible account of workforce changes alongside productivity measures. A combined score needs explicit choices about what it rewards, how quickly it forgets earlier harm, and whether different harms can compensate for one another.",
+        "The thesis supports a transparent conversation about those choices. Its arithmetic, units and input definitions require further work before the index could support an operational or investment decision. The full document is available so readers can assess the proposal and its limits directly."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "Was AERI tested in a real workplace?",
+      "answer": "The dissertation presents a literature review, a proposed index and a hypothetical CC&Co. simulation. It reports no empirical workplace trial.",
+      "section": "problem"
+    },
+    {
+      "question": "Does a higher AERI score prove responsible AI deployment?",
+      "answer": "No. In this proposal the score depends on assumed inputs, component definitions and weights. The worked example ends above its baseline with fewer workers, which makes the policy choices important to examine.",
+      "section": "decisions"
+    },
+    {
+      "question": "Why keep errors in the downloadable thesis?",
+      "answer": "The download preserves the original academic record. This page separately identifies arithmetic, terminology, normalisation and chronology issues so readers can distinguish the source from later analysis.",
+      "section": "outcomes"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mba-thesis",
+      "title": "Ethical AI Practices and ESG Integration: A Framework for Sustainability",
+      "url": "/assets/documents/mba-thesis.pdf",
+      "version": "May 2024, complete 64-page dissertation; public privacy-redacted copy",
+      "attribution": "Carlo Cancellieri, Neapolis University Pafos. Copyright 2024 Carlo Cancellieri.",
+      "verification": "document-inspected"
+    }
+  ],
+  "related": [
+    "mcp-skill-hub"
+  ],
+  "documents": [
+    "mba-thesis"
+  ]
+}

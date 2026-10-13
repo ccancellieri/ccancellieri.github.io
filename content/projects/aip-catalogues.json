@@ -1,0 +1,206 @@
+{
+  "slug": "aip-catalogues",
+  "title": "AIP catalogues: two discovery models, shared programme delivery",
+  "description": "FAO metadata-catalogue leadership and SFEOS adoption for STAC asset discovery, connecting implementation, upstream contributions and ISO metadata standardization.",
+  "period": "FAO programme work; public SFEOS contributions 2024–2026",
+  "role": "Technical leader for the ISO metadata catalogue; SFEOS contributor and FAO adopter",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "geospatial",
+    "cloud",
+    "leadership"
+  ],
+  "summary": "I lead the technical work on FAO’s ISO metadata catalogue and introduced SFEOS for the Agro-informatics Platform’s STAC catalogue. These are complementary discovery services with distinct data models, delivered with colleagues and connected to upstream open-source and standards work.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: discover a dataset and discover a usable asset",
+      "paragraphs": [
+        "An institutional catalogue helps people understand what a dataset describes, where it came from and how to access it. Earth-observation discovery adds another question: which asset covers a place and time and can be used by a downstream application?",
+        "FAO’s catalogue and agro-informatics services support a broad range of projects. My work connects that institutional need with two distinct discovery models: CKAN and ISO metadata for descriptive records, and STAC for spatial and temporal asset discovery."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: separate catalogue responsibilities",
+      "paragraphs": [
+        "The CKAN lane builds on structured metadata, schema-based editing and validation, and documented Solr projections in ckanext-jsonschema. It is the metadata-catalogue part of the work, associated with FAO’s public data catalogue and agro-informatics portal.",
+        "The STAC lane uses SFEOS, the STAC FastAPI implementation with Elasticsearch and OpenSearch backend support. I introduced it at FAO for the Agro-informatics Platform’s STAC catalogue. Its public documentation describes item and collection search across spatial, temporal and property criteria.",
+        "The diagram shows those discovery responsibilities side by side. It does not assert automatic synchronization between the catalogues, a shared database or CKAN authority over every STAC record. Each lane needs its own publishing, identity and access rules."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/aip-catalogues.svg",
+          "title": "Metadata records and spatiotemporal assets: distinct discovery lanes",
+          "description": "CKAN with the JSON Schema extension supports ISO metadata editing, validation and Solr discovery. SFEOS serves STAC collections/items through its configured Elasticsearch or OpenSearch backend. The two lanes support complementary programme needs; no unverified cross-catalogue synchronization is drawn.",
+          "view": "Context"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: adapt upstream tools and carry lessons into standards",
+      "paragraphs": [
+        "I contributed SFEOS patches and suggestions while adopting it for the FAO catalogue. Public pull requests include an Elasticsearch Serverless working draft and a collection-search draft in 2024; those proposals were closed without merging. A team contribution for custom mappings and sortable fields, submitted through my account, was merged in April 2026.",
+        "My public issue reports address multi-catalog organization, collection bounding-box mappings, index refresh visibility and pagination with sorting. These are concrete integration concerns: they connect data semantics with the search behavior a user sees. They do not establish that I authored every later upstream capability.",
+        "I also participated in standardization work on ISO 19115-4. The official ISO entry identifies ISO/TR 19115-4 as the Technical Report on JSON Schema implementation of metadata fundamentals, under publication when inspected in October 2026. My participation is recorded in my own account; I do not claim sole authorship or certification.",
+        "A retrospective alternative is to force descriptive metadata and asset discovery into one undifferentiated catalogue model. A single interface can be convenient, but it still needs to preserve provenance, spatial/temporal semantics and the ownership of each record type. The two-lane view makes those responsibilities easier to discuss before proposing any integration."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: institutional adoption and public contributions",
+      "paragraphs": [
+        "The programme work includes the FAO ISO metadata catalogue, SFEOS adoption for AIP STAC discovery and support for FAO projects through the public data and agro-informatics services. That institutional scope reflects my direct contribution; the platform is work delivered with colleagues.",
+        "Public upstream evidence includes the merged team patch for configurable mappings and sortable fields and earlier design discussions. This distinguishes delivered upstream work from proposals that informed discussion but were not merged.",
+        "My AIP STAC work also supported the institutional work presented in a 2025 UN geospatial presentation. The linked presentation is programme context; I do not claim authorship of its slides."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: catalogue semantics become API behavior",
+      "paragraphs": [
+        "A metadata schema is not enough by itself. A collection bounding box must be represented in a way the search backend can query; a pagination token depends on ordering; a newly indexed record may not be immediately visible. These issues turn standards language into implementation work.",
+        "For a further review I would trace publishing, updates, deletions and visibility rules separately in both catalogues, then document any intended links between them. A shared programme does not by itself establish a shared consistency or authorization contract."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why use both CKAN/ISO metadata and STAC?",
+      "answer": "They answer complementary discovery questions. CKAN supports richer descriptive metadata and catalogue workflows; the STAC lane serves collection/item and spatial-temporal asset discovery. Their boundaries remain explicit.",
+      "section": "architecture"
+    },
+    {
+      "question": "Does CKAN automatically publish or synchronize every STAC record?",
+      "answer": "That integration has not been established here. The case shows two distinct catalogue responsibilities and does not claim CKAN is authoritative for all STAC records.",
+      "section": "architecture"
+    },
+    {
+      "question": "Which SFEOS contribution was merged?",
+      "answer": "The team’s custom mappings and sortable-fields contribution, submitted through my account as PR 643, was merged in April 2026. The 2024 Serverless and collection-search drafts were closed without merging.",
+      "section": "outcomes"
+    },
+    {
+      "question": "What does participation in ISO 19115-4 mean here?",
+      "answer": "I participated in the standardization work. The official source establishes the Technical Report’s title and publication stage; it does not establish individual membership, authorship of the entire document or certification of the catalogue.",
+      "section": "decisions"
+    },
+    {
+      "question": "What would you verify after ingesting a collection?",
+      "answer": "Its searchable spatial/temporal representation, visibility after indexing, deterministic pagination and access/deletion behavior. These are review targets anchored in my upstream reports, not a claim that a conformance audit has been completed.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "aip-scope",
+      "title": "FAO catalogue and SFEOS adoption: contribution account",
+      "url": "https://www.linkedin.com/in/ccancellieri/",
+      "version": "FAO project scope and technical leadership confirmed October 2026",
+      "attribution": "Institutional work with colleagues; catalogue leadership, FAO adoption and standards participation confirmed by the contributor",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "fao-data",
+      "title": "FAO public data catalogue",
+      "url": "https://data.fao.org/",
+      "version": "Public catalogue entry point; programme scope confirmed in my account",
+      "attribution": "FAO institutional service",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "fao-aip",
+      "title": "FAO Agro-informatics portal",
+      "url": "https://www.fao.org/agroinformatics/en",
+      "version": "Official portal inspected October 2026",
+      "attribution": "FAO institutional programme",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-docs",
+      "title": "SFEOS project documentation",
+      "url": "https://stac-utils.github.io/stac-fastapi-elasticsearch-opensearch/",
+      "version": "Current upstream documentation inspected October 2026",
+      "attribution": "STAC Utils community; project capabilities do not establish every deployment setting",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-patch",
+      "title": "SFEOS custom mappings and sortable fields team contribution",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/pull/643",
+      "version": "Merged 14 April 2026; author account ccancellieri",
+      "attribution": "Team contribution submitted through Carlo Cancellieri’s account",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-drafts",
+      "title": "SFEOS collection-search proposal",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/pull/298",
+      "version": "2024 draft; closed without merging",
+      "attribution": "Original proposal; not presented as a merged upstream feature",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-catalog-issue",
+      "title": "SFEOS catalogue organization discussion",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/issues/308",
+      "version": "Public issue opened November 2024",
+      "attribution": "Carlo Cancellieri’s design report",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-bbox-issue",
+      "title": "SFEOS collection bounding-box mapping report",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/issues/319",
+      "version": "Public issue opened December 2024",
+      "attribution": "Carlo Cancellieri’s integration report",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-refresh-issue",
+      "title": "SFEOS indexing refresh discussion",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/issues/315",
+      "version": "Public issue opened November 2024",
+      "attribution": "Carlo Cancellieri’s integration report",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sfeos-pagination-issue",
+      "title": "SFEOS sorting and pagination report",
+      "url": "https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch/issues/304",
+      "version": "Public issue opened October 2024",
+      "attribution": "Carlo Cancellieri’s integration report",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "iso-jsonschema",
+      "title": "ISO/TR 19115-4 official project entry",
+      "url": "https://www.iso.org/standard/86968.html",
+      "version": "Technical Report; stage 60.00, under publication, inspected October 2026",
+      "attribution": "ISO/TC 211; source establishes report identity/status, not individual participation",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "aip-un-presentation",
+      "title": "UN Global Geospatial presentation (2025)",
+      "url": "https://www.un.org/globalgeospatial/sites/default/files/2025-10/23Oct_am_Pengyu_Hao.pdf",
+      "version": "User-provided reference; contents not inspected",
+      "attribution": "Institutional presentation; no claim of slide authorship",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "ckan-jsonschema-indexing",
+    "dynastore",
+    "keystone",
+    "geoid"
+  ],
+  "documents": [],
+  "homepageTitle": "Remote Sensing Portal"
+}

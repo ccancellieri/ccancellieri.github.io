@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tellurion: a small deployment with explicit capabilities | Carlo Cancellieri</title>
+<meta name="description" content="Independent Rust geospatial serving engine: an embedded GeoPackage default, optional PostGIS, public demonstrations and bounded evaluation evidence.">
+<meta name="author" content="Carlo Cancellieri">
+<meta name="theme-color" content="#142b3b">
+<link rel="canonical" href="https://ccancellieri.github.io/projects/tellurion/">
+<meta property="og:title" content="Tellurion: a small deployment with explicit capabilities | Carlo Cancellieri">
+<meta property="og:description" content="Independent Rust geospatial serving engine: an embedded GeoPackage default, optional PostGIS, public demonstrations and bounded evaluation evidence.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ccancellieri.github.io/projects/tellurion/">
+<meta property="og:image" content="https://ccancellieri.github.io/og-personal.png">
+<meta property="og:image:alt" content="Software engineering and architecture portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tellurion: a small deployment with explicit capabilities | Carlo Cancellieri">
+<meta name="twitter:description" content="Independent Rust geospatial serving engine: an embedded GeoPackage default, optional PostGIS, public demonstrations and bounded evaluation evidence.">
+<meta name="twitter:image" content="https://ccancellieri.github.io/og-personal.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "name": "Tellurion: a small deployment with explicit capabilities", "description": "Independent Rust geospatial serving engine: an embedded GeoPackage default, optional PostGIS, public demonstrations and bounded evaluation evidence.", "url": "https://ccancellieri.github.io/projects/tellurion/", "author": {"@type": "Person", "name": "Carlo Cancellieri", "url": "https://ccancellieri.github.io"}, "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccancellieri.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ccancellieri.github.io/#projects"}, {"@type": "ListItem", "position": 3, "name": "Tellurion: a small deployment with explicit capabilities", "item": "https://ccancellieri.github.io/projects/tellurion/"}]}]}</script>
+<link rel="stylesheet" href="/portfolio.css">
+<script src="/portfolio.js" defer></script>
+<script src="/portfolio-enhancements.js" defer></script>
+</head>
+<body class="case-page">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a href="/#home" class="logo">Carlo Cancellieri <span>/ Software &amp; systems</span></a>
+<ul class="nav-links" id="primary-navigation"><li><a href="/#paths" class="nav-link">Paths</a></li><li><a href="/#projects" class="nav-link">Projects</a></li><li><a href="/#experience" class="nav-link">Career</a></li><li><a href="/library/" class="nav-link">Library</a></li><li><a href="/#contact" class="nav-link">Connect</a></li></ul>
+<div class="site-controls"><button id="theme-toggle" class="control-button" type="button" hidden>Dark theme</button><button id="menu-toggle" class="menu-button" aria-controls="primary-navigation" aria-expanded="false" type="button" hidden>Menu</button></div>
+</nav></header>
+
+<main id="main-content" tabindex="-1"><div class="case-heading container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#projects">Projects</a> / <span aria-current="page">Tellurion: a small deployment with explicit capabilities</span></nav><p class="case-meta">Independent · 2026–present</p><h1>Tellurion: a small deployment with explicit capabilities</h1><p class="case-role">Independent creator and owner</p><p class="case-summary">Tellurion is my independent Rust geospatial serving engine. It combines a small self-hosted deployment with capability-aware geospatial interfaces and public evidence that readers can inspect.</p><div class="path-labels"><a class="path-label" href="/#path-architecture">Systems architecture</a> <a class="path-label" href="/#path-geospatial">Geospatial &amp; interoperability</a> <a class="path-label" href="/#path-cloud">Cloud &amp; DevOps</a></div><div class="case-actions"><button type="button" class="btn btn-primary" hidden data-presenter-start>Present this case</button><a class="btn btn-secondary" href="#sources">Sources &amp; scope</a><a class="btn btn-secondary" href="/library/">Document library</a></div></div><nav class="case-toc container" aria-label="Case sections"><a href="#problem">Problem: evaluate geospatial serving without a large platform</a><a href="#architecture">Architecture: native serving, routed storage</a><a href="#decisions">Decisions: make evaluation boundaries visible</a><a href="#outcomes">Outcomes: self-hosted software and public journeys</a><a href="#learning">Learning: a demo is stronger when its claim is bounded</a></nav><div class="presenter-controls" hidden data-presenter-controls><button type="button" data-presenter-prev>Previous</button><span data-presenter-status aria-live="polite"></span><button type="button" data-presenter-next>Next</button><button type="button" data-presenter-exit>Exit presentation</button></div><div data-case-content><section class="case-section" id="problem" tabindex="-1" data-case-section><div class="container"><h2>Problem: evaluate geospatial serving without a large platform</h2><div class="case-prose"><p>A geospatial server should be useful before an evaluator commits to a fleet of services. At the same time, a small default deployment should not hide the limitations of its storage and protocol implementations.</p><p>Tellurion starts from a native serving engine and an embedded GeoPackage path. The architectural challenge is preserving that accessible entry point while supporting other storage capabilities and inspectable data journeys.</p></div></div></section><section class="case-section" id="architecture" tabindex="-1" data-case-section><div class="container"><h2>Architecture: native serving, routed storage</h2><div class="case-prose"><p>The repository describes a Rust engine with OGC API and STAC surfaces, routed storage drivers and an embedded GeoPackage default. PostGIS is an optional storage choice for deployments needing its capabilities.</p><p>The public gallery preserves separate vector, raster and other demonstration journeys. A STAC discovery case connects a bounded WorldCover Item to GeoPackage and COG serving lanes, with provenance and live resources for inspection.</p><p>The architecture diagram deliberately separates protocol surfaces from storage capabilities. It does not imply every driver implements every query or format.</p></div><nav class="diagram-view-nav" data-view-count="1" aria-label="Architecture views"><a href="#diagram-tellurion-architecture-0">Components</a></nav><figure class="architecture-diagram" id="diagram-tellurion-architecture-0" data-diagram><figcaption><h3>A native engine with distinct storage capabilities</h3><p>Clients use geospatial interfaces through one native engine. GeoPackage provides an embedded path; PostGIS provides a separate database path; COG and other supported sources use capability-specific serving. Public demos illustrate bounded journeys rather than a uniform backend contract.</p></figcaption><div class="diagram-actions"><a class="diagram-open" href="/assets/diagrams/tellurion-lanes.svg">Open full-size SVG</a><div class="diagram-controls" hidden data-diagram-controls><button type="button" data-zoom="out" aria-label="Zoom out diagram">−</button><button type="button" data-zoom="in" aria-label="Zoom in diagram">+</button><button type="button" data-zoom="reset">Reset view</button><button type="button" data-flow-toggle aria-pressed="false">Highlight flows</button><span data-zoom-status aria-live="polite">100%</span></div></div><div class="diagram-viewport" tabindex="0" role="region" aria-label="A native engine with distinct storage capabilities; scroll to explore"><div class="diagram-canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="tellurion-lanes-title tellurion-lanes-desc" id="tellurion-lanes-root"><title id="tellurion-lanes-title">Tellurion · native serving with explicit capabilities</title><desc id="tellurion-lanes-desc">One native Rust engine exposes geospatial API surfaces through configured storage drivers. GeoPackage is the embedded default; PostGIS is an optional database path; raster and file sources have their own capabilities.</desc>
+<defs><marker id="tellurion-lanes-sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="tellurion-lanes-event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="tellurion-lanes-store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>#tellurion-lanes-root text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}#tellurion-lanes-root .heading{font-size:30px;font-weight:700}#tellurion-lanes-root .lane{font-size:19px;font-weight:700;letter-spacing:.8px}#tellurion-lanes-root .name{font-size:21px;font-weight:700}#tellurion-lanes-root .minor{fill:#476071}#tellurion-lanes-root .label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}#tellurion-lanes-root .sync{stroke:#147D83}#tellurion-lanes-root .event{stroke:#355AD8;stroke-dasharray:8 6}#tellurion-lanes-root .store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">Tellurion · native serving with explicit capabilities</text>
+<text x="34" y="80" class="minor">Independent self-hosted engine · storage choice stays visible</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">PROTOCOL SURFACES</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Named interfaces, not blanket certification</text>
+<rect x="65" y="162" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="192" class="name">Features / STAC</text>
+<text x="82" y="219" class="minor">Discovery and feature access</text>
+<rect x="480" y="162" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="192" class="name">Tiles / Maps / Styles</text>
+<text x="497" y="219" class="minor">Vector and raster views</text>
+<rect x="860" y="162" width="220" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="192" class="name">Evaluator</text>
+<text x="877" y="219" class="minor">Inspect public journeys</text>
+<path d="M350 202.0H480" fill="none" stroke-width="2.4" class="sync" marker-end="url(#tellurion-lanes-sync)"/>
+<text x="413" y="186" class="label" text-anchor="middle">resources</text>
+<path d="M860 202.0H765" fill="none" stroke-width="2.4" class="sync" marker-end="url(#tellurion-lanes-sync)"/>
+<text x="812" y="186" class="label" text-anchor="middle">requests</text>
+<rect x="28" y="303" width="1104" height="155" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="332" class="lane">NATIVE SERVING BOUNDARY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Rust engine and storage capabilities</text>
+<rect x="65" y="357" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="387" class="name">Interface handling</text>
+<text x="82" y="414" class="minor">Request and response shape</text>
+<rect x="545" y="357" width="475" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="562" y="387" class="name">Storage routing</text>
+<text x="562" y="414" class="minor">Select a configured capable driver</text>
+<path d="M623 245.0V280.0H210V357.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#tellurion-lanes-sync)"/>
+<text x="446" y="278" class="label" text-anchor="middle">API request</text>
+<path d="M350 397.0H545" fill="none" stroke-width="2.4" class="sync" marker-end="url(#tellurion-lanes-sync)"/>
+<text x="445" y="381" class="label" text-anchor="middle">route</text>
+<rect x="28" y="518" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="547" class="lane">STORAGE PATHS</text>
+<text x="1110" y="547" class="minor" text-anchor="end">Different capability contracts</text>
+<rect x="65" y="581" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="611" class="name">Embedded GeoPackage</text>
+<rect x="480" y="581" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="611" class="name">Optional PostGIS</text>
+<rect x="860" y="581" width="220" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="611" class="name">COG / file sources</text>
+<path d="M630 440.0V482.0H210V581.0" fill="none" stroke-width="2.4" class="store" marker-end="url(#tellurion-lanes-store)"/>
+<text x="382" y="480" class="label" text-anchor="middle">embedded</text>
+<path d="M780 440.0V498.0H622V581.0" fill="none" stroke-width="2.4" class="store" marker-end="url(#tellurion-lanes-store)"/>
+<text x="700" y="490" class="label" text-anchor="middle">database</text>
+<path d="M930 440.0V581.0" fill="none" stroke-width="2.4" class="store" marker-end="url(#tellurion-lanes-store)"/>
+<text x="932" y="503" class="label" text-anchor="middle">source reads</text>
+<text x="35" y="720" class="minor">Each driver has its own supported operations. A gallery journey demonstrates a bounded case.</text>
+<text x="35" y="744" class="minor">The retained Rome measurement is a 0.2.0 smoke-scale benchmark; it is not a capacity claim for other builds.</text>
+<rect x="40" y="117" width="211" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">PROTOCOL SURFACES</text>
+<rect x="727" y="117" width="387" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Named interfaces, not blanket certification</text>
+<rect x="40" y="310" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">NATIVE SERVING BOUNDARY</text>
+<rect x="790" y="310" width="324" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Rust engine and storage capabilities</text>
+<rect x="40" y="525" width="167" height="32" fill="#F5F8FB"/>
+<text x="48" y="547" class="lane">STORAGE PATHS</text>
+<rect x="844" y="525" width="270" height="32" fill="#F5F8FB"/>
+<text x="1110" y="547" class="minor" text-anchor="end">Different capability contracts</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#tellurion-lanes-sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#tellurion-lanes-event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#tellurion-lanes-store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg></div></div></figure></div></section><section class="case-section" id="decisions" tabindex="-1" data-case-section><div class="container"><h2>Decisions: make evaluation boundaries visible</h2><div class="case-prose"><p>The embedded default reduces infrastructure requirements for evaluation. A database service remains a choice rather than a prerequisite for every run. Driver capability limits must be explained alongside the API surface.</p><p>The gallery includes source and evidence, retained version entry points and dated artifacts. A public walkthrough demonstrates an edited journey; it is not a throughput benchmark. Likewise, hosted response timings are affected by the demonstration environment.</p><p>For a retrospective architectural comparison, I would consider a deployment that always requires a database. It could simplify uniform server-side spatial behavior but increases the minimum setup. Tellurion’s embedded path makes that tradeoff visible to an evaluator.</p></div></div></section><section class="case-section" id="outcomes" tabindex="-1" data-case-section><div class="container"><h2>Outcomes: self-hosted software and public journeys</h2><div class="case-prose"><p>Tellurion’s public source and demonstration gallery let readers inspect its serving approach. The independent project is distinct from FAO institutional work. Community source is offered under AGPL-3.0-only; the repository and release documentation define applicable terms.</p><p>The retained Rome result is a Tellurion 0.2.0 smoke-scale benchmark with its own method and caveats. It is not generalized to later releases or other datasets. Demonstrated standards behavior is not presented as certification or blanket conformance.</p><p>The project offers self-hosted software; it does not offer a Tellurion Cloud service or a service-level agreement.</p></div></div></section><section class="case-section" id="learning" tabindex="-1" data-case-section><div class="container"><h2>Learning: a demo is stronger when its claim is bounded</h2><div class="case-prose"><p>A credible evaluator journey should identify the build, data source, interface and limitation. A short map preview can be valuable evidence of that journey while remaining insufficient evidence for general capacity or availability.</p><p>For a deployment decision I would measure the intended dataset, query mix and chosen driver directly, and verify unsupported capabilities explicitly rather than treating a successful gallery example as a universal guarantee.</p></div></div></section></div><section class="case-support"><div class="container"><h2>Questions &amp; discussion</h2><details class="case-question"><summary>Why use GeoPackage as the default?</summary><p>It supports a self-contained entry point without a required database service. PostGIS remains a separate capability choice for more demanding workloads.</p><a href="#decisions">Read the relevant section</a></details><details class="case-question"><summary>Do the demos prove full OGC conformance?</summary><p>No. They evidence named behaviors and bounded journeys. Certification or general conformance requires a separately scoped assessment.</p><a href="#outcomes">Read the relevant section</a></details><details class="case-question"><summary>Can the Rome benchmark predict another deployment?</summary><p>It is a retained 0.2.0 smoke-scale result. Its dataset, build, method and caveats apply to that measurement; another deployment needs its own benchmark.</p><a href="#learning">Read the relevant section</a></details></div></section><section class="case-support" id="sources"><div class="container"><h2>Sources &amp; scope</h2><ul class="source-list"><li id="source-tellurion-repo"><a href="https://github.com/ccancellieri/tellurion">Tellurion Community source</a><p class="source-note">Public repository and local source documentation inspected October 2026; release evidence is version-specific; Independent project by Carlo Cancellieri</p></li><li id="source-tellurion-gallery"><a href="https://ccancellieri.github.io/tellurion/">Tellurion public demonstration gallery</a><p class="source-note">Versioned demonstrations and proof links retained on portfolio; Author’s public demonstrations</p></li><li id="source-tellurion-proof"><a href="https://ccancellieri.github.io/tellurion/proof/">Tellurion proof brief</a><p class="source-note">Bounded public evaluation evidence; Author’s evidence collection</p></li></ul></div></section><nav class="related-cases container" aria-label="Related case studies"><h2>Continue exploring</h2><a href="/projects/dynastore/">DynaStore: canonical data and recoverable projections</a><a href="/projects/hyrax-sql-handler/">Hyrax SQL Handler: relational data through a scientific interface</a></nav></main>
+<footer><div class="footer-content"><span>© 2026 Carlo Cancellieri</span><div class="footer-links"><a href="/#about">About</a><a href="/#writing">Writing</a><a href="/library/">Library</a><a href="/#contact">Connect</a></div></div><p class="container institution-note">A personal portfolio describing my contributions. Institutional projects are team work; views and independent projects do not imply endorsement by FAO or other organizations.</p></footer>
+
+</body>
+</html>

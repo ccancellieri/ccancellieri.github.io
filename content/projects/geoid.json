@@ -1,0 +1,109 @@
+{
+  "slug": "geoid",
+  "title": "GeoID: feature identity independent of storage",
+  "description": "Stable domain identity for geospatial features, separated from catalog names, file-source IDs and physical backend identifiers.",
+  "period": "DynaStore programme since 2023; identity design published in 2026",
+  "role": "Identity architecture within FAO geospatial platform work",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "geospatial"
+  ],
+  "summary": "GeoID is the feature-identity design within DynaStore’s geospatial work. It separates the identity of a feature from the catalog, collection and backend identifiers used to locate or serve it.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: a location is a fragile identity",
+      "paragraphs": [
+        "Catalog names, storage names and URLs can change as data moves or systems evolve. If these locations are treated as feature identity, a move can look like a new entity to clients and downstream representations.",
+        "The design problem is keeping domain identity stable while allowing catalogs, collections and storage drivers to retain their own responsibilities."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: resolve external references to domain identity",
+      "paragraphs": [
+        "The inspected DynaStore source distinguishes canonical feature IDs from external catalog/collection identifiers and backend document/index names. Write boundaries resolve external references to immutable internal IDs before persistence.",
+        "New writable feature identities use UUIDv7. File-backed features derive deterministic UUIDv5 identities scoped by catalog, collection and source feature ID. These are different identity policies for different source capabilities."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/geoid-identity.svg",
+          "title": "Domain identity across source and storage boundaries",
+          "description": "External catalog/collection references and source feature IDs enter a resolution boundary. Canonical feature identity is kept separate from PostgreSQL keys and search document/index names. Writable and file-backed identity policies are deliberately distinguished.",
+          "view": "Components"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: stable identity is not global ordering or permission",
+      "paragraphs": [
+        "The writable identifier helper describes process-local monotonic behavior and random bits. A UUIDv7 identity is not proof of global transaction ordering, cross-process sequencing or authorization.",
+        "Deterministic file identity needs a clear source scope: catalog, collection and source feature ID. A retrospective alternative is deriving identity only from a raw source ID; it is simpler but loses that scoping and can collide across independently named sources."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: an identity boundary visible in source",
+      "paragraphs": [
+        "The inspected repository contains identity helpers and item service boundaries supporting this distinction. A published technical article explains the GeoID design.",
+        "This case describes source mechanisms and architectural intent. It does not claim all public references are resolvable forever, every data migration is transparent, or identity generation itself enforces access control."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: keep identity, resolution and access distinct",
+      "paragraphs": [
+        "A persistent identifier is useful when the surrounding system can explain resolution, changes and access. Its format alone cannot guarantee those policies.",
+        "For further validation I would test source moves, catalog renaming, external-ID reuse and deterministic identity across file reloads, then inspect each authorization boundary independently."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why two UUID strategies?",
+      "answer": "Writable features need new domain identities. File-backed features can derive identities from a stable scoped source reference. Their guarantees are different and should be tested separately.",
+      "section": "architecture"
+    },
+    {
+      "question": "Does UUIDv7 establish global write order?",
+      "answer": "No. The inspected helper’s local monotonic behavior is narrower than a distributed transaction ordering guarantee.",
+      "section": "decisions"
+    },
+    {
+      "question": "Does knowing a GeoID grant access?",
+      "answer": "No. Identification and authorization are separate responsibilities. Every route that resolves or serves an entity needs its own access enforcement.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "geoid-repo",
+      "title": "DynaStore / GeoID public source",
+      "url": "https://github.com/ccancellieri/GeoID",
+      "version": "Inspected snapshot 4da3f58bf704b26dec8191794fe98d364dc16eaa",
+      "attribution": "FAO programme with colleagues; identifier and item service contracts in supplied inspected research",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "geoid-article",
+      "title": "Persistent identifiers for geospatial data: the GeoID design",
+      "url": "https://ccancellieri.wordpress.com/2026/09/02/persistent-identifiers-for-geospatial-data-the-geoid-design/",
+      "version": "Published September 2026",
+      "attribution": "Author’s technical explanation",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "dynastore",
+    "tellurion"
+  ],
+  "documents": [
+    "geoid-dynastore-names"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "slug": "sws",
+  "title": "Statistical Working System: engineering around statistical methods",
+  "description": "FAO statistics platform contribution spanning frontend modernization, R processing and repeatable software delivery within an international team.",
+  "period": "2015–2017",
+  "role": "Statistical Working System expert and technical delivery contribution, FAO Statistics Division",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "leadership"
+  ],
+  "summary": "My SWS work connected a modern frontend, R-based statistical processing and repeatable delivery practices. It was institutional engineering alongside statisticians and an international software team.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: statistical methods need usable, repeatable software",
+      "paragraphs": [
+        "Corporate statistical processing connects inputs, methods, review and output. The official FAO project description distinguishes the Statistical Working System’s throughput role from the Statistical Data Warehouse’s output role.",
+        "My 2015–2017 contribution focused on engineering within that system: frontend modernization, R-based processing, CI/CD and software delivery practices. It should not be confused with later SWS redesign work described in current FAO material."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: interaction, methodology and delivery",
+      "paragraphs": [
+        "My work included React, Redux and TypeScript frontend development, with R processing pipelines in the statistical workflow. Public methodology documentation describes SWS R modules and the datasets, code lists and tables that support them.",
+        "The diagram maps contribution responsibilities rather than an unverified runtime deployment. The statistical method remains a domain responsibility; frontend engineering and software delivery make it usable and repeatable."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/sws-responsibilities.svg",
+          "title": "Statistical workflow and engineering responsibilities",
+          "description": "The conceptual map connects statisticians’ working interface with R methodology and statistical datasets. A separate software-delivery lane supports the frontend and processing code. It describes contribution scope without inventing schedulers, queue products or deployment services.",
+          "view": "Context"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: improve delivery around domain methods",
+      "paragraphs": [
+        "A statistical platform needs the method’s domain meaning to survive interface and delivery changes. My contribution combined frontend work with R pipelines and delivery practices rather than attributing the statistical methodologies themselves to software engineering.",
+        "For a retrospective comparison, I would consider a collection of individually run scripts and disconnected interfaces. It can support rapid experiments but makes shared review and repeatable releases harder. The engineering question is how to retain methodological flexibility while improving the workflow around it."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: a contribution to a corporate platform",
+      "paragraphs": [
+        "My professional account records the frontend, processing and delivery work during 2015–2017. FAO’s public project material establishes SWS as a corporate statistical-processing platform; methodology repositories illustrate the R-based domain.",
+        "This case makes no quantitative claim about efficiency gains, statistical accuracy or adoption resulting from my contribution. The platform and statistical outputs are institutional work with many contributors."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: technical leadership includes domain translation",
+      "paragraphs": [
+        "Statisticians and software engineers need a shared explanation of what an operation changes and how its result is reviewed. Good delivery practices support that conversation; they do not replace methodological judgement.",
+        "For a new processing workflow, I would make input versions, method versions, result review and release reproducibility explicit validation targets. These are present-day review considerations, not invented historical incidents."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Which part did you personally contribute?",
+      "answer": "Frontend development with React/Redux/TypeScript, R-based processing work and CI/CD/SDLC practices within the SWS team during 2015–2017.",
+      "section": "outcomes"
+    },
+    {
+      "question": "Does this diagram establish the production topology?",
+      "answer": "No. It maps evidenced contribution responsibilities. The inspected sources do not identify a complete deployment topology or scheduler contract.",
+      "section": "architecture"
+    },
+    {
+      "question": "How does engineering support statistical quality?",
+      "answer": "By making the method, inputs, interface behavior and delivery reviewable. The statistical methodology and its validation remain domain responsibilities.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "sws-official",
+      "title": "FAO Statistical Working System project",
+      "url": "https://www.fao.org/agroinformatics/projects/projects-detail/statistical-working-system-sws/en",
+      "version": "Official project description inspected October 2026",
+      "attribution": "FAO; later redesign is outside my 2015–2017 contribution",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sws-methodology",
+      "title": "SWS fisheries methodology documentation",
+      "url": "https://github.com/SWS-Methodology/faoswsFisheriesSUAFBSdocumentation",
+      "version": "Public methodology documentation inspected October 2026",
+      "attribution": "Institutional methodology context, not individual authorship evidence",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "sws-account",
+      "title": "Professional contribution context",
+      "url": "https://github.com/ccancellieri",
+      "version": "My confirmed professional account",
+      "attribution": "Role and contribution scope are candidate-provided",
+      "verification": "candidate-account"
+    }
+  ],
+  "related": [
+    "dynastore",
+    "mba-responsible-ai"
+  ],
+  "documents": [],
+  "homepageTitle": "Statistical Working System"
+}

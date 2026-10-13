@@ -1,0 +1,152 @@
+{
+  "slug": "ckan-jsonschema-indexing",
+  "title": "CKAN: structured metadata and separate indexing flows",
+  "description": "Structured metadata forms, validation and Solr indexing, with FAO ISO catalogue leadership and a separate Eventarc indexing integration.",
+  "period": "Extension development and data integration",
+  "role": "Extension developer and custom metadata-indexing contributor",
+  "kind": "open-source",
+  "paths": [
+    "architecture",
+    "geospatial",
+    "cloud"
+  ],
+  "summary": "I developed ckanext-jsonschema for richer metadata forms, validation and Solr indexing. My wider work includes technical leadership of FAO’s ISO metadata catalogue and a separate custom Eventarc indexing integration with Elasticsearch, Solr and object storage.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: rich metadata in a catalog built around simpler fields",
+      "paragraphs": [
+        "Geospatial and other domain metadata can contain nested structures, schema-specific fields and validation rules. A catalog needs a usable editing experience and a way to discover the resulting records without flattening away their meaning.",
+        "The public extension addresses that CKAN metadata problem. The separate multi-destination event design addresses propagation to additional representations. They are related concerns, but the extension repository does not establish that it implements the external pipeline."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: the public extension’s documented surface",
+      "paragraphs": [
+        "The public repository’s extra branch describes JSON Schema metadata types stored with CKAN extra fields, a JSON Editor interface and validation. It also documents schema registries, import/export, cloning and related metadata functions.",
+        "Solr projection fields support schema-related resource/view metadata, and the documented view search concerns public metadata. This is evidence for the extension’s CKAN/Solr feature set; it is not proof of a particular CKAN callback or database commit hook."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/ckan-extension.svg",
+          "title": "CKAN extension and documented Solr projection",
+          "description": "The public extension boundary includes structured metadata editing and validation plus its documented Solr projection. CKAN stores the metadata; Solr serves a derived discovery representation. The arrow into Solr is labeled as a documented projection, without claiming an inspected commit hook or delivery guarantee.",
+          "view": "Components"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: separate provenance from a plausible architecture",
+      "paragraphs": [
+        "Separately, I implemented a custom metadata indexer with Eventarc and destinations in Elasticsearch, Solr and object storage. The integration overview shows my implementation account alongside the public extension. The public README does not establish the external publisher, authoritative record or purpose of the bucket.",
+        "Google’s Eventarc Standard documentation specifies at-least-once delivery and no FIFO ordering guarantee. Therefore duplicate and stale-event handling are requirements to examine, not capabilities to assume were already implemented in this integration.",
+        "For a retrospective design review, I would compare a stable versioned snapshot event with an event that contains only an entity reference. A snapshot improves repeatable replay but can spread stale or private data; a reference reduces payload duplication but requires source availability and a clear version policy.",
+        "Idempotent destination updates, visibility-change removal, replay and reconciliation are sensible reliability controls to evaluate. They are presented as review considerations, not as fabricated historical implementation details."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/ckan-external.svg",
+          "title": "Custom metadata indexing integration",
+          "description": "A metadata publisher sends change events through Eventarc to a custom metadata indexer, which updates configured Elasticsearch, Solr and object-storage destinations. This overview is grounded in my contribution account. The exact publisher, authority and replay implementation are not established by the extension README.",
+          "view": "Flow"
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: a public extension with visible scope",
+      "paragraphs": [
+        "The repository documents a substantial metadata extension and Solr-based view-search behavior. My public CKAN discussion describes releasing it with ISO metadata work and import/export/clone/validation/indexing functions.",
+        "I lead the technical work on FAO’s ISO metadata catalogue, associated with data.fao.org and the agro-informatics portal and supporting a broad range of FAO projects. I also participated in ISO 19115-4 standardization work. The companion AIP catalogue case explains that institutional context alongside the separate STAC discovery lane.",
+        "The external pipeline is documented separately through my implementation account. Neither the README nor that account establishes operational volume, index freshness, an availability target or a production reliability result."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: every projection needs a reason to exist",
+      "paragraphs": [
+        "An architecture drawing becomes useful when it can say why each destination exists, who owns the canonical record and what happens when visibility changes. Adding a bucket and two search engines does not answer those questions by itself.",
+        "This case preserves the gap rather than inventing a precise event envelope or integration hook. The next step for a deeper review is to trace one real update and one delete through each destination, then test replay and stale-event behavior."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Does ckanext-jsonschema implement Eventarc or Elasticsearch?",
+      "answer": "The public README documents CKAN metadata and Solr indexing. I implemented the Eventarc/Elasticsearch/object-storage integration separately; those services are not features established by the public extension repository.",
+      "section": "architecture"
+    },
+    {
+      "question": "Which destination is authoritative?",
+      "answer": "CKAN metadata is the source within the extension diagram. The separate pipeline’s authority and bucket role require confirmation. Search projections should not silently become authority merely because they are convenient to query.",
+      "section": "decisions"
+    },
+    {
+      "question": "How would you review ordering and duplicates?",
+      "answer": "Start from Eventarc’s at-least-once, unordered delivery. Inspect the actual event identity/version and destination update behavior. Version checks and idempotent writes are proposed review criteria until their implementation is established.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ckan-repo",
+      "title": "ckanext-jsonschema repository",
+      "url": "https://github.com/ccancellieri/ckanext-jsonschema",
+      "version": "README on extra branch, inspected October 2026",
+      "attribution": "Public extension repository",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "ckan-discussion",
+      "title": "CKAN community discussion of the extension",
+      "url": "https://github.com/ckan/ckan/discussions/6498",
+      "version": "Public discussion",
+      "attribution": "Author’s public contribution account",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "eventarc",
+      "title": "Eventarc Standard overview",
+      "url": "https://docs.cloud.google.com/eventarc/standard/docs/overview",
+      "version": "Current product documentation inspected October 2026",
+      "attribution": "Google Cloud; product behavior is not deployment evidence",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "ckan-account",
+      "title": "Separate custom metadata indexing integration",
+      "url": "https://github.com/ccancellieri/ckanext-jsonschema",
+      "version": "My supplied architecture account",
+      "attribution": "Source link documents the extension only; the external design is candidate-described",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "fao-catalogue-scope",
+      "title": "FAO catalogue leadership and institutional scope",
+      "url": "https://data.fao.org/",
+      "version": "Technical leadership and broad project support confirmed October 2026",
+      "attribution": "Candidate-confirmed institutional contribution",
+      "verification": "candidate-account"
+    },
+    {
+      "id": "iso-standardization",
+      "title": "ISO/TR 19115-4 project context",
+      "url": "https://www.iso.org/standard/86968.html",
+      "version": "Official Technical Report entry under publication, inspected October 2026",
+      "attribution": "ISO project context; my participation is candidate-confirmed",
+      "verification": "source-inspected"
+    }
+  ],
+  "related": [
+    "aip-catalogues",
+    "dynastore",
+    "keystone"
+  ],
+  "documents": [],
+  "homepageTitle": "CKAN Extensions"
+}

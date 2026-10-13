@@ -1,0 +1,104 @@
+{
+  "slug": "gcp-geospatial-delivery",
+  "title": "Geospatial delivery on Google Cloud: products, infrastructure and release responsibility",
+  "description": "Terraform modules, independent product pipelines, review environments and supervised production changes in a documented geospatial cloud delivery design.",
+  "period": "Historical source presentation; edition undated",
+  "role": "Architecture and delivery design; source presentation author",
+  "kind": "institutional",
+  "paths": [
+    "architecture",
+    "cloud",
+    "geospatial",
+    "security",
+    "leadership"
+  ],
+  "summary": "The delivery design separates deployable products from the infrastructure that runs them. Tagged Terraform modules, independent pipelines and an explicit review-to-production workflow let developers test changes while keeping production responsibility visible.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Several products, separate release decisions",
+      "paragraphs": [
+        "GeoServer, CKAN and GeoNetwork have different installation requirements and release cycles. A platform integrating them must decide which software changes belong to a product release and which changes belong to the infrastructure that deploys it.",
+        "The presentation also distinguishes review work from production work. Developers need a reproducible environment for experiments, while a production change needs supervision and shared operational knowledge. The source describes this as a delivery convention and architecture, without supplying a measured incident or performance study."
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Two delivery streams meet in review",
+      "paragraphs": [
+        "Product projects build installation artifacts for a Debian or Ubuntu instance. The source names setup.sh and resources.tar.gz as their outputs. Infrastructure projects consume those artifacts and provide deployment configuration through Terraform. The products and the infrastructure can therefore follow independent release cycles (source slides 6 and 17).",
+        "Tagged Terraform modules make an infrastructure release reproducible and reusable. A review environment can be deployed from scratch, integrated, tested and destroyed when it is no longer needed. The source pipeline diagram explicitly shows artifact fetching, integration testing and destruction of review resources (slides 8–11).",
+        "The diagram below abstracts those delivery decisions. It distinguishes changes, review evidence and human responsibility. It does not assert an exact inventory of cloud resources or a deployment topology."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/gcp-delivery.svg",
+          "title": "Product releases, infrastructure changes and release responsibility",
+          "description": "A software change produces release artifacts through CI. A Terraform change produces a tagged infrastructure configuration and integration checks. Both enter review. Tester evidence supports the supervised production decision, followed by a template and disk rollout. Developer review work and the DevOps pair session are separate responsibilities.",
+          "view": "Flow"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Make production changes a shared responsibility",
+      "paragraphs": [
+        "The source allows autonomous deployment and testing in review. Production activities require authorisation and a pair session with the person responsible for DevOps. This boundary supports knowledge sharing and a check before change reaches the live environment (slide 4).",
+        "The workflow moves features from review, through testing, to production. The slides identify JMeter and other service tests, continuous testing, and fail-fast principles. They describe an intended verification process. They do not provide test results or demonstrate a measured coverage percentage (slide 5).",
+        "Replication has a distinct purpose from software delivery. A primary instance detects configuration or data changes and triggers an update pipeline. Terraform produces a new instance template, attaches fresh disk copies and policies, triggers a managed instance group rolling update, and cleans up outdated disks and templates (slides 12–14).",
+        "The slides describe automatic backups and recovery using a previous backup, with experiments first performed on a copy in review. These procedures make recovery a design concern. The source does not establish a measured recovery time, recovery point or availability result (slide 7)."
+      ]
+    },
+    {
+      "id": "outcomes",
+      "title": "A documented delivery architecture",
+      "paragraphs": [
+        "The source establishes an architecture account with explicit product boundaries, reusable infrastructure modules, release artifacts, review verification and production responsibility. It makes the propagation mechanism and the role of the DevOps team inspectable through a complete 19-slide public copy.",
+        "The deck’s capacity statement is a design intention: scaling to additional instances to support thousands of requests per minute. It includes historical Google Cloud region and latency descriptions. This case does not convert those statements into current cloud facts, observed production throughput or an independently validated benchmark."
+      ]
+    },
+    {
+      "id": "learning",
+      "title": "Versioned inputs help explain a deployment",
+      "paragraphs": [
+        "Separating product artifacts from infrastructure definitions makes the inputs to a deployment easier to name and reproduce. The operational question remains whether the selected software artifact, infrastructure tag and data snapshot belong together.",
+        "For a current implementation I would make those inputs explicit in the release record and check review-to-production parity, rollback behaviour and propagation ordering. I would also define which test failures prevent promotion. These are retrospective evaluation questions, not claims that the historical platform already implemented those additional controls."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why separate product and infrastructure pipelines?",
+      "answer": "The source gives products and infrastructure independent release cycles. A product publishes installation artifacts, while the infrastructure controls how those artifacts run, integrate and roll out.",
+      "section": "architecture"
+    },
+    {
+      "question": "Who can change production?",
+      "answer": "The described workflow requires authorisation and a pair session with the person responsible for DevOps. Review deployment and testing are designed for autonomous developer use.",
+      "section": "decisions"
+    },
+    {
+      "question": "What does the rolling update propagate?",
+      "answer": "The source pipeline creates an instance template with fresh disk copies and policies after a primary-instance change, then updates the managed instance group. That process is distinct from the older GeoServer JMS configuration-messaging extension.",
+      "section": "decisions"
+    }
+  ],
+  "sources": [
+    {
+      "id": "gcp-geoserver-cluster",
+      "title": "Geospatial platforms on Google Cloud: deployment and replication",
+      "url": "/assets/documents/gcp-geoserver-cluster.pdf",
+      "version": "Complete 19-slide source presentation; edition undated; public privacy-redacted copy",
+      "attribution": "Carlo Cancellieri. Architecture and workflow account as presented in the original slides.",
+      "verification": "document-inspected"
+    }
+  ],
+  "related": [
+    "geoserver-active-active",
+    "ckan-jsonschema-indexing",
+    "keystone"
+  ],
+  "documents": [
+    "gcp-geoserver-cluster"
+  ]
+}

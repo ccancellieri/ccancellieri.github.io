@@ -1,0 +1,119 @@
+{
+  "slug": "mcp-skill-hub",
+  "title": "MCP Skill Hub: scoped context with visible evidence",
+  "description": "A Python MCP context service with project-scoped retrieval, preserved original requests and a carefully bounded protocol-payload measurement.",
+  "period": "Alpha development, 2026",
+  "role": "Independent project creator",
+  "kind": "independent",
+  "paths": [
+    "architecture",
+    "ai-strategy",
+    "security"
+  ],
+  "summary": "I built MCP Skill Hub to retrieve relevant task evidence and skill descriptions without obscuring the user’s request or the source of the retrieved material. The current context path is deterministic and keeps permission decisions with the coding client.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: relevant context competes with irrelevant context",
+      "paragraphs": [
+        "A coding assistant has a finite context window. Large tool surfaces and unrelated project memories can use that space while making a request less clear. Retrieval is only useful if it selects relevant evidence and preserves the user’s intent.",
+        "The current design treats project identity and original source text as boundaries. A generated summary is useful context but cannot replace its source or become a new authorization."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: one retrieval service, two entry points",
+      "paragraphs": [
+        "The inspected context-service documentation describes an MCP entry point and an optional client prompt hook using the same deterministic retrieval service. The original prompt is retained separately from supplemental evidence.",
+        "Retrieval selects bounded project context and skill descriptions with source references and omissions. Full skill bodies remain available through explicit tools. SQLite supports the indexed context; optional indexing and curation sit outside the interactive prompt path.",
+        "When the service is unavailable or times out, the original prompt passes through. Missing project identity does not justify substituting context from another recently opened project."
+      ],
+      "diagrams": [
+        {
+          "src": "/assets/diagrams/mcp-context.svg",
+          "title": "Original request and scoped evidence stay distinct",
+          "description": "The user’s unchanged request reaches the coding client. An explicit MCP call or optional hook asks the context service for bounded, project-scoped evidence. Sources and omissions remain visible; indexing stays outside the request path. Retrieved content does not grant permission.",
+          "view": "Trust boundaries"
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: retrieval is evidence, not control",
+      "paragraphs": [
+        "The foreground context path needs no model call or API key. The client retains model choice, permission handling and continuation decisions. Automatic enrichment is opt-in; retired task interception and continuation behaviors are not part of the current path.",
+        "A retrospective alternative is broad automatic injection of all plausible context. It can increase recall while making irrelevant evidence and source confusion harder to detect. The documentation records an unpromoted broader selector experiment and requires whole-task evaluation before changing the foreground behavior."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: smaller protocol payload, bounded qualification",
+      "paragraphs": [
+        "The September 2026 measurement compares 87 versus 8 MCP tools and 16,362 versus 1,242 o200k_base tokens for compactly serialized schemas and server instructions: 92.41% less. This measures protocol payload, not total billed usage or development-task savings.",
+        "An isolated installed stdio smoke test checks integration, description retrieval, explicit content loading and prompt preservation. Synthetic marker tests assess source selection and scope boundaries, rather than general answer quality.",
+        "The published benchmark notes say whole-task promotion criteria have not passed. The case therefore reports the verified narrower result and leaves broader quality and savings claims open."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: measure the quantity the user actually cares about",
+      "paragraphs": [
+        "A smaller schema payload is a real measurement with a narrow meaning. It becomes a useful product outcome only if paired tasks in an installed client show preserved quality and practical benefit.",
+        "This work reinforced the distinction between evidence selection and agent authority. A source reference improves reviewability; it cannot authorize commands or manufacture a user instruction."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Does the measured 92.41% mean tasks cost that much less?",
+      "answer": "No. It compares serialized schemas and server instructions for two profiles. Clients may cache or transform them, and whole-task outcomes require separate evaluation.",
+      "section": "outcomes"
+    },
+    {
+      "question": "Does the service rewrite prompts or approve actions?",
+      "answer": "The current context path preserves the original request and supplies supplemental evidence. Model selection, permission and continuation remain with the client.",
+      "section": "architecture"
+    },
+    {
+      "question": "What is required before promoting a new selector?",
+      "answer": "Scoped source relevance, latency/deadline behavior and installed-client paired-task quality/token evaluation. The broader selector remains unpromoted.",
+      "section": "learning"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mcp-repo",
+      "title": "MCP Skill Hub source",
+      "url": "https://github.com/ccancellieri/mcp-skill-hub",
+      "version": "Current context service inspected in local source October 2026",
+      "attribution": "Independent project by Carlo Cancellieri",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "mcp-context",
+      "title": "Context service design and boundaries",
+      "url": "https://github.com/ccancellieri/mcp-skill-hub/tree/main/docs",
+      "version": "Current context-service documentation inspected locally",
+      "attribution": "Project documentation; older cached README descriptions are not the current foreground contract",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "mcp-measurements",
+      "title": "Verified benchmark results",
+      "url": "https://github.com/ccancellieri/mcp-skill-hub/tree/main/benchmarks",
+      "version": "September 2026 measurements; review candidate 006651208cb3923ccfcaa7695e394feed026e07d",
+      "attribution": "Project benchmark report inspected locally",
+      "verification": "source-inspected"
+    }
+  ],
+  "related": [
+    "mba-responsible-ai",
+    "tellurion"
+  ],
+  "documents": [],
+  "homepageTitle": "MCP Skill Hub"
+}

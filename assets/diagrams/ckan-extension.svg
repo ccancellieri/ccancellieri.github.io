@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="title desc"><title id="title">CKAN · structured metadata, discoverable projection</title><desc id="desc">JSON Editor and JSON Schema validation extend CKAN metadata. The extension documents CKAN extra-field storage and a Solr projection for resource and view metadata, with public view search.</desc>
+<defs><marker id="sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}.heading{font-size:30px;font-weight:700}.lane{font-size:19px;font-weight:700;letter-spacing:.8px}.name{font-size:21px;font-weight:700}.minor{fill:#476071}.label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}.sync{stroke:#147D83}.event{stroke:#355AD8;stroke-dasharray:8 6}.store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">CKAN · structured metadata, discoverable projection</text>
+<text x="34" y="80" class="minor">Public ckanext-jsonschema feature set · extra branch README</text>
+<rect x="28" y="110" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">EDITOR AND SCHEMA RESPONSIBILITY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">Public extension scope</text>
+<rect x="65" y="160" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="190" class="name">Metadata editor</text>
+<text x="82" y="217" class="minor">JSON Editor interface</text>
+<rect x="480" y="160" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="190" class="name">Schema registry</text>
+<text x="497" y="217" class="minor">Types and validation</text>
+<rect x="860" y="160" width="220" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="190" class="name">Metadata tools</text>
+<text x="877" y="217" class="minor">Import / export / clone</text>
+<path d="M350 202.0H480" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="413" y="184" class="label" text-anchor="middle">validate</text>
+<path d="M860 202.0H765" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="812" y="184" class="label" text-anchor="middle">tools</text>
+<rect x="28" y="305" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="334" class="lane">CKAN DATA OWNERSHIP</text>
+<text x="1110" y="334" class="minor" text-anchor="end">Structured metadata retained with catalog records</text>
+<rect x="65" y="360" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="390" class="name">Dataset / resource / view</text>
+<text x="82" y="417" class="minor">CKAN metadata entities</text>
+<rect x="480" y="360" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="390" class="name">Extra fields</text>
+<text x="497" y="417" class="minor">Schema type + JSON metadata</text>
+<path d="M623 243.0V279.0H210V360.0" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="440" y="278" class="label" text-anchor="middle">validated data</text>
+<path d="M350 401.0H480" fill="none" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="415" y="384" class="label" text-anchor="middle">store</text>
+<rect x="28" y="520" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="549" class="lane">SOLR PROJECTION</text>
+<text x="1110" y="549" class="minor" text-anchor="end">Derived discovery; not canonical metadata ownership</text>
+<rect x="65" y="579" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="609" class="name">Solr schema fields</text>
+<rect x="480" y="579" width="285" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="497" y="609" class="name">Public view search</text>
+<rect x="860" y="579" width="220" height="75" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="877" y="609" class="name">Search clients</text>
+<path d="M625 443.0V488.0H210V579.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="457" y="487" class="label" text-anchor="middle">index</text>
+<path d="M480 610.0H350" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="415" y="593" class="label" text-anchor="middle">query</text>
+<path d="M860 610.0H765" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="812" y="593" class="label" text-anchor="middle">search</text>
+<text x="35" y="720" class="minor">The README establishes a Solr projection, not an inspected CKAN callback or commit/delivery contract.</text>
+<text x="35" y="744" class="minor">Eventarc, Elasticsearch and the external object-storage design are separate from this extension boundary.</text>
+<rect x="40" y="117" width="376" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">EDITOR AND SCHEMA RESPONSIBILITY</text>
+<rect x="916" y="117" width="198" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">Public extension scope</text>
+<rect x="40" y="312" width="233" height="32" fill="#F5F8FB"/>
+<text x="48" y="334" class="lane">CKAN DATA OWNERSHIP</text>
+<rect x="673" y="312" width="441" height="32" fill="#F5F8FB"/>
+<text x="1110" y="334" class="minor" text-anchor="end">Structured metadata retained with catalog records</text>
+<rect x="40" y="527" width="189" height="32" fill="#F5F8FB"/>
+<text x="48" y="549" class="lane">SOLR PROJECTION</text>
+<rect x="655" y="527" width="459" height="32" fill="#F5F8FB"/>
+<text x="1110" y="549" class="minor" text-anchor="end">Derived discovery; not canonical metadata ownership</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg>

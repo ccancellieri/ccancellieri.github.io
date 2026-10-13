@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+<title id="title">AERI proposal: assumed inputs, workforce history and human interpretation</title>
+<desc id="desc">The May 2024 MBA dissertation proposes combining assumed environmental, social and governance scores with a productivity impact score and a time-weighted series of AI-related workforce changes. The displayed final formula is AERI equals E times We plus S plus PIS times Ws plus G plus LTB times Wg. The hypothetical simulation is separate from empirical validation, which is not established. The original thesis contains inconsistent calculations and weighting definitions, described separately in the reading guide.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#147D83"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B}.title{font-size:29px;font-weight:700}.subtitle{font-size:19px}.heading{font-size:21px;font-weight:700}.body{font-size:18px}.note{font-size:17px}.input{fill:white;stroke:#B6CDD6;stroke-width:1.5;rx:10}.flow{fill:none;stroke:#147D83;stroke-width:2.5;marker-end:url(#arrow)}</style>
+<rect width="1100" height="760" fill="#F5F8FB"/>
+<text x="35" y="44" class="title">A proposed scoring model for responsible AI</text>
+<text x="35" y="76" class="subtitle">Literature review + model proposal + hypothetical simulation</text>
+<text x="35" y="104" class="subtitle">Empirical workplace validation is not established</text>
+<rect x="35" y="139" width="318" height="194" class="input"/>
+<text x="55" y="174" class="heading">Assumed ESG inputs</text>
+<text x="55" y="207" class="body">E = 81, S = 73, G = 80</text>
+<text x="55" y="236" class="body">Weights: We = 0.5</text>
+<text x="55" y="263" class="body">Ws = 0.25, Wg = 0.25</text>
+<text x="55" y="301" class="note">E remains constant in the example</text>
+<rect x="391" y="139" width="318" height="194" class="input"/>
+<text x="411" y="174" class="heading">Productivity input: PIS</text>
+<text x="411" y="207" class="body">Average of four assumed inputs:</text>
+<text x="411" y="236" class="body">output increase, time savings,</text>
+<text x="411" y="263" class="body">error reduction and cost savings</text>
+<text x="411" y="301" class="note">Questionnaire bridge is undefined</text>
+<rect x="747" y="139" width="318" height="194" class="input"/>
+<text x="767" y="174" class="heading">Workforce history: ARI/LTB</text>
+<text x="767" y="207" class="body">ARI_y = 100 ×</text>
+<text x="767" y="232" class="note">(hires_y − firings_y) / workforce_y</text>
+<text x="767" y="265" class="body">LTB = Σ(ARI_y × y / n)</text>
+<text x="767" y="301" class="note">AI-related changes are assumed</text>
+<path d="M194 333V355H550V380" class="flow"/>
+<path d="M550 333V380" class="flow"/>
+<path d="M906 333V355H550" fill="none" stroke="#147D83" stroke-width="2.5"/>
+<rect x="150" y="386" width="800" height="111" rx="11" fill="#E9F4F4" stroke="#147D83" stroke-width="1.5"/>
+<text x="175" y="422" class="heading">Final proposed expression in the original thesis</text>
+<text x="175" y="468" style="font-size:25px">AERI = E*We + (S+PIS)*Ws + (G+LTB)*Wg</text>
+<path d="M550 497V536" class="flow"/>
+<rect x="150" y="543" width="800" height="111" rx="11" fill="#FAF0DF" stroke="#9A6700" stroke-width="1.5"/>
+<text x="175" y="578" class="heading">Human interpretation of a hypothetical score</text>
+<text x="175" y="609" class="body">The final example exceeds its baseline: 78.8125 versus 78.75.</text>
+<text x="175" y="636" class="body">The workforce ends at 75 rather than 100. This raises a scoring-policy question.</text>
+<text x="35" y="691" class="note">The stated LTB is not normalised to the claimed range. Earlier weight placement and example values conflict.</text>
+<text x="35" y="718" class="note">Those inconsistencies remain in the original PDF and are explained separately in the reading guide.</text>
+<text x="35" y="745" class="note">Source: May 2024 MBA thesis, physical pages 35–47. This diagram explains the proposal, not an AI system.</text>
+</svg>

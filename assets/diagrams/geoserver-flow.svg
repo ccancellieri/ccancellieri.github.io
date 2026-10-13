@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 850" role="img" aria-labelledby="title desc"><title id="title">GeoServer · a configuration change crosses boundaries</title><desc id="desc">An authorized edit is persisted on the writer and sent through JMS. The replica consumes configuration, applies it in memory and persists locally. The publish/persist atomicity is not established.</desc>
+<defs><marker id="sync" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D83"/></marker><marker id="event" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#355AD8"/></marker><marker id="store" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9A6700"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#142B3B;font-size:18px}.heading{font-size:30px;font-weight:700}.lane{font-size:19px;font-weight:700;letter-spacing:.8px}.name{font-size:21px;font-weight:700}.minor{fill:#476071}.label{font-size:17px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:7;stroke-linejoin:round}.sync{stroke:#147D83}.event{stroke:#355AD8;stroke-dasharray:8 6}.store{stroke:#9A6700}</style><rect width="1160" height="850" fill="#fff"/>
+<text x="34" y="47" class="heading">GeoServer · a configuration change crosses boundaries</text>
+<text x="34" y="80" class="minor">Architecture-level flow · not a source trace through a particular listener</text>
+<rect x="28" y="110" width="1104" height="155" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="139" class="lane">AUTHORING RESPONSIBILITY</text>
+<text x="1110" y="139" class="minor" text-anchor="end">One designated writer</text>
+<rect x="65" y="165" width="270" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="195" class="name">UI / REST edit</text>
+<text x="82" y="222" class="minor">Authorized catalog change</text>
+<rect x="445" y="165" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="462" y="195" class="name">GeoServer configuration</text>
+<text x="462" y="222" class="minor">Catalog and service objects</text>
+<rect x="845" y="165" width="235" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="862" y="195" class="name">Local data directory</text>
+<text x="862" y="222" class="minor">Writer persistence</text>
+<path d="M335 204.0H445" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="390" y="188" class="label" text-anchor="middle">apply change</text>
+<path d="M730 204.0H845" fill="none" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="785" y="188" class="label" text-anchor="middle">persist</text>
+<rect x="28" y="303" width="1104" height="145" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="332" class="lane">DELIVERY RESPONSIBILITY</text>
+<text x="1110" y="332" class="minor" text-anchor="end">Broker and subscription configuration</text>
+<rect x="65" y="355" width="315" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="385" class="name">JMS publication</text>
+<text x="82" y="412" class="minor">Configuration objects</text>
+<rect x="495" y="355" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="512" y="385" class="name">ActiveMQ channel</text>
+<text x="512" y="412" class="minor">VirtualTopic / broker routing</text>
+<rect x="885" y="355" width="195" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="902" y="385" class="name">Subscription</text>
+<text x="902" y="412" class="minor">Durable if set</text>
+<path d="M445 245.0H222V355.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="271" y="289" class="label" text-anchor="middle">publish</text>
+<path d="M380 395.0H495" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="437" y="378" class="label" text-anchor="middle">route</text>
+<path d="M780 395.0H885" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="835" y="378" class="label" text-anchor="middle">deliver</text>
+<rect x="28" y="492" width="1104" height="153" rx="10" fill="#F5F8FB" stroke="#BACBD5"/>
+<text x="48" y="521" class="lane">REPLICA RESPONSIBILITY</text>
+<text x="1110" y="521" class="minor" text-anchor="end">Configuration state; spatial data excluded</text>
+<rect x="65" y="557" width="270" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="82" y="587" class="name">Registered consumer</text>
+<text x="82" y="614" class="minor">Receive config messages</text>
+<rect x="445" y="557" width="285" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="462" y="587" class="name">Replica catalog</text>
+<text x="462" y="614" class="minor">Apply in-memory state</text>
+<rect x="845" y="557" width="235" height="83" rx="7" fill="#fff" stroke="#718997" stroke-width="1.5"/>
+<text x="862" y="587" class="name">Replica directory</text>
+<text x="862" y="614" class="minor">Persist configuration</text>
+<path d="M982 438.0V472.0H200V557.0" fill="none" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="570" y="469" class="label" text-anchor="middle">deliver configuration</text>
+<path d="M335 596.0H445" fill="none" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="390" y="580" class="label" text-anchor="middle">apply</text>
+<path d="M730 596.0H845" fill="none" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="785" y="580" class="label" text-anchor="middle">persist</text>
+<text x="35" y="720" class="minor">No inspected evidence establishes one transaction across writer persistence and broker publication.</text>
+<text x="35" y="744" class="minor">Durability is a delivery configuration; duplicate effects, ordering and writer failover need separate review.</text>
+<rect x="40" y="117" width="288" height="32" fill="#F5F8FB"/>
+<text x="48" y="139" class="lane">AUTHORING RESPONSIBILITY</text>
+<rect x="925" y="117" width="189" height="32" fill="#F5F8FB"/>
+<text x="1110" y="139" class="minor" text-anchor="end">One designated writer</text>
+<rect x="40" y="310" width="277" height="32" fill="#F5F8FB"/>
+<text x="48" y="332" class="lane">DELIVERY RESPONSIBILITY</text>
+<rect x="781" y="310" width="333" height="32" fill="#F5F8FB"/>
+<text x="1110" y="332" class="minor" text-anchor="end">Broker and subscription configuration</text>
+<rect x="40" y="499" width="266" height="32" fill="#F5F8FB"/>
+<text x="48" y="521" class="lane">REPLICA RESPONSIBILITY</text>
+<rect x="736" y="499" width="378" height="32" fill="#F5F8FB"/>
+<text x="1110" y="521" class="minor" text-anchor="end">Configuration state; spatial data excluded</text>
+<path d="M36 808h42" stroke-width="2.4" class="sync" marker-end="url(#sync)"/>
+<text x="91" y="815" class="">Request / integration</text>
+<path d="M385 808h42" stroke-width="2.4" class="event" marker-end="url(#event)"/>
+<text x="440" y="815" class="">Message / asynchronous work</text>
+<path d="M795 808h42" stroke-width="2.4" class="store" marker-end="url(#store)"/>
+<text x="850" y="815" class="">Persistence / data access</text>
+</svg>
