@@ -11,3 +11,11 @@ GEMINI.md
 .memory/
 .cursorrules
 .aider*
+__pycache__/
+*.py[cod]
+.DS_Store
+.codex/
+.Codex/
+.agents/
+.superpowers/
+.github/copilot-instructions.md
