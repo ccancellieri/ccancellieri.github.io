@@ -1,11 +1,13 @@
 """Acceptance checks for generated routes and the public reference boundary."""
 import json
+import re
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 REPO = Path(__file__).resolve().parents[1]
 SCRIPT = REPO / 'scripts' / 'build_portfolio.py'
@@ -19,7 +21,7 @@ class PortfolioBuild(unittest.TestCase):
         if (REPO / 'templates').exists():
             shutil.copytree(REPO / 'templates', self.root / 'templates')
             (self.root / 'templates/home.html').write_text('<!doctype html><html><body>{{header}}<main id="main-content"><div id="home"></div><div id="about"></div><div id="projects">{{case_directory}}</div><div id="experience"></div><div id="contact"></div><div id="writing"></div><div id="latest-publications"></div>{{path_map}}</main></body></html>')
-        for filename in ['portfolio.css', 'portfolio.js', 'portfolio-enhancements.js']:
+        for filename in ['portfolio.css', 'portfolio.js', 'portfolio-enhancements.js', 'writing-feed.mjs']:
             if (REPO / filename).exists():
                 shutil.copy(REPO / filename, self.root / filename)
         self.site = {'site': {'url': 'https://portfolio.example', 'name': 'Sample Person', 'updated': '2026-10-13'}, 'paths': [{'id': 'architecture', 'title': 'Architecture', 'description': 'How systems fit.'}], 'homepageProjects': []}
@@ -65,6 +67,52 @@ class PortfolioBuild(unittest.TestCase):
         self.assertIn(b'https://portfolio.example/legacy/', sitemap)
         self.assertIn(b'2020-01-01', sitemap)
         self.assertIn(b'https://portfolio.example/library/', sitemap)
+
+    def test_asset_byte_changes_invalidate_urls_and_stable_rebuilds_are_idempotent(self):
+        assets = {'portfolio.css', 'portfolio.js', 'portfolio-enhancements.js', 'writing-feed.mjs'}
+        home = self.root / 'templates/home.html'
+        references = ''.join(match[0] for match in re.finditer(r'<(?:link|script)\b[^>]*(?:href|src)="([^"]+)"[^>]*>(?:</script>)?', (REPO / 'templates/home.html').read_text()) if urlsplit(match[1]).path in assets)
+        home.write_text(home.read_text().replace('</body>', references + '</body>'))
+        pages = [self.root / 'index.html', self.root / 'projects/sample-case/index.html', self.root / 'library/index.html']
+
+        def urls():
+            result = {}
+            for page in pages:
+                result[page] = {urlsplit(value).path.lstrip('/'): value for value in re.findall(r'(?:href|src)="([^"]+)"', page.read_text()) if urlsplit(value).path.lstrip('/') in assets}
+                expected = assets if page == pages[0] else assets - {'writing-feed.mjs'}
+                self.assertEqual(set(result[page]), expected)
+                for value in result[page].values():
+                    self.assertTrue(parse_qs(urlsplit(value).query).get('v'), f'Missing cache version: {value}')
+            return result
+
+        self.assertEqual(self.build().returncode, 0)
+        previous = urls()
+        for asset in sorted(assets):
+            with self.subTest(asset=asset):
+                file = self.root / asset
+                original = file.read_bytes()
+                file.write_bytes(original + b'\n/* Cache invalidation probe. */\n')
+                result = self.build()
+                self.assertEqual(result.returncode, 0, result.stderr)
+                current = urls()
+                for page in pages:
+                    for name, value in current[page].items():
+                        self.assertEqual(urlsplit(value).path, urlsplit(previous[page][name]).path)
+                        if name == asset:
+                            self.assertNotEqual(value, previous[page][name])
+                        else:
+                            self.assertEqual(value, previous[page][name])
+                outputs = pages + [self.root / 'sitemap.xml']
+                snapshot = {page: (page.read_bytes(), page.stat().st_mtime_ns) for page in outputs}
+                result = self.build()
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(snapshot, {page: (page.read_bytes(), page.stat().st_mtime_ns) for page in outputs})
+                file.write_bytes(original)
+                result = self.build()
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(previous, urls(), 'Restoring asset bytes must restore their URL versions')
+        result = self.build('--check')
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_revision_only_updates_sitemap_dates_for_changed_pages(self):
         self.assertEqual(self.build().returncode, 0)

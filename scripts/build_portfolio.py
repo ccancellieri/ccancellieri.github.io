@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build public case studies and library pages from plain-text JSON."""
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -101,6 +102,11 @@ def svg_markup(root, diagram, check):
 
 def render_template(root, name, values):
     source = (root / 'templates' / name).read_text()
+    for asset in ('portfolio.css', 'portfolio.js', 'portfolio-enhancements.js', 'writing-feed.mjs'):
+        slot = '{{' + asset + '_version}}'
+        if slot in source:
+            digest = hashlib.sha256(local_file(root, '/' + asset).read_bytes()).hexdigest()[:16]
+            source = source.replace(slot, digest)
     for key, value in values.items():
         source = source.replace('{{' + key + '}}', str(value))
     if re.search(r'\{\{[^}]+\}\}', source):
