@@ -2,7 +2,7 @@
   "site": {
     "name": "Carlo Cancellieri",
     "url": "https://ccancellieri.github.io",
-    "updated": "2026-10-13"
+    "updated": "2026-10-14"
   },
   "paths": [
     {
@@ -18,7 +18,7 @@
     {
       "id": "cloud",
       "title": "Cloud & DevOps",
-      "description": "Infrastructure management, infrastructure as code and automation across the operational life of a platform."
+      "description": "Infrastructure as code, SDLC and operations across cloud and on-premises engineering."
     },
     {
       "id": "security",

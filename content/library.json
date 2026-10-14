@@ -99,6 +99,11 @@
       "title": "Why I paused visual context compression",
       "url": "https://www.linkedin.com/pulse/55-fewer-tokens-one-wrong-source-why-i-paused-visual-cancellieri-r3zwe/",
       "description": "2026: an AI research experiment, its quality gate and the limits of a promising result."
+    },
+    {
+      "title": "Understanding OPeNDAP Hyrax",
+      "url": "https://www.cs.unibo.it/~renzo/Confsl09_atti.pdf",
+      "description": "2009: Carlo Cancellieri’s conference-proceedings paper, ConfSL 2009, Bologna, 12–13 June, printed pp. 23–38. Earlier Hyrax technical writing, distinct from the 2010 SQL Handler presentation; historical comparisons do not establish current performance."
     }
   ]
 }

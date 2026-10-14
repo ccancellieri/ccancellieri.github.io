@@ -50,7 +50,8 @@
       "title": "Outcomes: public source and historical documentation",
       "paragraphs": [
         "The OPeNDAP repository retains the module, installation guidance and database examples. My original work belongs to the 2009–2010 Google Summer of Code period; current source includes later maintenance.",
-        "The current official Hyrax guide labels the SQL handler unsupported. This portfolio presents it as historical engineering and interoperability work, without claiming current supported production operation or a peer-reviewed publication."
+        "I also authored “Understanding OPeNDAP Hyrax”, a conference-proceedings paper in ConfSL 2009, Bologna, 12–13 June 2009 (printed pp. 23–38). It documents earlier Hyrax technical writing and is distinct from the 2010 SQL Handler presentation and software account. Historical comparisons do not establish current performance.",
+        "The current official Hyrax guide labels the SQL handler unsupported. This case presents its historical engineering and interoperability contribution; the 2009 paper is linked as a conference-proceedings publication."
       ],
       "diagrams": []
     },
@@ -105,6 +106,14 @@
       "version": "Original project account and presentation collection",
       "attribution": "Historical authorship and GSoC context",
       "verification": "candidate-account"
+    },
+    {
+      "id": "hyrax-confsl2009",
+      "title": "Understanding OPeNDAP Hyrax — ConfSL 2009 proceedings",
+      "url": "https://www.cs.unibo.it/~renzo/Confsl09_atti.pdf",
+      "version": "ConfSL 2009, Bologna, 12–13 June 2009; printed pp. 23–38",
+      "attribution": "Carlo Cancellieri; conference-proceedings paper, distinct from the 2010 SQL Handler presentation. Original proceedings linked without rehosting.",
+      "verification": "document-inspected"
     }
   ],
   "related": [
