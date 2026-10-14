@@ -18,6 +18,8 @@ class PortfolioBuild(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
         (self.root / 'content/projects').mkdir(parents=True)
+        (self.root / 'knowledge').mkdir()
+        (self.root / 'knowledge/index.html').write_text('<!doctype html><html><body><main id="main-content">Engineering notebook</main></body></html>')
         if (REPO / 'templates').exists():
             shutil.copytree(REPO / 'templates', self.root / 'templates')
             (self.root / 'templates/home.html').write_text('<!doctype html><html><body>{{header}}<main id="main-content"><div id="home"></div><div id="about"></div><div id="projects">{{case_directory}}</div><div id="experience"></div><div id="contact"></div><div id="writing"></div><div id="latest-publications"></div>{{path_map}}</main></body></html>')

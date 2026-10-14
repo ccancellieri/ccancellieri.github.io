@@ -358,6 +358,8 @@ def build(root, check=False):
         outputs[root / 'projects' / slug / 'index.html'] = case_page(root, project, site, paths, projects, library, check)
     outputs[root / 'library/index.html'] = library_page(root, site, library, projects)
     routes = ['/library/'] + ['/projects/' + slug + '/' for slug in projects]
+    if (root / 'knowledge/index.html').exists():
+        routes.append('/knowledge/')
     if (root / 'templates/home.html').exists():
         outputs[root / 'index.html'] = home_page(root, manifest, projects)
         routes.insert(0, '/')

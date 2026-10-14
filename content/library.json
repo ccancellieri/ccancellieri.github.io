@@ -86,6 +86,11 @@
   ],
   "selected_notes": [
     {
+      "title": "Connected engineering notebook",
+      "url": "/knowledge/",
+      "description": "Seven concise notes connecting software architecture, DevOps platforms and geospatial data decisions to public evidence and related case studies."
+    },
+    {
       "title": "From STAC Discovery to a Trustworthy Map",
       "url": "/writing/stac-cog-reproducible-maps/",
       "description": "2026: independent COG pixel validation, explicit provenance and measured range delivery."

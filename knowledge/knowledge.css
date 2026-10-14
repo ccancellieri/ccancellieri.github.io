@@ -1,0 +1,19 @@
+.knowledge-intro { padding: 4rem 0 3rem; }
+.knowledge-intro h1 { max-width: 16ch; font-size: clamp(2.7rem, 5vw, 4rem); }
+.knowledge-scope { max-width: 76ch; color: var(--slate); }
+.area-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 3rem; }
+.knowledge-area { border-top: 3px solid var(--teal); padding-top: 1.2rem; }
+.knowledge-area h2 { font-size: 1.25rem; line-height: 1.3; margin: 0; }
+.knowledge-area p { color: var(--slate); font-size: .94rem; }
+.knowledge-area ul { padding-left: 1.2rem; }
+.knowledge-area li { margin: .7rem 0; }
+.knowledge-notes { max-width: 1120px; }
+.knowledge-note { max-width: 76ch; padding: 3.5rem 0; border-top: 1px solid var(--line); scroll-margin-top: 7rem; }
+.knowledge-note h2 { font-size: clamp(1.65rem, 3vw, 2.1rem); line-height: 1.2; letter-spacing: -.025em; margin: .5rem 0 1.5rem; }
+.knowledge-note h3 { margin-top: 1.8rem; }
+.note-context { color: var(--teal); font-weight: 600; margin: 0; }
+.note-lesson { border-left: 3px solid var(--teal); padding-left: 1.1rem; margin: 1.6rem 0; }
+.note-sources { padding-left: 1.2rem; }
+.note-sources li { margin: .5rem 0; }
+.knowledge-note nav p, .back-to-index { font-size: .9rem; }
+@media (max-width: 760px) { .area-index { grid-template-columns: 1fr; gap: 1.5rem; } .knowledge-note { padding: 2.5rem 0; } }

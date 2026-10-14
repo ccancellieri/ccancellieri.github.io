@@ -37,6 +37,8 @@ and navigation remain available without JavaScript or browser storage.
 - `content/library.json`: inspected public documents and source notes.
 - `scripts/build_portfolio.py`: deterministic generation of the homepage, case studies, library and sitemap.
 - `index.html`: generated public content and search/social metadata.
+- `knowledge/`: a connected engineering notebook with seven public-source notes,
+  three thematic indexes and reciprocal related links; readable without JavaScript.
 - `projects/<slug>/index.html` and `library/index.html`: generated static reading pages.
 - `portfolio.css`: responsive personal-brand presentation.
 - `portfolio.js`: theme preferences, mobile navigation and deep-link focus.
