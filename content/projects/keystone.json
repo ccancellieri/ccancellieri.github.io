@@ -101,7 +101,7 @@
     {
       "id": "keystone-deck",
       "title": "Keystone — Unified Identity and Access Control Platform",
-      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/main/keystone",
+      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/master/keystone",
       "version": "Twelve-slide architecture presentation inspected October 2026",
       "attribution": "FAO institutional presentation; co-authored with colleagues",
       "verification": "document-inspected"

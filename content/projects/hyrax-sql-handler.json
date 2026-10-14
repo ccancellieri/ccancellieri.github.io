@@ -102,7 +102,7 @@
     {
       "id": "hyrax-history",
       "title": "Original project material",
-      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/main/opendap-sql-handler",
+      "url": "https://github.com/ccancellieri/ccancellieri_projects/tree/master/opendap-sql-handler",
       "version": "Original project account and presentation collection",
       "attribution": "Historical authorship and GSoC context",
       "verification": "candidate-account"
