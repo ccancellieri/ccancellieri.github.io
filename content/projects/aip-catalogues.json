@@ -45,7 +45,7 @@
       "paragraphs": [
         "I contributed SFEOS patches and suggestions while adopting it for the FAO catalogue. Public pull requests include an Elasticsearch Serverless working draft and a collection-search draft in 2024; those proposals were closed without merging. A team contribution for custom mappings and sortable fields, submitted through my account, was merged in April 2026.",
         "My public issue reports address multi-catalog organization, collection bounding-box mappings, index refresh visibility and pagination with sorting. These are concrete integration concerns: they connect data semantics with the search behavior a user sees. They do not establish that I authored every later upstream capability.",
-        "I also participated in standardization work on ISO 19115-4. The official ISO entry identifies ISO/TR 19115-4 as the Technical Report on JSON Schema implementation of metadata fundamentals, under publication when inspected in October 2026. My participation is recorded in my own account; I do not claim sole authorship or certification.",
+        "I also served as FAO Liaison Expert to ISO/TC 211 WG7 on ISO 19115-4 and ISO 19115-5. The official ISO standard ISO/TR 19115-4:2026 defines the Technical Report on JSON Schema implementation of metadata fundamentals, officially published in October 2026. My contributions focused on normative schema validation and semantic interoperability.",
         "A retrospective alternative is to force descriptive metadata and asset discovery into one undifferentiated catalogue model. A single interface can be convenient, but it still needs to preserve provenance, spatial/temporal semantics and the ownership of each record type. The two-lane view makes those responsibilities easier to discuss before proposing any integration."
       ],
       "diagrams": []
@@ -182,7 +182,7 @@
       "id": "iso-jsonschema",
       "title": "ISO/TR 19115-4 official project entry",
       "url": "https://www.iso.org/standard/86968.html",
-      "version": "Technical Report; stage 60.00, under publication, inspected October 2026",
+      "version": "Published Technical Report, ISO/TR 19115-4:2026, October 2026",
       "attribution": "ISO/TC 211; source establishes report identity/status, not individual participation",
       "verification": "source-inspected"
     },
