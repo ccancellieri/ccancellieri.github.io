@@ -3,7 +3,11 @@ personal
 # Private career knowledge base — must never be published on this public site
 career-profile/
 
-# Local AI/agent context files — keep locally, never commit
+# IDE & Local docs
+.vscode/
+00-START-HERE.txt
+DEPLOYMENT.md
+FEATURES.md
 CLAUDE.md
 AGENTS.md
 GEMINI.md
