@@ -1,0 +1,107 @@
+{
+  "slug": "cortical",
+  "title": "Cortical: 4-tier Merkle Second Brain, adaptive permission gate and dual-path voice harness",
+  "description": "An Apache-2.0 agentic harness for pi combining a deterministic 4-tier Merkle knowledge tree, an episode macro-graph, two-stage citation verification, progressive permission learning and dual-path voice routing across macOS and Linux.",
+  "period": "2026",
+  "role": "Independent project creator",
+  "kind": "independent",
+  "paths": [
+    "architecture",
+    "ai-strategy",
+    "security"
+  ],
+  "summary": "I built Cortical to coordinate local and hybrid coding agents on constrained Linux laptops and Apple Silicon Macs without flooding the context window or surrendering command execution control. It pairs a deterministic 4-tier Merkle tree (light, medium, high, max) with a high-level episode macro-graph, an NLI citation verifier, an adaptive permission gate and a System 1 / System 2 voice router.",
+  "sections": [
+    {
+      "id": "problem",
+      "title": "Problem: agent autonomy, context depth and hardware constraints pull in opposite directions",
+      "paragraphs": [
+        "Local and hybrid coding agents face three practical bottlenecks: raw document retrieval quickly exhausts context windows, dense chunk-level knowledge graphs become expensive to maintain across thousands of files, and static permission prompts either block productive loops or over-trust shell and browser tools.",
+        "On smaller machines—such as a Linux laptop with 4 GB of VRAM running an always-on voice daemon—loading a second resident model for background indexing or orchestration degrades interactive voice latency."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture: 4-tier Merkle tree, episode macro-graph and dual-path voice",
+      "paragraphs": [
+        "Cortical exposes its Second Brain as a standard JSON-RPC 2.0 MCP server (cortical-wiki-mcp) backed by SQLite WAL and FTS5. A parallel SHA-256 Merkle crawler indexes files bottom-up, skipping unchanged subtrees in O(1) and pre-computing three synthesis tiers—light (~50 tokens), medium (~250 tokens) and high (~1,000 tokens)—while retaining max (full raw text) for surgical edits.",
+        "Instead of building an O(N^2) graph across low-level text chunks, Cortical maintains a lightweight macro-graph of completed task episodes (task_episodes and macro_edges) linked to Merkle subtree roots. Relational RBAC rules (acl_permissions) filter path prefixes at SQL query time across tenants and workspaces.",
+        "The pi harness extension (.pi/extensions/cortical-harness.ts) coordinates bounded subagent loops (delegate_subagent and submit_report), while the Dual-Path Voice Engine routes fast queries and permission approvals to System 1 (<1s reflex) and delegates multi-step tasks asynchronously to System 2."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions: progressive permission learning, two-stage citation checks and endpoint reuse",
+      "paragraphs": [
+        "Every tool call passes through an Adaptive Permission Gate backed by SQLite. Destructive shell patterns, credential access and focus-stealing UI commands (such as AXRaise or set frontmost) hit a non-bypassable hard block. Recurring developer commands start as interactive prompts and decay in risk score as the user approves them.",
+        "Generated claims are checked in two stages: deterministic normalized span containment against the source file's SHA-256 hash, followed by an entailment decision check (verified, refuted or unverified).",
+        "At setup, the hardware profiler (cortical doctor) inspects CPU, RAM and GPU/VRAM across macOS Metal and Linux CUDA/Vulkan, and probes active local endpoints (:8080 llama-server, :18183/:8081 whisper-server, :20128 OmniRoute, :11434 Ollama) so Cortical reuses resident models with zero extra VRAM overhead."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "outcomes",
+      "title": "Outcomes: cross-platform verification on macOS Apple Silicon and Linux 4 GB VRAM",
+      "paragraphs": [
+        "Cortical runs as a native launchd service on macOS (M2 Pro 16 GB) and as a systemd user service on Ubuntu Linux (Intel i7-10510U, 4 GB NVIDIA MX250), exposing a live web and voice console alongside its stdio MCP server.",
+        "On the 4 GB VRAM Linux laptop, Cortical automatically attaches to the resident Liquid AI LFM2.5-1.2B llama-server (:8080) and whisper-server (:18183), keeping total GPU memory at 1,567 MiB / 4,096 MiB while passing all 9 automated unit and integration test suites in under 0.25 seconds."
+      ],
+      "diagrams": []
+    },
+    {
+      "id": "learning",
+      "title": "Learning: combine hierarchical trees for storage with macro-graphs for episodic memory",
+      "paragraphs": [
+        "Separating structural document storage (a deterministic Merkle tree with four synthesis depths) from episodic task relationships (a compact macro-graph) keeps indexing predictable while still letting agents learn from prior runs.",
+        "Designing the core runtime around Python's standard library and standard MCP/pi extension contracts ensured clean deployment across macOS and minimal Linux environments without fragile native build chains."
+      ],
+      "diagrams": []
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why combine a Merkle tree with a macro-graph instead of using a single knowledge graph?",
+      "answer": "File and directory hierarchies map naturally to a bottom-up SHA-256 Merkle tree where unchanged branches are skipped in O(1). A lightweight macro-graph is reserved for cross-cutting relationships between completed tasks and subtree roots, avoiding chunk-graph explosion.",
+      "section": "architecture"
+    },
+    {
+      "question": "How does Cortical avoid slowing down a 4 GB VRAM laptop that already runs a voice assistant?",
+      "answer": "The hardware profiler probes local ports during setup and attaches to existing llama-server (:8080) and whisper-server (:18183/:8081) processes instead of spawning duplicate model instances in VRAM.",
+      "section": "decisions"
+    }
+  ],
+  "sources": [
+    {
+      "id": "cortical-repo",
+      "title": "Cortical public repository",
+      "url": "https://github.com/ccancellieri/cortical",
+      "version": "v0.1.0 source inspected and verified on macOS and Linux, November 2026",
+      "attribution": "Independent project by Carlo Cancellieri",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "cortical-readme",
+      "title": "Cortical architecture and 3-step quickstart",
+      "url": "https://github.com/ccancellieri/cortical/blob/main/README.md",
+      "version": "Documentation and ASCII architecture specification",
+      "attribution": "Project documentation by Carlo Cancellieri",
+      "verification": "source-inspected"
+    },
+    {
+      "id": "cortical-license",
+      "title": "Apache 2.0 license and NOTICE attribution",
+      "url": "https://github.com/ccancellieri/cortical/blob/main/LICENSE",
+      "version": "Apache License 2.0 with NOTICE file",
+      "attribution": "Copyright 2026 Carlo Cancellieri",
+      "verification": "source-inspected"
+    }
+  ],
+  "related": [
+    "mcp-skill-hub",
+    "mba-responsible-ai"
+  ],
+  "documents": [],
+  "homepageTitle": "Cortical"
+}

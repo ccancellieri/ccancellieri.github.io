@@ -153,6 +153,15 @@
       ]
     },
     {
+      "title": "Cortical",
+      "slug": "cortical",
+      "paths": [
+        "architecture",
+        "ai-strategy",
+        "security"
+      ]
+    },
+    {
       "title": "Planner App",
       "paths": [
         "architecture",
@@ -176,6 +185,7 @@
     "keystone": "Keystone",
     "tellurion": "Tellurion",
     "mcp-skill-hub": "MCP Skill Hub",
+    "cortical": "Cortical",
     "mba-responsible-ai": "Responsible AI & ESG",
     "aip-catalogues": "AIP metadata & STAC catalogues"
   }
