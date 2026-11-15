@@ -130,12 +130,21 @@
 
       <p class="evidence-note">DuckDB evaluates <code>SELECT DISTINCT period_id, start_datetime, end_datetime</code> via HTTP range reads using Parquet row-group min/max statistics and bounding-box pushdown — touching zero COG pixels — and Tellurion projects that result cleanly onto the wire as a standard CoverageJSON <code>Domain</code>.</p>
 
+      <h2>Standardization Route: EDR v1.3 Rationalization &amp; Items Populated Domain Extension</h2>
+      <p>While OGC API – EDR Part 1 v1.1 defines <code>GET /collections/{cid}/items</code> and delegates query semantics to OGC API – Features, Table 15 currently lists only <code>bbox</code>, <code>datetime</code>, and <code>limit</code>. In ongoing discussions for <strong>OGC API – EDR v1.3</strong> (see <a href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval/issues/716">EDR issue #716</a> and <a href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval/issues/715">#715</a>), we are contributing to bridging this gap:</p>
+      <ul>
+        <li><strong>Table 15 Rationalization:</strong> Formally acknowledging <code>f</code>, <code>crs</code>, and explicit conformance linkage to <strong>OGC API – Features – Part 3: Filtering</strong> (<code>filter</code>, <code>filter-lang</code>, CQL2 <code>S_INTERSECTS</code>).</li>
+        <li><strong>Items Populated Domain Extension:</strong> Standardizing an optional conformance class allowing <code>f=CoverageJSON</code> on <code>/items</code> to return a lightweight CoverageJSON <code>"type": "Domain"</code> (<code>OGC 21-069</code>). This pattern is fully generic: beyond non-Gregorian agro-climatic calendars, it discovers populated coordinate members across forecast ensembles (<code>realisations</code>), vertical atmospheric levels, or administrative partitions in milliseconds.</li>
+      </ul>
+
       <div class="resources">
         <h2>Live demo &amp; standards specifications</h2>
         <ul>
           <li><a href="https://ccancellieri.github.io/tellurion/demos/stac/#sparse-cubes-workbench">Interactive Tellurion STAC &amp; Sparse Datacube Workbench</a> — test live UAD <code>pentadal-2021</code> / <code>dekadal-2021</code> queries and CQL2 <code>S_INTERSECTS</code> pruning against Render.</li>
           <li><a href="https://github.com/ccancellieri/ogc-dimensions/blob/main/docs/EDR_SPARSE_TILE_CUBES_PROPOSAL.md">Full Proposal: STAC UAD + OGC API – EDR Sparse Tile Cubes &amp; DuckDB/Portolan Convergence</a>.</li>
           <li><a href="https://github.com/stac-extensions/datacube/issues/36">stac-extensions/datacube#36</a> and <a href="https://github.com/stac-extensions/datacube/issues/31">#31</a> community discussion.</li>
+          <li><a href="https://github.com/stac-extensions/datacube/pull/40">stac-extensions/datacube PR #40</a> — UAD <code>definition</code>, <code>size</code>, and <code>variableType</code>.</li>
+          <li><a href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval/issues/716">opengeospatial/ogcapi-environmental-data-retrieval#716</a> — EDR v1.3 Rationalization.</li>
           <li><a href="https://www.portolan-sdi.org/">Portolan SDI</a> — cloud-native STAC, GeoParquet, COG, and DuckDB architecture.</li>
         </ul>
       </div>
