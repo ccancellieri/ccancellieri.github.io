@@ -86,6 +86,11 @@
   ],
   "selected_notes": [
     {
+      "title": "Sparse Irregular Datacubes on Cloud Storage",
+      "url": "/writing/sparse-datacubes-edr-cql2-portolan/",
+      "description": "2026: composing STAC UAD, OGC API – EDR CoverageJSON Domains, CQL2 S_INTERSECTS, and DuckDB joins on Portolan SDI."
+    },
+    {
       "title": "Connected engineering notebook",
       "url": "/knowledge/",
       "description": "Seven concise notes connecting software architecture, DevOps platforms and geospatial data decisions to public evidence and related case studies."
