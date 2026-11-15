@@ -198,23 +198,23 @@ def path_map(paths, projects, map_titles=None):
         links = ''.join(f'<li>{link("/projects/" + x["slug"] + "/", x["title"])}</li>' for x in selected)
         path_rows += f'<div id="path-{p["id"]}" class="path-route" data-path="{p["id"]}"><h3>{esc(p["title"])}</h3><p>{esc(p["description"])}</p><ul>{links}</ul></div>'
     rows = list(projects.values())
-    height = max(530, len(rows) * 76 + 90)
+    height = max(440, len(rows) * 52 + 64)
     svg = f'<svg class="portfolio-map" viewBox="0 0 1100 {height}" role="img" aria-labelledby="map-title map-description"><title id="map-title">Connected work</title><desc id="map-description">Six professional paths connect to related case studies. Projects can belong to several paths; all remain available when a path is highlighted. The text index below provides the same links.</desc>'
     positions = {}
     for i, p in enumerate(paths):
-        y = 48 + i * (height - 95) / max(1, len(paths) - 1)
+        y = 36 + i * (height - 72) / max(1, len(paths) - 1)
         positions[p['id']] = y
-        svg += f'<a href="#path-{p["id"]}" data-map-path="{p["id"]}"><rect class="map-path-node" x="16" y="{y-25:.1f}" width="326" height="50" rx="5"/><text x="32" y="{y+6:.1f}">{esc(p["title"])}</text></a>'
+        svg += f'<a href="#path-{p["id"]}" data-map-path="{p["id"]}"><rect class="map-path-node" x="16" y="{y-20:.1f}" width="326" height="40" rx="5"/><text x="32" y="{y+6:.1f}">{esc(p["title"])}</text></a>'
     connections = ''
     nodes = ''
     for i, project in enumerate(rows):
-        y = 48 + i * 76
+        y = 36 + i * 52
         for p in project['paths']:
             connections += f'<path class="map-connection" data-paths="{p}" d="M 342 {positions[p]:.1f} C 460 {positions[p]:.1f}, 555 {y}, 674 {y}"/>'
         title = project['title']
         short = (map_titles or {}).get(project['slug'], title)
         short = short if len(short) < 42 else short[:39] + '…'
-        nodes += f'<a href="/projects/{project["slug"]}/" data-paths="{" ".join(project["paths"])}"><title>{esc(title)}</title><rect class="map-project-node" x="674" y="{y-25}" width="410" height="50" rx="5"/><text x="692" y="{y+6}">{esc(short)}</text></a>'
+        nodes += f'<a href="/projects/{project["slug"]}/" data-paths="{" ".join(project["paths"])}"><title>{esc(title)}</title><rect class="map-project-node" x="674" y="{y-19}" width="410" height="38" rx="5"/><text x="692" y="{y+6}">{esc(short)}</text></a>'
     svg += connections + nodes + '</svg>'
     return f'<section id="paths"><div class="container"><div class="paths-heading"><h2 class="section-title">Different paths. Connected work.</h2><p class="section-intro">Explore by the decisions and disciplines that interest you. Each path connects projects across a broader engineering career.</p></div>{labels}<p class="path-status" data-path-status aria-live="polite">All paths and projects are shown.</p><div class="map-viewport">{svg}</div><button type="button" class="btn btn-secondary path-reset-button" hidden data-path-reset>Show all connections</button><div class="path-index">{path_rows}</div></div></section>'
 
